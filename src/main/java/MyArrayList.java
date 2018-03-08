@@ -66,7 +66,7 @@ public class MyArrayList <T>{
 
     public boolean contains(T value){
         for (T valueInArray: myArrayList) {
-            if (valueInArray == value){
+            if (valueInArray.equals(value)){
                 return true;
             }
         }
