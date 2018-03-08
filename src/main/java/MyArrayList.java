@@ -1,6 +1,12 @@
+import java.util.Arrays;
+
 public class MyArrayList<E> {
 
     private E[] theArray;
+
+    public MyArrayList() {
+        this.theArray = Arrays.copyOf(theArray, 0);
+    }
 
     public void add(E thingToAdd) {
 
@@ -10,8 +16,8 @@ public class MyArrayList<E> {
         return theArray;
     }
 
-    public void remove(E thingToRemove) {
-
+    public boolean remove(E thingToRemove) {
+        return false;
     }
 
     public void setTheArray(E[] theArray) {
