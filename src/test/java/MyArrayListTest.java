@@ -7,11 +7,14 @@ public class MyArrayListTest {
     MyArrayList testListNullary = new MyArrayList();
     Object newElement = new Object();
     Object newElement1 = new Object();
+    String testString1 = "One";
+    String testString2= "Two";
+    String testString3 = "Three";
 
     @Test
     public void nullaryConstructorTest() {
         //Given
-        Object[] expected = new Object[0];
+        Object[] expected = new Object[10];
         //when
         Object[] actual = testListNullary.getMyArray();
         //Then
@@ -29,16 +32,16 @@ public class MyArrayListTest {
     }
 
     @Test
-    public void addTest(){
+    public void addObjectWithNullaryConstructorTest(){
         //When
         testListNullary.add(newElement);
         testListNullary.getMyArray();
         //Then
-        Assert.assertTrue(testListNullary.getMyArray().length == 1);
+        Assert.assertTrue(testListNullary.size() == 1);
     }
 
     @Test
-    public void addTest1(){
+    public void addObjectWithOneArgumentConstructorTest(){
         //When
         Object newElement2 = new Object();
         testList.add(newElement);
@@ -46,7 +49,26 @@ public class MyArrayListTest {
         testList.add(newElement2);
         testList.getMyArray();
         //Then
-        Assert.assertTrue(testList.getMyArray().length == 3);
+        Assert.assertTrue(testList.size() == 3);
+    }
+    @Test
+    public void addStringWithNullaryConstructorTest(){
+        //When
+        testListNullary.add(testString1);
+        testListNullary.getMyArray();
+        //Then
+        Assert.assertTrue(testListNullary.size() == 1);
+    }
+
+    @Test
+    public void addStringtWithOneArgumentConstructorTest(){
+        //When
+        testList.add(testString1);
+        testList.add(testString2);
+        testList.add(testString3);
+        testList.getMyArray();
+        //Then
+        Assert.assertTrue(testList.size() == 3);
     }
 
     @Test
@@ -56,7 +78,19 @@ public class MyArrayListTest {
         //When
         testListNullary.add(newElement);
         testListNullary.add(newElement1);
-        Object actual  = testListNullary.get(2);
+        Object actual  = testListNullary.get(1);
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void getStringTest(){
+        //Given
+       String expected = testString2;
+        //When
+        testListNullary.add(testString1);
+        testListNullary.add(testString2);
+        Object actual  = testListNullary.get(1);
         //Then
         Assert.assertEquals(expected, actual);
     }
@@ -121,7 +155,7 @@ public class MyArrayListTest {
     }
 
     @Test
-    public void sizeTest(){
+    public void resizeMyArrayTest(){
         Assert.assertTrue(testList.size() == testList.getMyArray().length);
     }
 }
