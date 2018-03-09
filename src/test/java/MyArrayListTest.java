@@ -37,6 +37,7 @@ public class MyArrayListTest {
         Integer[] setArray = {1, 2, 3, 4};
         myArrayList.setTheArray(setArray);
         Assert.assertTrue(myArrayList.remove(2));
+        System.out.println(myArrayList.getTheArray());
     }
 
     @Test
@@ -48,6 +49,7 @@ public class MyArrayListTest {
         int expected = 5;
         int actual = myArrayList.getTheArray().length;
         Assert.assertEquals(expected, actual);
+        System.out.println(myArrayList.getTheArray());
     }
 
     @Test
@@ -56,6 +58,7 @@ public class MyArrayListTest {
         Integer[] setArray = {1, 2, 3, 4};
         myArrayList.setTheArray(setArray);
         Assert.assertTrue(!(myArrayList.remove(5)));
+        System.out.println(myArrayList.getTheArray());
     }
 
     @Test
