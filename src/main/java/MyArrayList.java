@@ -89,8 +89,8 @@ public class MyArrayList<T> {
     }
 
     public void clear(){
-        for(T t : this.myArray){
-            t=null;
+        for(int i = 0; i<this.myArray.length; i++){
+            this.myArray[i] = null;
         }
         this.numberOfObjects=0;
 
@@ -104,7 +104,8 @@ public class MyArrayList<T> {
         }
 
         for (T t : myArray){
-            if (t.equals(element)) return true;
+            if(t == null) continue;
+            else if (t.equals(element)) return true;
         }
         return false;
     }
@@ -138,7 +139,7 @@ public class MyArrayList<T> {
 
     public boolean isEmpty(){
 
-        return this.myArray.length == 0;
+        return this.size() == 0;
     }
 
     public int lastIndexOf(T element){
