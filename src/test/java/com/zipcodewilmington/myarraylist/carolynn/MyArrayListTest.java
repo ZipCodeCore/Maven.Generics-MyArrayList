@@ -7,14 +7,14 @@ public class MyArrayListTest {
 
     @Test
     public void constructor1Test(){
-        MyArrayList<String> it = new MyArrayList<>();
-        Assert.assertNotNull(it);
+        MyArrayList<String> array = new MyArrayList<>();
+        Assert.assertNotNull(array);
     }
 
     @Test
     public void constructor2Test(){
-        MyArrayList<String> it = new MyArrayList<>(3);
-        Assert.assertNotNull(it);
+        MyArrayList<String> array = new MyArrayList<>(3);
+        Assert.assertNotNull(array);
     }
 
     @Test
@@ -30,8 +30,8 @@ public class MyArrayListTest {
 
     @Test
     public void add2Test(){
-        MyArrayList<Integer> actual = new MyArrayList<>();
         Integer[] input = {1, 2, 4, 5};
+        MyArrayList<Integer> actual = new MyArrayList<>(input);
         Integer toBeAdded = 3;
         int indexPosition = 2;
         Integer[] expected = {1, 2, 3, 4, 5};
@@ -42,7 +42,31 @@ public class MyArrayListTest {
 
     @Test
     public void getTest(){
-        Integer[] input = {};
+        Integer[] input = {1, 2, 3, 4, 5, 6};
+        MyArrayList<Integer> array = new MyArrayList<>(input);
+        Integer expected = 4;
+        Integer actual = array.get(3);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void removeTest(){
+        Integer[] input = {1,2,3,4,5};
+        MyArrayList<Integer> array = new MyArrayList<>(input);
+        Integer[] expected = {1,2,3,5};
+        array.remove(3);
+        Integer[] actual = array.getMyArrayList();
+        Assert.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void clearTest(){
+        Integer[] input = {1,2,3,4,5};
+        MyArrayList<Integer> array = new MyArrayList<>(input);
+        Integer[] expected = {};
+        array.clear();
+        Integer[] actual = array.getMyArrayList();
+        Assert.assertArrayEquals(expected, actual);
     }
 
 }
