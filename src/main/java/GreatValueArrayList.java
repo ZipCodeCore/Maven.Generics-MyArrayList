@@ -68,9 +68,9 @@ public class GreatValueArrayList<E> {
         return (E) array[index];
     }
 
-    public void remove(E e) {
+    public void remove(Object o) {
         for (int i = 0; i < numberOfElements; i++) {
-            if (array[i].equals(e))
+            if (array[i].equals(o))
                 remove(i);
         }
     }
@@ -78,6 +78,8 @@ public class GreatValueArrayList<E> {
     // fast remove, stay private
     private void remove(int index) {
         Objects.checkIndex(index, numberOfElements);
+
+        assert (index < numberOfElements);
 
         int shifts = numberOfElements - index - 1;
         System.arraycopy(array, index + 1, array, index, shifts);
@@ -94,15 +96,23 @@ public class GreatValueArrayList<E> {
         return numberOfElements == 0;
     }
 
-    public boolean contains(Object o) {
+    public boolean contains(E e) {
         if (isEmpty())
             return false;
 
-        for (Object candidate : array) {
-            if (candidate.equals(o))
+        for (int i = 0; i < numberOfElements; i++) {
+            if (array[i].equals(e))
                 return true;
         }
         return false;
+    }
+
+    public boolean containsAll(Collection<? extends E> c) {
+        for (E e : c) {
+            if (!contains(e))
+                return false;
+        }
+        return true;
     }
 
     @Override
@@ -113,7 +123,7 @@ public class GreatValueArrayList<E> {
     @SuppressWarnings("unchecked")
     public <T> T[] toArray(T[] a) {
         if (a.length < numberOfElements)
-            return (T[]) Arrays.copyOf(array, 0, a.getClass());
+            return (T[]) Arrays.copyOf(array, numberOfElements, a.getClass());
 
         // this is here not because I have ever needed it, but because we're cloning ArrayList and it does this.
         System.arraycopy(array, 0, a, 0, numberOfElements);
@@ -122,7 +132,6 @@ public class GreatValueArrayList<E> {
     }
 
     public Object[] toArray() {
-        return array;
+        return Arrays.copyOf(array, numberOfElements);
     }
-
 }

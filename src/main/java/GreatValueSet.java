@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 
 /**
  * filename:
@@ -9,8 +8,7 @@ import java.util.Iterator;
  * date: 3/8/18
  */
 public class GreatValueSet<E> {
-    GreatValueArrayList<E> arrayList;
-    ArrayList<Integer> i = null;
+    private GreatValueArrayList<E> arrayList;
 
     public GreatValueSet() {
         arrayList = new GreatValueArrayList<>();
@@ -25,43 +23,41 @@ public class GreatValueSet<E> {
     }
 
     public void add(E e) {
+        if (arrayList.isEmpty())
+            arrayList.add(e);
 
+        if (!arrayList.contains(e))
+            arrayList.add(e);
     }
 
     public void addAll(Collection<? extends E> c) {
-
+        for (E e : c)
+            add(e);
     }
 
     public void clear() {
-
+        arrayList.clear();
     }
 
-    public boolean contains(Object o) {
-        return false;
+    public boolean contains(E e) {
+        return arrayList.contains(e);
     }
 
-    public boolean containsAll(Collection<?> c) {
-        return false;
+    public boolean containsAll(Collection<? extends E> c) {
+        return arrayList.containsAll(c);
     }
 
     public boolean isEmpty() {
-        return false;
+        return arrayList.isEmpty();
     }
 
-    public Iterator<E> iterator() {
-        return null;
-    }
-
-    public void remove(Object o) {
-
+    public void remove(E e) {
+        arrayList.remove(e);
     }
 
     public void removeAll(Collection<?> c) {
-
-    }
-
-    public void retainAll(Collection<?> c) {
-
+        for (Object o : c)
+            arrayList.remove(o);
     }
 
     public int size() {
@@ -73,7 +69,6 @@ public class GreatValueSet<E> {
     }
 
     public <T> T[] toArray(T[] a) {
-        return null;
+        return arrayList.toArray(a);
     }
-
 }

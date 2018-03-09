@@ -87,15 +87,17 @@ public class GreatValueSetTest {
     }
 
     @Test
-    public void iterator() {
-    }
-
-    @Test
     public void removeAll() {
+        Integer[] input = {1, 2, 3};
+        Integer[] removeUs = {2, 3};
+        Integer[] expectedArray = {1};
 
-    }
+        set = new GreatValueSet<>(Arrays.asList(input));
+        set.removeAll(Arrays.asList(removeUs));
 
-    @Test
-    public void retainAll() {
+        String expected = Arrays.toString(expectedArray);
+        String actual = Arrays.toString(set.toArray(new Integer[0]));
+
+        Assert.assertEquals(expected, actual);
     }
 }
