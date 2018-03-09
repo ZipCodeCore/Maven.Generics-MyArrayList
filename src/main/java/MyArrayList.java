@@ -88,4 +88,12 @@ public class MyArrayList <E> {
         return this.sizeCounter;
     }
 
+    public <T> T[] toArray(T[] a) {
+        if (a.length < sizeCounter)
+            return (T[]) Arrays.copyOf(inputArray, sizeCounter, a.getClass());
+        System.arraycopy(inputArray, 0, a, 0, sizeCounter);
+        if (a.length > sizeCounter)
+            a[sizeCounter] = null;
+        return a;
+    }
 }

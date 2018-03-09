@@ -137,4 +137,17 @@ public class MyArrayListTest {
 
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void toArrayTest() {
+        MyArrayList<Integer> myArrayList = new MyArrayList<>();
+
+        myArrayList.add(2);
+        myArrayList.add(3);
+
+        Integer[] expected = {2, 3};
+        Integer[] actual = myArrayList.toArray(new Integer[0]);
+
+        Assert.assertEquals(expected, actual);
+    }
 }
