@@ -5,17 +5,14 @@ import java.util.Arrays;
 
 public class MyArrayList<T> {
 
-    protected T[] myArrayList;
-
-
+    private T[] myArrayList;
 
     public MyArrayList() {
-        this.myArrayList = (T[])new Array[0];
-
+        this.myArrayList = (T[])new Array[10];
     }
 
     public MyArrayList( int size){
-        myArrayList = (T[])new Array[size];
+        this.myArrayList = (T[])new Array[size];
     }
 
     public MyArrayList(T[] myArrayList) {
@@ -78,4 +75,27 @@ public class MyArrayList<T> {
         myArrayList = Arrays.copyOf(myArrayList, 0);
     }
 
+    public T set(T valueReplacing, int index){
+        T replaced = null;
+        for(int i = 0; i<myArrayList.length; i++){
+            if(i==index){
+                replaced = myArrayList[i];
+                myArrayList[i]=valueReplacing;
+            }
+        }
+        return replaced;
+    }
+
+    public boolean contains(T value){
+        boolean doesContain = false;
+        for(T val: myArrayList){
+            if(val.equals(value)) doesContain = true;
+        }
+        return doesContain;
+    }
+
+    public boolean isEmpty(){
+        if (myArrayList.length == 0) return true;
+        else return false;
+    }
 }

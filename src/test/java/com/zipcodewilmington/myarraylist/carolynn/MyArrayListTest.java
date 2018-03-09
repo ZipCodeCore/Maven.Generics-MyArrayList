@@ -69,4 +69,30 @@ public class MyArrayListTest {
         Assert.assertArrayEquals(expected, actual);
     }
 
+    @Test
+    public void setTest(){
+        Integer[] input = {1,2,3,4};
+        MyArrayList<Integer> array = new MyArrayList<>(input);
+        Integer expected = 2;
+        Integer actual = array.set(10,1);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void containsTest(){
+        Integer[] input = {1,2,3,4,5,6};
+        MyArrayList<Integer> array = new MyArrayList<>(input);
+        boolean expected = true;
+        boolean actual = array.contains(4);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void isEmptyTest(){
+        Integer[] input = {};
+        MyArrayList<Integer> array = new MyArrayList<>(input);
+        boolean expected = true;
+        boolean actual = array.isEmpty();
+        Assert.assertEquals(expected, actual);
+    }
 }
