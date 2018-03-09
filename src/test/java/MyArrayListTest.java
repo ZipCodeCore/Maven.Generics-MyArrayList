@@ -93,6 +93,21 @@ public class MyArrayListTest {
     }
 
     @Test
+    public void addAllWithNullsTest(){
+        //Given
+        MyArrayList<Integer> test = new MyArrayList<>(6);
+
+
+        //When
+        Integer[] expected = {5,10,15,20,null,null};
+        test.addAll(expected);
+        Integer [] actual = test.toArray(new Integer[0]);
+
+        //Then
+        Assert.assertArrayEquals(expected,actual);
+    }
+
+    @Test
     public void addAllIndexTest(){
         //Given
         MyArrayList<Integer> test = new MyArrayList<>(0);
@@ -104,6 +119,25 @@ public class MyArrayListTest {
         Integer[] values = {5,10,15,20};
         test.addAll(1,values);
         Integer[] expected = {0,5,10,15,20,25};
+        Integer [] actual = test.toArray(new Integer[0]);
+
+        //Then
+        Assert.assertArrayEquals(expected,actual);
+    }
+
+    @Test
+    public void addAllIndexWithNullsTest(){
+        //Given
+        MyArrayList<Integer> test = new MyArrayList<>(8);
+        test.add(0);
+        test.add(25);
+
+
+
+        //When
+        Integer[] values = {5,10,15,20};
+        test.addAll(1,values);
+        Integer[] expected = {0,5,10,15,20,25,null,null};
         Integer [] actual = test.toArray(new Integer[0]);
 
         //Then
@@ -158,7 +192,7 @@ public class MyArrayListTest {
         MyArrayList<Integer> test = new MyArrayList<>(5);
 
         //Then
-        Assert.assertTrue(test.isEmpty());
+        Assert.assertFalse(test.isEmpty());
     }
 
     @Test

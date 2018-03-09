@@ -90,6 +90,10 @@ public class MyArrayList<T> {
     }
 
     public void clear(){
+        for(T t : this.myArray){
+            t=null;
+        }
+        this.numberOfObjects=0;
 
     }
 
@@ -134,11 +138,17 @@ public class MyArrayList<T> {
     }
 
     public boolean isEmpty(){
-        return false;
+
+        return this.myArray.length == 0;
     }
 
     public int lastIndexOf(T element){
-        return 0;
+        for(int i = this.myArray.length-1; i>=0; i--){
+            if (this.myArray[i].equals(element)){
+                return i;
+            }
+        }
+        return -1;
     }
 
     public void remove(int index){
@@ -149,7 +159,7 @@ public class MyArrayList<T> {
 
     }
 
-    public void removeRange(int startInded, int endIndex){
+    public void removeRange(int startIndex, int endIndex){
 
     }
 
