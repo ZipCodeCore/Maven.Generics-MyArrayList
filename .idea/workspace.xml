@@ -4,9 +4,7 @@
     <list default="true" id="51759dbf-8e65-40f8-90e4-66c877517e2e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MyArrayList.java" afterPath="$PROJECT_DIR$/src/main/java/MyArrayList.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MySet.java" afterPath="$PROJECT_DIR$/src/main/java/MySet.java" />
       <change beforePath="$PROJECT_DIR$/src/test/java/MyArrayListTest.java" afterPath="$PROJECT_DIR$/src/test/java/MyArrayListTest.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MySetTest.java" afterPath="$PROJECT_DIR$/src/test/java/MySetTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -50,8 +48,8 @@
           <file leaf-file-name="MyArrayList.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/MyArrayList.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-922">
-                  <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+                <state relative-caret-position="558">
+                  <caret line="88" column="5" lean-forward="true" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#198#199#0" expanded="true" />
@@ -64,9 +62,17 @@
                     <element signature="e#1864#1865#0" expanded="true" />
                     <element signature="e#2259#2260#0" expanded="true" />
                     <element signature="e#2298#2299#0" expanded="true" />
-                    <element signature="e#2331#2332#0" expanded="true" />
-                    <element signature="e#2392#2393#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ArrayList.java" pinned="false" current-in-tab="false">
+            <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/src.zip!/java/util/ArrayList.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="242">
+                  <caret line="407" column="4" lean-forward="false" selection-start-line="407" selection-start-column="4" selection-end-line="415" selection-end-column="5" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -78,8 +84,8 @@
           <file leaf-file-name="MyArrayListTest.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/test/java/MyArrayListTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="87">
-                  <caret line="111" column="28" lean-forward="false" selection-start-line="111" selection-start-column="28" selection-end-line="111" selection-end-column="28" />
+                <state relative-caret-position="288">
+                  <caret line="128" column="28" lean-forward="true" selection-start-line="128" selection-start-column="28" selection-end-line="128" selection-end-column="28" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -131,8 +137,8 @@
         <option value="$PROJECT_DIR$/src/test/java/MyArrayList.java" />
         <option value="$PROJECT_DIR$/src/main/java/MySet.java" />
         <option value="$PROJECT_DIR$/src/test/java/MySetTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/MyArrayList.java" />
         <option value="$PROJECT_DIR$/src/test/java/MyArrayListTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/MyArrayList.java" />
       </list>
     </option>
   </component>
@@ -143,9 +149,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="y" value="23" />
-    <option name="width" value="1280" />
-    <option name="height" value="709" />
+    <option name="x" value="-279" />
+    <option name="y" value="-1080" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -233,7 +240,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.MyArrayListTest.sizeTest3">
+  <component name="RunManager" selected="JUnit.MyArrayListTest.toArrayTest">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -424,11 +431,11 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.MyArrayListTest.sizeTest3" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.MyArrayListTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.MySetTest.sizeTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.MyArrayListTest.toArrayTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.MyArrayListTest.sizeTest4" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.MyArrayListTest.toArrayTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.MyArrayListTest.sizeTest4" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.MyArrayListTest.sizeTest3" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.MyArrayListTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.MySetTest.sizeTest" />
       </list>
     </recent_temporary>
   </component>
@@ -446,7 +453,7 @@
       <option name="presentableId" value="Default" />
       <updated>1520538918548</updated>
       <workItem from="1520538924833" duration="5176000" />
-      <workItem from="1520546154330" duration="3340000" />
+      <workItem from="1520546154330" duration="4453000" />
     </task>
     <servers />
   </component>
@@ -454,19 +461,16 @@
     <history-entry file="MyArrayListTest - 2018.03.09 at 09h 48m 03s.xml">
       <configuration name="MyArrayListTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MyArrayListTest_sizeTest - 2018.03.09 at 09h 19m 27s.xml">
-      <configuration name="MyArrayListTest.sizeTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MyArrayListTest_sizeTest - 2018.03.09 at 09h 20m 28s.xml">
-      <configuration name="MyArrayListTest.sizeTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MyArrayListTest_sizeTest2 - 2018.03.09 at 09h 27m 30s.xml">
-      <configuration name="MyArrayListTest.sizeTest2" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="MyArrayListTest_sizeTest3 - 2018.03.09 at 09h 28m 28s.xml">
       <configuration name="MyArrayListTest.sizeTest3" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="MyArrayListTest_sizeTest3 - 2018.03.09 at 09h 48m 50s.xml">
+      <configuration name="MyArrayListTest.sizeTest3" configurationId="JUnit" />
+    </history-entry>
     <history-entry file="MyArrayListTest_sizeTest4 - 2018.03.09 at 09h 29m 13s.xml">
+      <configuration name="MyArrayListTest.sizeTest4" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MyArrayListTest_sizeTest4 - 2018.03.09 at 10h 18m 07s.xml">
       <configuration name="MyArrayListTest.sizeTest4" configurationId="JUnit" />
     </history-entry>
     <history-entry file="MyArrayListTest_toArrayTest - 2018.03.09 at 09h 33m 03s.xml">
@@ -475,18 +479,21 @@
     <history-entry file="MyArrayListTest_toArrayTest - 2018.03.09 at 09h 40m 34s.xml">
       <configuration name="MyArrayListTest.toArrayTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MySetTest - 2018.03.09 at 09h 17m 27s.xml">
-      <configuration name="MySetTest" configurationId="JUnit" />
+    <history-entry file="MyArrayListTest_toArrayTest - 2018.03.09 at 09h 55m 05s.xml">
+      <configuration name="MyArrayListTest.toArrayTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MyArrayListTest_toArrayTest - 2018.03.09 at 09h 55m 55s.xml">
+      <configuration name="MyArrayListTest.toArrayTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="MySetTest_sizeTest - 2018.03.09 at 09h 44m 10s.xml">
       <configuration name="MySetTest.sizeTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8516000" />
+    <option name="totallyTimeSpent" value="9629000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1280" height="800" extended-state="0" />
+    <frame x="-279" y="-1080" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -497,7 +504,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28473178" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20556107" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.258597" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -526,7 +533,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -572,8 +579,6 @@
             <element signature="e#1864#1865#0" expanded="true" />
             <element signature="e#2259#2260#0" expanded="true" />
             <element signature="e#2298#2299#0" expanded="true" />
-            <element signature="e#2331#2332#0" expanded="true" />
-            <element signature="e#2392#2393#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -612,17 +617,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/src.zip!/java/util/ArrayList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-63">
-          <caret line="378" column="4" lean-forward="false" selection-start-line="378" selection-start-column="4" selection-end-line="380" selection-end-column="5" />
-          <folding>
-            <element signature="e#13713#13714#0" expanded="false" />
-            <element signature="e#13768#13769#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MySet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
@@ -658,10 +652,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="407" column="4" lean-forward="false" selection-start-line="407" selection-start-column="4" selection-end-line="415" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/MyArrayListTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="128" column="28" lean-forward="true" selection-start-line="128" selection-start-column="28" selection-end-line="128" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MyArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-922">
-          <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+        <state relative-caret-position="558">
+          <caret line="88" column="5" lean-forward="true" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#198#199#0" expanded="true" />
@@ -674,18 +686,6 @@
             <element signature="e#1864#1865#0" expanded="true" />
             <element signature="e#2259#2260#0" expanded="true" />
             <element signature="e#2298#2299#0" expanded="true" />
-            <element signature="e#2331#2332#0" expanded="true" />
-            <element signature="e#2392#2393#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/MyArrayListTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="111" column="28" lean-forward="false" selection-start-line="111" selection-start-column="28" selection-end-line="111" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

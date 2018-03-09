@@ -88,7 +88,4 @@ public class MyArrayList <E> {
         return this.sizeCounter;
     }
 
-    public Object[] toArray() {
-        return Arrays.copyOf(inputArray, sizeCounter);
-    }
 }

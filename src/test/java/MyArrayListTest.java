@@ -125,7 +125,7 @@ public class MyArrayListTest {
 
     @Test
     public void sizeTest4() {
-        MyArrayList<Integer> myArrayList = new MyArrayList<>(4);
+        MyArrayList<Integer> myArrayList = new MyArrayList<>();
         Integer expected = 1;
 
         myArrayList.add(2);
@@ -134,19 +134,6 @@ public class MyArrayListTest {
         myArrayList.remove(1);
 
         Integer actual = myArrayList.size();
-
-        Assert.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void toArrayTest() {
-        MyArrayList<Integer> myArrayList = new MyArrayList<>(4);
-
-        myArrayList.add(2);
-        myArrayList.add(3);
-
-        Object[] expected = {2, 3};
-        Object[] actual = myArrayList.toArray();
 
         Assert.assertEquals(expected, actual);
     }
