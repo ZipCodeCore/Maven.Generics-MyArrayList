@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="88d75e49-83e3-46f1-8185-4bb0c70dd98b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/Mapping.java" afterPath="$PROJECT_DIR$/src/main/java/Mapping.java" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MappingTest.java" afterPath="$PROJECT_DIR$/src/test/java/MappingTest.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MyMap.java" afterPath="$PROJECT_DIR$/src/main/java/MyMap.java" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MyMapTest.java" afterPath="$PROJECT_DIR$/src/test/java/MyMapTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,28 +55,29 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="MyMap.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="MyMap.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/MyMap.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="30">
-                  <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-                  <folding />
+                <state relative-caret-position="630">
+                  <caret line="42" column="28" lean-forward="false" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
+                  <folding>
+                    <element signature="e#880#881#0" expanded="true" />
+                    <element signature="e#916#917#0" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Mapping.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Mapping.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/Mapping.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="480">
-                  <caret line="32" column="31" lean-forward="true" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
+                <state relative-caret-position="450">
+                  <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
                   <folding>
                     <element signature="e#200#201#0" expanded="true" />
                     <element signature="e#233#234#0" expanded="true" />
                     <element signature="e#257#258#0" expanded="true" />
                     <element signature="e#288#289#0" expanded="true" />
-                    <element signature="e#620#621#0" expanded="true" />
-                    <element signature="e#666#667#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -119,21 +121,23 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="MyMapTest.java" pinned="false" current-in-tab="false">
+          <file leaf-file-name="MyMapTest.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/test/java/MyMapTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="30">
-                  <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-                  <folding />
+                <state relative-caret-position="450">
+                  <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="MappingTest.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="MappingTest.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/test/java/MappingTest.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="45">
-                  <caret line="3" column="30" lean-forward="true" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+                <state relative-caret-position="446">
+                  <caret line="51" column="53" lean-forward="true" selection-start-line="51" selection-start-column="53" selection-end-line="51" selection-end-column="53" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="e#49#79#0" expanded="true" />
@@ -175,10 +179,10 @@
         <option value="$PROJECT_DIR$/src/main/java/MyArrayList.java" />
         <option value="$PROJECT_DIR$/src/test/java/MySetTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/MySet.java" />
+        <option value="$PROJECT_DIR$/src/test/java/MappingTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Mapping.java" />
         <option value="$PROJECT_DIR$/src/test/java/MyMapTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/MyMap.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Mapping.java" />
-        <option value="$PROJECT_DIR$/src/test/java/MappingTest.java" />
       </list>
     </option>
   </component>
@@ -276,7 +280,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.MappingTest.equalsFalseTest">
+  <component name="RunManager" selected="JUnit.MyMapTest">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -358,14 +362,14 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="MappingTest.newMappingTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MappingTest.setValueTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="generics" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="MappingTest" />
-      <option name="METHOD_NAME" value="newMappingTest" />
+      <option name="METHOD_NAME" value="setValueTest" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -378,15 +382,15 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="MappingTest.setValueTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MyMapTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="generics" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MappingTest" />
-      <option name="METHOD_NAME" value="setValueTest" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="MyMapTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
@@ -460,18 +464,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="JUnit.MappingTest" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.MappingTest.newMappingTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.MappingTest.setValueTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.MappingTest.equalsTest" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.MappingTest.equalsFalseTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.MappingTest.setValueTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.MappingTest.equalsTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.MappingTest.equalsFalseTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.MyMapTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.MappingTest.equalsFalseTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.MappingTest.equalsTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.MappingTest.setValueTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.MappingTest.newMappingTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.MappingTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.MyMapTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.MappingTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.MappingTest.equalsFalseTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.MappingTest.equalsTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.MappingTest.setValueTest" />
       </list>
     </recent_temporary>
   </component>
@@ -489,12 +493,15 @@
       <option name="presentableId" value="Default" />
       <updated>1520539100206</updated>
       <workItem from="1520539101600" duration="18709000" />
-      <workItem from="1520603237512" duration="14254000" />
+      <workItem from="1520603237512" duration="16260000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MappingTest - 2018.03.09 at 16h 24m 52s.xml">
+    <history-entry file="MappingTest - 2018.03.09 at 16h 40m 23s.xml">
+      <configuration name="MappingTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MappingTest - 2018.03.09 at 16h 40m 37s.xml">
       <configuration name="MappingTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="MappingTest_equalsFalseTest - 2018.03.09 at 16h 28m 48s.xml">
@@ -502,9 +509,6 @@
     </history-entry>
     <history-entry file="MappingTest_equalsTest - 2018.03.09 at 16h 28m 44s.xml">
       <configuration name="MappingTest.equalsTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MappingTest_newMappingTest - 2018.03.09 at 16h 25m 06s.xml">
-      <configuration name="MappingTest.newMappingTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="MappingTest_newMappingTest - 2018.03.09 at 16h 25m 53s.xml">
       <configuration name="MappingTest.newMappingTest" configurationId="JUnit" />
@@ -515,18 +519,18 @@
     <history-entry file="MappingTest_setValueTest - 2018.03.09 at 16h 26m 40s.xml">
       <configuration name="MappingTest.setValueTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MySetTest_arrayConstructorWithDuplicateTest - 2018.03.09 at 15h 08m 13s.xml">
-      <configuration name="MySetTest.arrayConstructorWithDuplicateTest" configurationId="JUnit" />
+    <history-entry file="MyMapTest - 2018.03.09 at 16h 57m 16s.xml">
+      <configuration name="MyMapTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MySetTest_arrayConstructorWithDuplicateTest - 2018.03.09 at 15h 19m 58s.xml">
-      <configuration name="MySetTest.arrayConstructorWithDuplicateTest" configurationId="JUnit" />
+    <history-entry file="MyMapTest - 2018.03.09 at 17h 02m 44s.xml">
+      <configuration name="MyMapTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MySetTest_dontAddDuplicatesTest - 2018.03.09 at 15h 20m 19s.xml">
-      <configuration name="MySetTest.dontAddDuplicatesTest" configurationId="JUnit" />
+    <history-entry file="MyMapTest - 2018.03.09 at 17h 03m 02s.xml">
+      <configuration name="MyMapTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32963000" />
+    <option name="totallyTimeSpent" value="34969000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-359" y="-1080" width="1920" height="1080" extended-state="0" />
@@ -540,7 +544,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25719962" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25719962" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.102284014" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -569,7 +573,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -674,6 +678,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/src.zip!/java/lang/Object.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="152" column="19" lean-forward="true" selection-start-line="152" selection-start-column="19" selection-end-line="152" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/MappingTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="51" column="53" lean-forward="true" selection-start-line="51" selection-start-column="53" selection-end-line="51" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#49#79#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Mapping.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
+          <folding>
+            <element signature="e#200#201#0" expanded="true" />
+            <element signature="e#233#234#0" expanded="true" />
+            <element signature="e#257#258#0" expanded="true" />
+            <element signature="e#288#289#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MySet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
@@ -693,22 +729,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/MyMapTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/MyMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/MyArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -723,36 +743,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk/Contents/Home/src.zip!/java/lang/Object.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/MyMapTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="152" column="19" lean-forward="true" selection-start-line="152" selection-start-column="19" selection-end-line="152" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Mapping.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="31" lean-forward="true" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
+        <state relative-caret-position="450">
+          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding>
-            <element signature="e#200#201#0" expanded="true" />
-            <element signature="e#233#234#0" expanded="true" />
-            <element signature="e#257#258#0" expanded="true" />
-            <element signature="e#288#289#0" expanded="true" />
-            <element signature="e#620#621#0" expanded="true" />
-            <element signature="e#666#667#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/MappingTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/MyMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="30" lean-forward="true" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+        <state relative-caret-position="630">
+          <caret line="42" column="28" lean-forward="false" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#49#79#0" expanded="true" />
+            <element signature="e#880#881#0" expanded="true" />
+            <element signature="e#916#917#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -34,10 +34,10 @@ public class Mapping<K,V> {
 
     }
 
-    @Override
+    /*@Override
     public int hashCode(){
         return Objects.hash(key,value);
-    }
+    }*/
 
 
 
