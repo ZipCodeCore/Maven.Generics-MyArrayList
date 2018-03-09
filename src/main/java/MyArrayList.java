@@ -48,7 +48,10 @@ public class MyArrayList<E> {
         if (index > theArray.length - 1 || index < 0) {
             return null;
         } else {
-            // Return E and resize array
+            E[] newArray = Arrays.copyOf(this.theArray, this.theArray.length - 1);
+            for (int i = 0; i < theArray.length; i++) {
+
+            }
             return null;
         }
     }

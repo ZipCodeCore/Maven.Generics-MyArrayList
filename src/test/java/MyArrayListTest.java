@@ -127,7 +127,7 @@ public class MyArrayListTest {
         Short[] setArray = {3, 4, 5, 6, 7};
         myArrayList.setTheArray(setArray);
         int expected = 5;
-        int actual = myArrayList.getTheArray().length;
+        int actual = myArrayList.size();
         Assert.assertEquals(expected, actual);
     }
 
