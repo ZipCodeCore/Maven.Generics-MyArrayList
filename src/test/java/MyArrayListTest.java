@@ -26,6 +26,7 @@ public class MyArrayListTest {
         Assert.assertEquals(expected, actual);
     }
 
+
     @Test
     public void removeTest() {
         MyArrayList<Integer> myArrayList = new MyArrayList<>();
@@ -55,7 +56,7 @@ public class MyArrayListTest {
         myArrayList.add(4.0);
         myArrayList.add(5.5);
         myArrayList.add(7.8);
-        myArrayList.set(2, 10.4);
+        myArrayList.add(2, 10.4);
         Double[] actual = myArrayList.toArray(new Double[myArrayList.size()]);
         Double[] expected = new Double[]{4.0, 5.5, 10.4, 7.8};
         Assert.assertEquals(expected, actual);
@@ -68,5 +69,15 @@ public class MyArrayListTest {
         myLongList.add(57876757L);
         Assert.assertTrue(myLongList.contains(46457L));
         Assert.assertFalse(myLongList.contains(6757467636457L));
+    }
+
+    @Test
+    public void getTest(){
+        MyArrayList<Double> myArrayList = new MyArrayList<>();
+        myArrayList.add(4.0);
+        myArrayList.add(5.5);
+        myArrayList.add(7.8);
+        Object expected = 5.5;
+        Assert.assertEquals(expected, myArrayList.get(1));
     }
 }

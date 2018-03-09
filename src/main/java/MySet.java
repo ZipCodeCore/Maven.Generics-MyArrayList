@@ -1,14 +1,10 @@
 import java.util.Arrays;
 
-public class MyArrayList<T> {
+public class MySet<T> {
     private T[] mainArray;
 
-    public MyArrayList() {
+    public MySet() {
         this.mainArray = (T[]) new Object[0];
-    }
-
-    public MyArrayList(int size){
-        this.mainArray = (T[]) new Object[size];
     }
 
     public T get(int index){
@@ -16,14 +12,10 @@ public class MyArrayList<T> {
     }
 
     public void add(T valueToAdd) {
-        for(int i = 0; i < mainArray.length; i++){
-            if(mainArray[i]==null){
-                mainArray[i] = valueToAdd;
-                return;
-            }
+        if(contains(valueToAdd) == false) {
+            this.mainArray = Arrays.copyOf(mainArray, mainArray.length + 1);
+            mainArray[mainArray.length - 1] = valueToAdd;
         }
-        this.mainArray = Arrays.copyOf(mainArray, mainArray.length + 1);
-        mainArray[mainArray.length - 1] = valueToAdd;
     }
 
     public void add(int indexValue, T valToAdd){
