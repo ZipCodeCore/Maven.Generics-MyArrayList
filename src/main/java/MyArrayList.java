@@ -1,3 +1,4 @@
+
 public class MyArrayList <T> extends MyCollection {
 
     @SuppressWarnings("unchecked")
