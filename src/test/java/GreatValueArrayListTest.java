@@ -130,4 +130,14 @@ public class GreatValueArrayListTest {
 
         Assert.assertFalse(greatValueArrayList.contains(notInArray));
     }
+
+    @Test
+    public void testOOB() {
+        try {
+            greatValueArrayList.get(75);
+            Assert.fail();
+        } catch (IndexOutOfBoundsException oobe) {
+            oobe.printStackTrace();
+        }
+    }
 }

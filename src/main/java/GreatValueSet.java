@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -9,6 +10,7 @@ import java.util.Iterator;
  */
 public class GreatValueSet<E> {
     GreatValueArrayList<E> arrayList;
+    ArrayList<Integer> i = null;
 
     public GreatValueSet() {
         arrayList = new GreatValueArrayList<>();
@@ -23,7 +25,7 @@ public class GreatValueSet<E> {
     }
 
     public void add(E e) {
-        
+
     }
 
     public void addAll(Collection<? extends E> c) {

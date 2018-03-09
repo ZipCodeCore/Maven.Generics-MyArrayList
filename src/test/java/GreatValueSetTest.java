@@ -48,11 +48,42 @@ public class GreatValueSetTest {
 
     @Test
     public void addAll() {
+        Integer[] input = {1, 2, 3};
+        Integer[] addMe = {4, 5, 6};
+        Integer[] expectedArray = {1, 2, 3, 4, 5, 6};
+        String expected = Arrays.toString(expectedArray);
 
+        set = new GreatValueSet<>(Arrays.asList(input));
+        set.addAll(Arrays.asList(addMe));
+
+        Integer[] actualArray = set.toArray(new Integer[0]);
+
+        Arrays.sort(actualArray);
+        Arrays.sort(expectedArray);
+
+        String actual = Arrays.toString(actualArray);
+
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
-    public void containsAll() {
+    public void containsAllYes() {
+        Integer[] input = {1, 2, 3};
+        Integer[] checkMe = {1, 2};
+
+        set = new GreatValueSet<>(Arrays.asList(input));
+
+        Assert.assertTrue(set.containsAll(Arrays.asList(checkMe)));
+    }
+
+    @Test
+    public void containsAllNope() {
+        Integer[] input = {1, 2, 3, 4, 5};
+        Integer[] checkMe = {1, 2, 3, 4, 6};
+
+        set = new GreatValueSet<>(Arrays.asList(input));
+
+        Assert.assertFalse(set.containsAll(Arrays.asList(checkMe)));
     }
 
     @Test
@@ -61,6 +92,7 @@ public class GreatValueSetTest {
 
     @Test
     public void removeAll() {
+
     }
 
     @Test
