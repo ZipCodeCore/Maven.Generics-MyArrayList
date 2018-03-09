@@ -10,8 +10,20 @@ import java.util.Iterator;
 public class GreatValueSet<E> {
     GreatValueArrayList<E> arrayList;
 
-    public void add(E e) {
+    public GreatValueSet() {
+        arrayList = new GreatValueArrayList<>();
+    }
 
+    public GreatValueSet(int startingCapacity) {
+        arrayList = new GreatValueArrayList<>(startingCapacity);
+    }
+
+    public GreatValueSet(Collection<? extends E> c) {
+        arrayList = new GreatValueArrayList<>(c);
+    }
+
+    public void add(E e) {
+        
     }
 
     public void addAll(Collection<? extends E> c) {

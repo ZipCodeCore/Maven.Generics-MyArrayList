@@ -1,3 +1,4 @@
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -9,9 +10,21 @@ import static org.junit.Assert.*;
  * date: 3/8/18
  */
 public class GreatValueSetTest {
+    GreatValueSet<Integer> set;
+
+    @Before
+    public void setup() {
+        set = new GreatValueSet<>();
+    }
 
     @Test
-    public void add() {
+    public void addNewElement() {
+
+    }
+
+    @Test
+    public void addDuplicateElement() {
+
     }
 
     @Test
