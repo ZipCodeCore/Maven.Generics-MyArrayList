@@ -12,6 +12,12 @@ public class MySet <T> extends MyCollection <T>{
         }
     }
 
+    public void add(T... ts){
+        for (T t:ts) {
+            add(t);
+        }
+    }
+
     public int getHash(){
         int hash = 0;
         for (T t:this.data) {

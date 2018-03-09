@@ -41,4 +41,16 @@ public class MySetTest{
         Assert.assertEquals(expected, actual);
     }
 
+    @Test
+    public void varArgsAddTest(){
+        Integer one = 1;
+        Integer two = 2;
+        Integer three = 3;
+        Integer four = 4;
+        Integer five = 5;
+        Integer[] expected = new Integer[]{one, two, three, four, five};
+        mySet.add(one, two, three, four, five);
+        Assert.assertEquals(mySet.getArray(), expected);
+    }
+
 }
