@@ -98,4 +98,14 @@ public class MyArrayList<T> {
         if (myArrayList.length == 0) return true;
         else return false;
     }
+
+    public T[] subList(int from, int to){
+        myArrayList = Arrays.copyOfRange(myArrayList, from, to);
+        return myArrayList;
+    }
+
+    public int size(){
+        return myArrayList.length;
+    }
+
 }

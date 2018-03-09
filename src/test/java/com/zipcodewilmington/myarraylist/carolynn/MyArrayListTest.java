@@ -89,10 +89,28 @@ public class MyArrayListTest {
 
     @Test
     public void isEmptyTest(){
-        Integer[] input = {};
-        MyArrayList<Integer> array = new MyArrayList<>(input);
+        String[] input = {};
+        MyArrayList<String> array = new MyArrayList<>(input);
         boolean expected = true;
         boolean actual = array.isEmpty();
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void subListTest(){
+        Integer[] input = {1,2,3,4,5,6,7};
+        MyArrayList<Integer> array = new MyArrayList<>(input);
+        Integer[] expected = {3,4,5};
+        Integer[] actual = array.subList(2, 5);
+        Assert.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void size(){
+        Integer[] input = {1,2,3,4,5,6,7};
+        MyArrayList<Integer> array = new MyArrayList<>(input);
+        int expected = 7;
+        int actual = array.size();
         Assert.assertEquals(expected, actual);
     }
 }
