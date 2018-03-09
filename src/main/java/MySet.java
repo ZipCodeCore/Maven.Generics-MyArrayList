@@ -42,4 +42,8 @@ public class MySet<E> {
         return myArrayList.contains(valueToCheck);
     }
 
+    public Integer size() {
+        return myArrayList.size();
+    }
+
 }

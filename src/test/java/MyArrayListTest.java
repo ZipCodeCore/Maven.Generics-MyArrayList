@@ -83,4 +83,71 @@ public class MyArrayListTest {
 
         Assert.assertTrue(myArrayList.contains(6));
     }
+
+    @Test
+    public void sizeTest() {
+        MyArrayList<Integer> myArrayList = new MyArrayList<>(4);
+        Integer expected = 0;
+        Integer actual = myArrayList.size();
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void sizeTest2() {
+        MyArrayList<Integer> myArrayList = new MyArrayList<>(4);
+        Integer expected = 2;
+
+        myArrayList.add(2);
+        myArrayList.add(3);
+
+        Integer actual = myArrayList.size();
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void sizeTest3() {
+        MyArrayList<Integer> myArrayList = new MyArrayList<>(4);
+        Integer expected = 6;
+
+        myArrayList.add(2);
+        myArrayList.add(3);
+        myArrayList.add(null);
+        myArrayList.add(4);
+        myArrayList.add(5);
+        myArrayList.add(6);
+
+        Integer actual = myArrayList.size();
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void sizeTest4() {
+        MyArrayList<Integer> myArrayList = new MyArrayList<>(4);
+        Integer expected = 1;
+
+        myArrayList.add(2);
+        myArrayList.add(3);
+
+        myArrayList.remove(1);
+
+        Integer actual = myArrayList.size();
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void toArrayTest() {
+        MyArrayList<Integer> myArrayList = new MyArrayList<>(4);
+
+        myArrayList.add(2);
+        myArrayList.add(3);
+
+        Object[] expected = {2, 3};
+        Object[] actual = myArrayList.toArray();
+
+        Assert.assertEquals(expected, actual);
+    }
 }

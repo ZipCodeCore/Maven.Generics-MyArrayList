@@ -1,9 +1,11 @@
 import java.util.Arrays;
+import java.util.ArrayList;
 
 public class MyArrayList <E> {
 
-    protected E[] inputArray;
-    protected E value;
+    private E[] inputArray;
+    private E value;
+    private Integer sizeCounter = 0;
 
     public MyArrayList() {
         inputArray = (E[]) new Object[0];
@@ -14,9 +16,16 @@ public class MyArrayList <E> {
     }
 
     public void add(E valueToAdd) {
-        E[] newArray = Arrays.copyOf(inputArray, inputArray.length + 1);
-        newArray[newArray.length - 1] = valueToAdd;
-        this.inputArray = newArray;
+        if(sizeCounter < inputArray.length) {
+            for(int i = 0; i < inputArray.length; i++) {
+                inputArray[i] = valueToAdd;
+            }
+        } else {
+            E[] newArray = Arrays.copyOf(inputArray, inputArray.length + 1);
+            newArray[newArray.length - 1] = valueToAdd;
+            this.inputArray = newArray;
+        }
+        sizeCounter++;
     }
 
     public void add(E valueToAdd, Integer index) {
@@ -30,6 +39,7 @@ public class MyArrayList <E> {
             }
             this.inputArray = newArray;
         }
+        sizeCounter++;
     }
 
     public E get(Integer index) {
@@ -46,6 +56,7 @@ public class MyArrayList <E> {
                 j++;
             }
         }
+        sizeCounter--;
         this.inputArray = newArray;
     }
 
@@ -71,5 +82,13 @@ public class MyArrayList <E> {
             }
         }
         return false;
+    }
+
+    public Integer size() {
+        return this.sizeCounter;
+    }
+
+    public Object[] toArray() {
+        return Arrays.copyOf(inputArray, sizeCounter);
     }
 }

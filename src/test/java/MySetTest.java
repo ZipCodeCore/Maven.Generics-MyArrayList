@@ -79,4 +79,17 @@ public class MySetTest {
 
         Assert.assertTrue(mySet.contains(10));
     }
+
+    @Test
+    public void sizeTest() {
+        MySet<Integer> mySet = new MySet<>();
+        Integer expected = 2;
+
+        mySet.add(10);
+        mySet.add(expected);
+
+        Integer actual = mySet.size();
+
+        Assert.assertEquals(expected, actual);
+    }
 }
