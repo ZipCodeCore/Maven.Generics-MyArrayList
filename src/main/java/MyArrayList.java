@@ -1,4 +1,5 @@
 
+
 import java.util.Arrays;
 
 @SuppressWarnings("unchecked")
@@ -11,14 +12,13 @@ public class MyArrayList<T> {
 
 
 
-
     public MyArrayList(){
         this.myArray = (T[]) new Object[0];
 
     }
 
-    public MyArrayList(int size){
-        this.myArray = (T[]) new Object[size];
+    public MyArrayList(int capacity){
+        this.myArray = (T[]) new Object[capacity];
 
     }
 
@@ -63,7 +63,6 @@ public class MyArrayList<T> {
         else{
             for(T t : elements){
                 this.add(t);
-                this.numberOfObjects++;
             }
         }
     }
@@ -152,10 +151,20 @@ public class MyArrayList<T> {
     }
 
     public void remove(int index){
-
+        T[] tempArray = (T[]) new Object[0];
+        for(int i = 0; i<this.myArray.length; i++){
+            if(i != index){
+                tempArray = Arrays.copyOf(tempArray,tempArray.length+1);
+                tempArray[tempArray.length-1] = this.myArray[i];
+            }
+        }
+        tempArray = Arrays.copyOf(tempArray,tempArray.length+1);
+        this.myArray = tempArray;
+        this.numberOfObjects -= 1;
     }
 
     public void remove(T object){
+        this.remove(this.indexOf(object));
 
     }
 

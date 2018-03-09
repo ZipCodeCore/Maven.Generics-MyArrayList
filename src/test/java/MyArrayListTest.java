@@ -245,11 +245,12 @@ public class MyArrayListTest {
 
         //When
         test.remove(2);
-        Integer[] expected = {5,10,15,20};
+        Integer[] expected = {5,10,15,20,null};
         Integer[] actual = test.toArray(new Integer[0]);
 
         //Then
         Assert.assertArrayEquals(expected,actual);
+        Assert.assertTrue(test.size() == 4);
     }
 
     @Test
@@ -262,11 +263,12 @@ public class MyArrayListTest {
         //When
         Integer value = 5;
         test.remove(value);
-        Integer[] expected = {5,10,15,20};
+        Integer[] expected = {10,5,15,20,null};
         Integer[] actual = test.toArray(new Integer[0]);
 
         //Then
         Assert.assertArrayEquals(expected,actual);
+        Assert.assertTrue(test.size() == 4);
     }
 
     @Test
@@ -278,11 +280,12 @@ public class MyArrayListTest {
 
         //When
         test.removeRange(1,3);
-        Integer[] expected = {5,20};
+        Integer[] expected = {5,20,null,null,null};
         Integer[] actual = test.toArray(new Integer[0]);
 
         //Then
         Assert.assertArrayEquals(expected,actual);
+        Assert.assertTrue(test.size() == 2);
     }
 
     @Test
@@ -309,11 +312,11 @@ public class MyArrayListTest {
 
         //When
         test.trimToSize();
-        int expected = 4;
-        int actual = test.size();
+        String[]  expected = {"Hi", "I", "Am", "trimming"};
+        String[] actual  = test.toArray(new String[0]);
 
         //Then
-        Assert.assertEquals(expected,actual);
+        Assert.assertArrayEquals(expected,actual);
     }
 
 }
