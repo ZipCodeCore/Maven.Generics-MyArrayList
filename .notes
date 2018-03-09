@@ -1,0 +1,7 @@
++ add()
++ get() -> E 
++ remove()
++ set()
++ clear()
++ isEmpty() -> boolean
++ contains() -> boolean
