@@ -42,7 +42,7 @@ public class TestMyArrayList {
     }
 
     @Test
-    public void integerGetTest(){
+    public void intGetTest(){
         //given
         Integer expected = 7;
         MyArrayList<Integer>myArrayList = new MyArrayList<>();
@@ -58,7 +58,7 @@ public class TestMyArrayList {
     }
 
     @Test
-    public void stringGetTest(){
+    public void strGetTest(){
         //given
         String expected = "Cat";
         MyArrayList<String>myArrayList = new MyArrayList<>();
@@ -74,7 +74,7 @@ public class TestMyArrayList {
     }
 
     @Test
-    public void integerRemoveTest(){
+    public void intRemoveTest(){
         //given
         MyArrayList<Integer> myArrayList = new MyArrayList<>();
         myArrayList.add(10);
@@ -90,7 +90,7 @@ public class TestMyArrayList {
     }
 
     @Test
-    public void stringRemoveTest(){
+    public void strRemoveTest(){
         //given
         MyArrayList<String> myArrayList = new MyArrayList<>();
         myArrayList.add("Cat");
@@ -106,7 +106,7 @@ public class TestMyArrayList {
     }
 
     @Test
-    public void integerSetTest(){
+    public void intSetTest(){
         //given
         MyArrayList<Integer> myArrayList = new MyArrayList<>();
         myArrayList.add(10);
@@ -122,7 +122,7 @@ public class TestMyArrayList {
     }
 
     @Test
-    public void stringSetTest(){
+    public void strSetTest(){
         //given
         MyArrayList<String> myArrayList = new MyArrayList<>();
         myArrayList.add("Cat");
@@ -140,31 +140,62 @@ public class TestMyArrayList {
     @Test
     public void clearTest(){
         //given
+        MyArrayList<String> myArrayList = new MyArrayList<>();
+        myArrayList.add("Cat");
+        myArrayList.add("Horse");
+        myArrayList.add("Bird");
+        myArrayList.add("Dog");
 
         //when
-
+        myArrayList.clear();
+        boolean expected = true;
         //then
-
+        boolean actual = myArrayList.isEmpty();
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void isEmptyTest(){
         //given
-
+        MyArrayList<String> myArrayList = new MyArrayList<>();
         //when
-
+        myArrayList.isEmpty();
         //then
+        Assert.assertTrue(myArrayList.isEmpty());
+    }
 
+    @Test
+    public void isEmptyTestTWO(){
+        //given
+        MyArrayList<String> myArrayList = new MyArrayList<>();
+        myArrayList.add("Ducky");
+        //when
+        myArrayList.isEmpty();
+        //then
+        Assert.assertFalse(myArrayList.isEmpty());
     }
 
     @Test
     public void containsTest(){
         //given
-
+        MyArrayList<String> myArrayList = new MyArrayList<>();
+        myArrayList.add("Ducky");
         //when
-
+        myArrayList.contains("Dog");
         //then
+        Assert.assertFalse(false);
+    }
 
+    @Test
+    public void containsTestTWO(){
+        //given
+        MyArrayList<String> myArrayList = new MyArrayList<>();
+        myArrayList.add("Ducky");
+        myArrayList.add("Dog");
+        //when
+        myArrayList.contains("Dog");
+        //then
+        Assert.assertTrue(true);
     }
 
 

@@ -49,14 +49,21 @@ public class MyArrayList <T> {
     }
 
     public void clear(){
-
+        this.arr = (T[]) new Object[0];
     }
 
     public boolean isEmpty(){
-        return false;
+       if (arr.length == 0)
+           return true;
+       else return false;
     }
 
-    public boolean contains(){
+    public boolean contains(T valueToCheck){
+        for (int i = 0; i < arr.length; i++){
+            if (arr[i] == valueToCheck){
+                return true;
+            }
+        }
         return false;
     }
 
