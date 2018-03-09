@@ -1,11 +1,13 @@
 
 import java.util.Arrays;
 
+@SuppressWarnings("unchecked")
 public class MyArrayList<T> {
 
 
 
     private T[] myArray;
+    private int numberOfObjects;
 
 
 
@@ -28,20 +30,23 @@ public class MyArrayList<T> {
             this.myArray = Arrays.copyOf(myArray, myArray.length+1);
             this.myArray[this.myArray.length-1] = element;
         }
+        this.numberOfObjects++;
     }
 
     public void add(int index, T element){
         if(this.myArray[index] == null){
-            this.set(index,element);
+            this.myArray[index] = element;
+            this.numberOfObjects++;
         }
+
+        else if(this.contains(null)){
+            this.myArray = Arrays.copyOf(myArray, this.myArray.length);
+            this.shiftValuesAndReplaceTargets(index,element);
+        }
+
         else{
-            this.myArray = Arrays.copyOf(myArray, myArray.length+1);
-            T[] tempArray = Arrays.copyOf(myArray, myArray.length);
-            for(int i = index+1; i<tempArray.length; i++){
-                tempArray[i] = this.myArray[i-1];
-            }
-            tempArray[index] = element;
-            this.myArray = tempArray;
+            this.myArray = Arrays.copyOf(myArray, this.myArray.length+1);
+            this.shiftValuesAndReplaceTargets(index,element);
         }
     }
 
@@ -52,17 +57,35 @@ public class MyArrayList<T> {
             for(int i = 0 ; i<elements.length; i++){
                 this.myArray[counter] = elements[i];
                 counter++;
+                this.numberOfObjects++;
             }
         }
         else{
             for(T t : elements){
                 this.add(t);
+                this.numberOfObjects++;
             }
         }
-
     }
 
     public void addAll(int index, T[] elements){
+        if(this.myArray[index] == null && elements.length <= (this.myArray.length-this.size())){
+            int counter = index;
+            for(int i = 0; i< elements.length; i++) {
+                this.myArray[counter] = elements[i];
+                this.numberOfObjects++;
+            }
+        }
+
+        else if(this.contains(null)){
+            this.myArray = Arrays.copyOf(myArray, newArraySize(elements));
+            shiftValuesAndReplaceTargets(index,elements);
+        }
+
+        else{
+            this.myArray = Arrays.copyOf(myArray, newArraySize(elements));
+            shiftValuesAndReplaceTargets(index,elements);
+        }
 
     }
 
@@ -71,6 +94,12 @@ public class MyArrayList<T> {
     }
 
     public boolean contains(T element){
+        if (element == null){
+            for (T t : myArray){
+                if(t == null) return true;
+            }
+        }
+
         for (T t : myArray){
             if (t.equals(element)) return true;
         }
@@ -87,6 +116,15 @@ public class MyArrayList<T> {
     }
 
     public int indexOf(T element){
+
+        if (element == null){
+            for (int i = 0; i<myArray.length; i++){
+                if (this.myArray[i] == element){
+                    return i;
+                }
+            }
+        }
+
         for (int i = 0; i<myArray.length; i++){
             if (this.myArray[i].equals(element)){
                 return i;
@@ -116,16 +154,17 @@ public class MyArrayList<T> {
     }
 
     public int size(){
-        return this.myArray.length;
+        return this.numberOfObjects;
     }
 
     public T[] subArray(int startIndex, int endIndex){
         return null;
     }
 
-    public <T> T[] toArray(T[] newArray){
+    public T[] toArray(T[] newArray){
 
-       return (T[]) Arrays.copyOf(this.myArray, this.myArray.length, newArray.getClass());
+
+        return (T[]) Arrays.copyOf(this.myArray, this.myArray.length, newArray.getClass());
 
     }
 
@@ -150,6 +189,22 @@ public class MyArrayList<T> {
         else{
             return this.myArray.length + (input.length-this.countNulls());
         }
+    }
+
+    private void shiftValuesAndReplaceTargets(int index, T ... elements){
+        int count = index;
+        T[] tempArray = Arrays.copyOf(myArray, myArray.length);
+        for(int i = (index+elements.length); i<tempArray.length; i++){
+            tempArray[i] = this.myArray[i-elements.length];
+        }
+
+        for(int i = 0; i<elements.length; i++) {
+            tempArray[count] = elements[i];
+            count++;
+            this.numberOfObjects++;
+        }
+        this.myArray = tempArray;
+
     }
 
 

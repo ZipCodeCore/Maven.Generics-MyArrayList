@@ -22,12 +22,29 @@ public class MyArrayListTest {
         MyArrayList<Integer> test = new MyArrayList<>(5);
 
         //When
-        int expected = 5;
+        int expected = 0;
         int actual = test.size();
 
         //Then
         Assert.assertEquals(expected,actual);
     }
+
+    @Test
+    public void intAddNullsTest(){
+        //Given
+        MyArrayList<Integer> test = new MyArrayList<>(5);
+
+        //When
+        test.add(null);
+        test.add(null);
+        test.add(null);
+        int expected = 3;
+        int actual = test.size();
+
+        //Then
+        Assert.assertEquals(expected,actual);
+    }
+
 
     @Test
     public void addElementTest(){
@@ -46,22 +63,24 @@ public class MyArrayListTest {
     @Test
     public void addElementIndexTest(){
         //Given
-        MyArrayList<Integer> test = new MyArrayList<>(0);
+        MyArrayList<Integer> test = new MyArrayList<>(3);
 
         //When
         test.add(10);
         test.add(0,25);
         int expected =25;
         int actual = test.get(0);
+        Integer[] expected2 = {25,10,null};
 
         //Then
         Assert.assertEquals(expected,actual);
+        Assert.assertArrayEquals(expected2,test.toArray(new Integer[0]));
     }
 
     @Test
     public void addAllTest(){
         //Given
-        MyArrayList<Integer> test = new MyArrayList<>(0);
+        MyArrayList<Integer> test = new MyArrayList<>(3);
 
 
         //When
@@ -82,8 +101,9 @@ public class MyArrayListTest {
 
 
         //When
+        Integer[] values = {5,10,15,20};
+        test.addAll(1,values);
         Integer[] expected = {0,5,10,15,20,25};
-        test.addAll(1,expected);
         Integer [] actual = test.toArray(new Integer[0]);
 
         //Then
