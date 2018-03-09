@@ -13,7 +13,7 @@ public class MyArrayList<E> {
     }
 
     public void add(E thingToAdd) {
-        E[] newArray = Arrays.copyOf(this.theArray, this.theArray.length+1);
+        E[] newArray = Arrays.copyOf(this.theArray, this.theArray.length + 1);
         newArray[newArray.length-1] = thingToAdd;
         this.theArray = newArray;
     }
@@ -24,7 +24,33 @@ public class MyArrayList<E> {
 
     public boolean remove(E thingToRemove) {
         // If thing is found and removed, returns true.  If thing is not found, returns false
-        return false;
+        int counter = 0;
+        for (int i = 0; i < theArray.length; i++) {
+            if (theArray[i].equals(thingToRemove)) {
+                counter++;
+            }
+        }
+        if (counter == 0) {return false;}
+        E[] newArray = Arrays.copyOf(this.theArray, this.theArray.length - counter);
+        counter = 0;
+        for (int i = 0; i < theArray.length; i++) {
+            if (!(theArray[i].equals(thingToRemove))) {
+                newArray[counter] = theArray[i];
+                counter++;
+            }
+        }
+        this.theArray = newArray;
+        return true;
+    }
+
+    public E removeAtIndex(int index) {
+        // Removes E from the array and returns it, if the index is out of bounds it returns null
+        if (index > theArray.length - 1 || index < 0) {
+            return null;
+        } else {
+            // Return E and resize array
+            return null;
+        }
     }
 
     public void setTheArray(E[] theArray) {
@@ -40,10 +66,7 @@ public class MyArrayList<E> {
     }
 
     public boolean isEmpty() {
-        if (theArray.length == 0) {
-            return true;
-        }
-        return false;
+        return theArray.length == 0;
     }
 
     public boolean contains(E thingToCheckFor) {
@@ -53,6 +76,10 @@ public class MyArrayList<E> {
             }
         }
         return false;
+    }
+
+    public int size() {
+        return theArray.length;
     }
 
 }
