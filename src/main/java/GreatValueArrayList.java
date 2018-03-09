@@ -121,4 +121,8 @@ public class GreatValueArrayList<E> {
         return a;
     }
 
+    public Object[] toArray() {
+        return array;
+    }
+
 }
