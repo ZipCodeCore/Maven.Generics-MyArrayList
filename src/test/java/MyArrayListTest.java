@@ -7,7 +7,7 @@ public class MyArrayListTest {
 
     @Before
     public void setup(){
-        myArrayList = new MyArrayList();
+        myArrayList = new MyArrayList<>();
     }
 
     @Test

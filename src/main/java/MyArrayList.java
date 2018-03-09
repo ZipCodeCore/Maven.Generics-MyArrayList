@@ -3,7 +3,7 @@ public class MyArrayList <T> extends MyCollection <T> {
 
     @SuppressWarnings("unchecked")
     public MyArrayList(){
-        this.data = (T[]) new Object[0];
+        this(0);
     }
 
     @SuppressWarnings("unchecked")
