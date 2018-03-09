@@ -1,5 +1,5 @@
 
-public class MyArrayList <T> extends MyCollection {
+public class MyArrayList <T> extends MyCollection <T> {
 
     @SuppressWarnings("unchecked")
     public MyArrayList(){
