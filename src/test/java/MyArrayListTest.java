@@ -66,7 +66,7 @@ public class MyArrayListTest {
     }
 
     @Test
-    public void containsTestSuccessful() {
+    public void containsTestSuccess() {
         MyArrayList myArrayList = new MyArrayList();
         String[] setArray = {"does", "this", "work"};
         myArrayList.setTheArray(setArray);
@@ -78,7 +78,7 @@ public class MyArrayListTest {
         MyArrayList myArrayList = new MyArrayList();
         String[] setArray = {"does", "this", "work"};
         myArrayList.setTheArray(setArray);
-        Assert.assertTrue(myArrayList.contains("nope"));
+        Assert.assertTrue(!(myArrayList.contains("nope")));
     }
 
 }
