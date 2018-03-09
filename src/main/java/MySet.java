@@ -9,7 +9,9 @@ public class MySet<T> {
 
     public MySet(T[] initialArray){
         setList = new MyArrayList<>();
-        setList.addAll(initialArray);
+        for(T t : initialArray) {
+            if (!setList.contains(t)) setList.add(t);
+        }
 
     }
 
