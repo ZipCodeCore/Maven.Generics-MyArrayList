@@ -120,8 +120,8 @@ public class MyArrayListTest {
         list.add(8);
 
 
-        Integer expected = 4;
-        Integer actual = list.indexOf(8);
+        Integer expected = 1;
+        Integer actual = list.indexOf(4);
 
         Assert.assertEquals(expected, actual);
     }
@@ -166,7 +166,7 @@ public class MyArrayListTest {
         list.set(2, 8);
 
         Integer expected = 8;
-        Integer actual = list.indexOf(2);
+        Integer actual = list.get(2);
 
         Assert.assertEquals(expected, actual);
 
