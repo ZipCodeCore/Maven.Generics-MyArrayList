@@ -21,18 +21,9 @@ public class MyArrayList<T> {
         return this.array;
     }
 
-    public T[] getArrayList() {
-        T[] arrayList = (T[]) new Object[currentIndex + 1];
-
-        for (int i = 0; i < currentIndex + 1; i++) {
-            arrayList[i] = this.array[i];
-        }
-        return arrayList;
-    }
-
     public void add(T aThing) {
 
-        if (currentIndex <= capacity) {
+        if (currentIndex < capacity) {
             this.array[currentIndex] = aThing;
             currentIndex++;
         } else {
@@ -40,50 +31,56 @@ public class MyArrayList<T> {
             this.array[currentIndex] = aThing;
             currentIndex++;
         }
+    }
 
+    public void add(T aThing, int index) {
+        Arrays.copyOf(this.array, this.array.length + 1);
+        System.arraycopy(this.array, index, this.array, index + 1, ((this.array.length - index) - 1));
+        this.array[index] = aThing;
+        currentIndex++;
     }
 
     public T get(int index) {
-
         return this.array[index];
-
     }
 
-    public void remove(T athing) {
+    public void remove(int index) {
+        System.arraycopy(this.array, index + 1, this.array, index, (this.array.length - 1) - index);
+        this.array[this.array.length - 1] = null;
+        this.currentIndex--;
+    }
 
-        T[] newArray = Arrays.copyOf(this.array, this.array.length - 1);
 
-        int secondIterator = 0;
-
-        for (int i = 0; i < this.array.length; i++) {
-            if (!this.array[i].equals(athing)) {
-                newArray[secondIterator] = this.array[i];
-                secondIterator++;
-            }
-        }
-
-        this.array = newArray;
-
+    public void remove(T aThing) {
+        System.arraycopy(this.array, indexOf(aThing) + 1, this.array, indexOf(aThing), (this.array.length - 1) - indexOf(aThing));
+        this.array[this.array.length - 1] = null;
+        this.currentIndex--;
     }
 
     public void set(int index, T aThing) {
-
         this.array[index] = aThing;
-
     }
 
     public void clear() {
 
+        for (int i = 0; i < size() + 1; i++) {
+            this.array[i] = null;
+        }
 
+        this.currentIndex = 0;
     }
 
     public boolean isEmpty() {
-        return true;
+        if (size() == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public boolean contains(T aThing) {
 
-        for (int i = 0; i < this.array.length; i++) {
+        for (int i = 0; i < size(); i++) {
             if (this.array[i].equals(aThing)) {
                 return true;
             }
@@ -93,7 +90,20 @@ public class MyArrayList<T> {
     }
 
     public int size() {
-        return this.currentIndex + 1;
+        return this.currentIndex;
+    }
+
+
+    public int indexOf(T aThing) {
+
+        int indexOf = -1;
+
+        for (int i = 0; i < this.array.length; i++) {
+            if (array[i] == (aThing)) {
+                indexOf = i;
+            }
+        }
+        return indexOf;
     }
 
     public int getCapacity() {
@@ -103,4 +113,15 @@ public class MyArrayList<T> {
     public int getCurrentIndex() {
         return this.currentIndex;
     }
+
+    public T[] getArrayList() {
+        T[] arrayList = (T[]) new Object[currentIndex + 1];
+
+        for (int i = 0; i < currentIndex + 1; i++) {
+            arrayList[i] = this.array[i];
+        }
+        return arrayList;
+    }
+
+
 }
