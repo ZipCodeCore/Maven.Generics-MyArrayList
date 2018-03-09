@@ -4,7 +4,7 @@ public class MyArrayList <T> {
 
     private T[] arr;
     private T value;
-    private T[] newArr;
+
 
     //Constructors
     public MyArrayList() {
@@ -19,11 +19,10 @@ public class MyArrayList <T> {
     //Methods
     public void add(T thing) {
 
-        Integer count = 0;
         T[] newArr = Arrays.copyOf(arr, arr.length + 1);
-            newArr[newArr.length-1] = thing;
-            arr = newArr;
-        }
+        newArr[newArr.length-1] = thing;
+        arr = newArr;
+    }
 
 
     public T get(Integer i){
@@ -31,11 +30,21 @@ public class MyArrayList <T> {
         return this.value;
     }
 
-    public void remove(T thing){
-
+    public void remove(T thing) {
+        if ( arr.length > 0){
+            T[] newArr = Arrays.copyOf(arr, arr.length - 1);
+            for (int i = 0, j = 0; i < arr.length; i++) {
+                if (arr[i] != thing) {
+                    newArr[j] = arr[i];
+                    j++;
+                }
+            }
+            arr = newArr;
+        }
     }
-
-    public void set(T thing){
+    public void set(Integer i, T thing){
+        this.value = this.arr[i];
+        arr[i] = thing;
 
     }
 
