@@ -26,13 +26,15 @@ public class MyArrayListTest {
     }
 
     @Test
-    public void removeTest(){
-
-    }
-
-    @Test
     public void setTest(){
-
+        Integer one = 1;
+        Integer two = 2;
+        Integer three = 3;
+        Integer four = 4;
+        Integer five = 5;
+        Integer[] expected = new Integer[]{one, two, three, four, five};
+        myArrayList.set(expected);
+        Assert.assertEquals(expected, myArrayList.getArray());
     }
 
     @Test

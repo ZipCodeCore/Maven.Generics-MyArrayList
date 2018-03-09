@@ -61,5 +61,9 @@ public class MyArrayList <T> {
         this.data = newArray;
     }
 
+    public void set(T[] newArray){
+        this.data = newArray;
+    }
+
 
 }
