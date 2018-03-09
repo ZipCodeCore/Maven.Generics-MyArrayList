@@ -18,7 +18,7 @@ public class MyArrayList<E> {
         this.theArray = newArray;
     }
 
-    public E[] getTheArray() {
+    public E[] toArray() {
         return theArray;
     }
 

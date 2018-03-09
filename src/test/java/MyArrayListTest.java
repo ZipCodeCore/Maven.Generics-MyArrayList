@@ -1,6 +1,8 @@
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 public class MyArrayListTest {
 
     @Test
@@ -9,7 +11,7 @@ public class MyArrayListTest {
         Integer[] setArray = {1, 2, 3, 4};
         myArrayList.setTheArray(setArray);
         int expected = 4;
-        int actual = myArrayList.getTheArray().length;
+        int actual = myArrayList.toArray().length;
         Assert.assertEquals(expected, actual);
     }
 
@@ -18,7 +20,7 @@ public class MyArrayListTest {
         MyArrayList myArrayList = new MyArrayList();
         Double[] setArray = {1.0, 2.0, 3.0, 4.0};
         myArrayList.setTheArray(setArray);
-        Assert.assertArrayEquals(myArrayList.getTheArray(), setArray);
+        Assert.assertArrayEquals(myArrayList.toArray(), setArray);
     }
 
     @Test
@@ -27,7 +29,7 @@ public class MyArrayListTest {
         myArrayList.add(8L);
         myArrayList.add(9L);
         int expected = 2;
-        int actual = myArrayList.getTheArray().length;
+        int actual = myArrayList.toArray().length;
         Assert.assertEquals(expected, actual);
     }
 
@@ -37,7 +39,6 @@ public class MyArrayListTest {
         Integer[] setArray = {1, 2, 3, 4};
         myArrayList.setTheArray(setArray);
         Assert.assertTrue(myArrayList.remove(2));
-        System.out.println(myArrayList.getTheArray());
     }
 
     @Test
@@ -47,9 +48,9 @@ public class MyArrayListTest {
         myArrayList.setTheArray(setArray);
         myArrayList.remove(5);
         int expected = 5;
-        int actual = myArrayList.getTheArray().length;
+        int actual = myArrayList.toArray().length;
+        System.out.println(Arrays.toString(myArrayList.toArray()));
         Assert.assertEquals(expected, actual);
-        System.out.println(myArrayList.getTheArray());
     }
 
     @Test
@@ -58,7 +59,6 @@ public class MyArrayListTest {
         Integer[] setArray = {1, 2, 3, 4};
         myArrayList.setTheArray(setArray);
         Assert.assertTrue(!(myArrayList.remove(5)));
-        System.out.println(myArrayList.getTheArray());
     }
 
     @Test
@@ -68,7 +68,7 @@ public class MyArrayListTest {
         myArrayList.setTheArray(setArray);
         myArrayList.removeAtIndex(1);
         Integer[] expected = {1, 3, 4};
-        Integer[] actual = (Integer[]) myArrayList.getTheArray();
+        Integer[] actual = (Integer[]) myArrayList.toArray();
         Assert.assertArrayEquals(expected, actual);
     }
 
@@ -87,7 +87,7 @@ public class MyArrayListTest {
         myArrayList.setTheArray(setArray);
         myArrayList.clear();
         Integer[] expected = {};
-        Assert.assertArrayEquals(expected, myArrayList.getTheArray());
+        Assert.assertArrayEquals(expected, myArrayList.toArray());
     }
 
     @Test
@@ -121,7 +121,7 @@ public class MyArrayListTest {
         myArrayList.setTheArray(setArray);
         String here = "here";
         myArrayList.setAtIndex(1, here);
-        Assert.assertEquals(myArrayList.getTheArray()[1], here);
+        Assert.assertEquals(myArrayList.toArray()[1], here);
     }
 
     @Test
