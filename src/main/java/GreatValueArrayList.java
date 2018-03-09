@@ -8,16 +8,16 @@ import java.util.Objects;
  * author: https://github.com/vvmk
  * date: 3/8/18
  */
-public class MyArrayList<E> {
+public class GreatValueArrayList<E> {
     private static final int fDEFAULT_CAPACITY = 10;
     private Object[] array;
     private int numberOfElements;
 
-    public MyArrayList() {
+    public GreatValueArrayList() {
         this(fDEFAULT_CAPACITY);
     }
 
-    public MyArrayList(int startingCapacity) {
+    public GreatValueArrayList(int startingCapacity) {
         array = new Object[startingCapacity];
         numberOfElements = 0;
     }
@@ -25,7 +25,7 @@ public class MyArrayList<E> {
     /**
      * Not cheating.
      */
-    public MyArrayList(Collection<? extends E> c) {
+    public GreatValueArrayList(Collection<? extends E> c) {
         array = c.toArray();
         numberOfElements = array.length;
     }
