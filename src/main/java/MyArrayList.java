@@ -49,10 +49,18 @@ public class MyArrayList<E> {
             return null;
         } else {
             E[] newArray = Arrays.copyOf(this.theArray, this.theArray.length - 1);
+            int indexOfNewArray = 0;
+            E returnValue = theArray[index];
             for (int i = 0; i < theArray.length; i++) {
-
+                if (i == index) {
+                    continue;
+                } else {
+                    newArray[indexOfNewArray] = theArray[i];
+                    indexOfNewArray++;
+                }
             }
-            return null;
+            this.theArray = newArray;
+            return returnValue;
         }
     }
 

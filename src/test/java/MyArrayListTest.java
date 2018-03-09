@@ -55,7 +55,7 @@ public class MyArrayListTest {
         MyArrayList myArrayList = new MyArrayList();
         Integer[] setArray = {1, 2, 3, 4};
         myArrayList.setTheArray(setArray);
-        Assert.assertTrue(myArrayList.remove(5));
+        Assert.assertTrue(!(myArrayList.remove(5)));
     }
 
     @Test
