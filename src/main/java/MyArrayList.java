@@ -1,6 +1,8 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MyArrayList<E> {
+
 
 
     public E[] myArray;
@@ -22,7 +24,6 @@ public class MyArrayList<E> {
     }
 
     public void add(int index, E e) {
-
         E[] myArrayNew = Arrays.copyOf(this.myArray, index + 1);
         myArrayNew[index] = e;
         this.myArray = myArrayNew;
