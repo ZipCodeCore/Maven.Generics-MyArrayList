@@ -1,7 +1,8 @@
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import java.util.Arrays;
 
 /**
  * filename:
@@ -19,16 +20,35 @@ public class GreatValueSetTest {
 
     @Test
     public void addNewElement() {
+        Integer[] input = {1, 2};
+        Integer addMe = 3;
+        int[] eArray = {1, 2, 3};
+        String expected = Arrays.toString(eArray);
 
+        set = new GreatValueSet<>(Arrays.asList(input));
+        set.add(addMe);
+        String actual = Arrays.toString(set.toArray());
+
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void addDuplicateElement() {
+        Integer[] input = {1, 2, 3};
+        Integer addMe = 3;
+        int[] eArray = {1, 2, 3};
+        String expected = Arrays.toString(eArray);
 
+        set = new GreatValueSet<>(Arrays.asList(input));
+        set.add(addMe);
+        String actual = Arrays.toString(set.toArray());
+
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void addAll() {
+
     }
 
     @Test
@@ -45,9 +65,5 @@ public class GreatValueSetTest {
 
     @Test
     public void retainAll() {
-    }
-
-    @Test
-    public void toArray() {
     }
 }
