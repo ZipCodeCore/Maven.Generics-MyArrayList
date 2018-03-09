@@ -28,6 +28,12 @@ public class MySet<E>{
         return myArrayList.contains(thing);
     }
 
+    public boolean isEmpty() {
+        return myArrayList.isEmpty();
+    }
+
+
+
     // Recreate all methods, have them call MyArrayList methods
     // Only ones that need to be different are add because it needs to check the array for the thing you're trying to add first
 

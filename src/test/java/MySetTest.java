@@ -50,4 +50,10 @@ public class MySetTest {
         Assert.assertTrue(mySet.contains(2));
     }
 
+    @Test
+    public void isEmptyTest() {
+        MySet mySet = new MySet();
+        Assert.assertTrue(mySet.isEmpty());
+    }
+
 }
