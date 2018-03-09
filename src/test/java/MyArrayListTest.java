@@ -297,7 +297,7 @@ public class MyArrayListTest {
 
         //When
         Character[] expected = {'b','c','d','e'};
-        Character[] actual = test.subArray(1,4);
+        Character[] actual = test.subArray(1,4, new Character[0]);
 
         //Then
         Assert.assertArrayEquals(expected,actual);

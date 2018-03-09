@@ -169,6 +169,16 @@ public class MyArrayList<T> {
     }
 
     public void removeRange(int startIndex, int endIndex){
+        T[] tempArray = (T[]) new Object[0];
+        for(int i = 0; i<this.myArray.length; i++){
+            if (i < startIndex || i > endIndex){
+                tempArray = Arrays.copyOf(tempArray,tempArray.length+1);
+                tempArray[tempArray.length-1] = this.myArray[i];
+            }
+        }
+        tempArray = Arrays.copyOf(tempArray,tempArray.length+(endIndex-startIndex)+1);
+        this.myArray = tempArray;
+        this.numberOfObjects -= (endIndex - startIndex)+1;
 
     }
 
@@ -176,18 +186,24 @@ public class MyArrayList<T> {
         return this.numberOfObjects;
     }
 
-    public T[] subArray(int startIndex, int endIndex){
-        return null;
+    public T[] subArray(int startIndex, int endIndex, T[] newArray){
+        T[] tempArray = (T[]) new Object[0];
+        int counter = 0;
+        for(int i = startIndex; i <= endIndex; i++){
+            tempArray = Arrays.copyOf(tempArray,tempArray.length+1);
+            tempArray[counter] = this.myArray[i];
+            counter++;
+        }
+        return (T[]) Arrays.copyOf(tempArray, tempArray.length, newArray.getClass());
     }
 
     public T[] toArray(T[] newArray){
 
-
         return (T[]) Arrays.copyOf(this.myArray, this.myArray.length, newArray.getClass());
-
     }
 
     public void trimToSize(){
+        this.myArray = Arrays.copyOf(this.myArray, this.size());
 
     }
 
@@ -223,15 +239,6 @@ public class MyArrayList<T> {
             this.numberOfObjects++;
         }
         this.myArray = tempArray;
-
     }
-
-
-
-
-
-
-
-
 
 }
