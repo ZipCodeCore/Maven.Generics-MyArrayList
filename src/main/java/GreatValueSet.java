@@ -7,7 +7,7 @@ import java.util.Iterator;
  * author: https://github.com/vvmk
  * date: 3/8/18
  */
-public class MySet<E> {
+public class GreatValueSet<E> {
     GreatValueArrayList<E> arrayList;
 
     public void add(E e) {
