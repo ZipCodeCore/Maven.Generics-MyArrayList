@@ -21,7 +21,7 @@ public class MyArrayListTest {
         //Then
         Assert.assertEquals(expected, actual);
     }
-    
+
 
     @Test
     public void get() {
@@ -73,6 +73,23 @@ public class MyArrayListTest {
     }
 
     @Test
+    public void toArrayFromArrayList() {
+        //Given
+        MyArrayList<Integer> arrayListTest = new MyArrayList<Integer>();
+        arrayListTest.add(3);
+        arrayListTest.add(4);
+        arrayListTest.add(5);
+
+        //When
+        Integer[] expected = {3, 4, 5};
+        Object[] actual = arrayListTest.toArray();
+
+        //Then
+        Assert.assertEquals(expected, actual);
+
+    }
+
+    @Test
     public void add() {
         //Given
         MyArrayList<Integer> arrayListTest = new MyArrayList<Integer>();
@@ -112,8 +129,8 @@ public class MyArrayListTest {
         arrayListTest.addAll(intArray);
 
         //When
-        Integer expected = 5;
-        Integer actual = arrayListTest.size();
+        Integer[]expected = {3,4,3,4,5};
+        Integer[] actual = arrayListTest.toArray(new Integer[0]);
 
         //Then
         Assert.assertEquals(expected, actual);
@@ -122,7 +139,42 @@ public class MyArrayListTest {
 
     @Test
     public void remove() {
+        //Given
+        MyArrayList<Integer> arrayListTest = new MyArrayList<Integer>();
+        arrayListTest.add(3);
+        arrayListTest.add(4);
+        arrayListTest.add(6);
+        arrayListTest.add(5);
+        arrayListTest.add(4);
+        arrayListTest.add(2);
+
+        arrayListTest.remove(4);
+
+        //When
+        Integer[] expected = {3,6,5,4,2};
+        Integer[] actual = arrayListTest.toArray(new Integer[0]);
+
+        //Then
+        Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void remove1() {
+        //Given
+        MyArrayList<Integer> arrayListTest = new MyArrayList<Integer>();
+        arrayListTest.add(3);
+        arrayListTest.add(4);
+        arrayListTest.add(5);
+        arrayListTest.remove(7);
+
+        //When
+        Integer[] expected = {3,4,5};
+        Integer[] actual = arrayListTest.toArray(new Integer[0]);
+
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
+
 
     @Test
     public void clear() {

@@ -29,6 +29,14 @@ public class MyArrayList<T> {
         return (T[]) Arrays.copyOf(this.myArray, this.myArray.length, newArray.getClass());
     }
 
+    public T[] toArray() {
+        T[] newArray = (T[]) new Object[this.size()];
+        for (int i = 0; i < this.size(); i++) {
+             newArray[i] = this.get(i);
+        }
+        return myArray = newArray;
+    }
+
     public void add(T element) {
         T[] addArray = Arrays.copyOf(this.myArray, this.myArray.length + 1);
         addArray[addArray.length - 1] = element;
@@ -45,11 +53,21 @@ public class MyArrayList<T> {
         T[] result = Arrays.copyOf(myArray, myArray.length + element.length);
         System.arraycopy(element, 0, result, myArray.length, element.length);
         myArray = result;
-
     }
 
-    public void remove() {
-
+    public void remove(T element) {
+        if(!contains(element)){
+            T[] sameArray = Arrays.copyOf(this.myArray, this.myArray.length);
+            this.myArray = sameArray;
+        }
+        else {
+            T[] removeArray = Arrays.copyOf(this.myArray, this.myArray.length-1);
+            int removeIndex = indexOf(element);
+            for(int i = removeIndex; i < myArray.length-1; i++){
+                removeArray[i] = myArray[i + 1];
+            }
+            this.myArray = removeArray;
+        }
     }
 
     public void clear() {
