@@ -1,10 +1,11 @@
-import java.util.ArrayList;
+
 import java.util.Arrays;
 
 
 public class MyArrayList <T> {
 
     protected T[] myFirstList;
+    protected Integer objectCounter = 0;
 
 
     public MyArrayList() {
@@ -25,9 +26,12 @@ public class MyArrayList <T> {
     }
 
     public void add(int index, T obj) {
-        T[] temp = Arrays.copyOf(myFirstList,myFirstList.length + 1);
-        temp[index] = obj;
-        myFirstList = temp;
+        this.myFirstList = Arrays.copyOf(this.myFirstList, this.myFirstList.length + 1);
+
+        for (int i = this.myFirstList.length - 1; i > index; i--){
+            this.myFirstList[i] = this.myFirstList[i-1];
+        }
+        this.myFirstList[index]= obj;
     }
 
     public void addAll(T[] obj) {
@@ -71,28 +75,25 @@ public class MyArrayList <T> {
 
     public boolean isEmpty() {
 
-        return this.myFirstList.length == 0;
+        return (this.myFirstList.length == 0);
     }
 
     public void removeObj(T obj) {
-        T[] temp = Arrays.copyOf(myFirstList, myFirstList.length -1);
-        int count = 0;
-        for (int x = 0; x < myFirstList.length; x++) {
-            if(!obj.equals(myFirstList[x])) {
-                temp[x] = myFirstList[x];
-                count++;
-            } else if (obj.equals(myFirstList[x])){
-                count++;
-                break;
+
+        if(!contains(obj)){
+            T[] sameArray = Arrays.copyOf(this.myFirstList, this.myFirstList.length);
+            this.myFirstList = sameArray;
+        }
+        else {
+            T[] removeArray = Arrays.copyOf(this.myFirstList, this.myFirstList.length-1);
+            int removeIndex = indexOf(obj);
+            for(int i = removeIndex; i < myFirstList.length-1; i++){
+                removeArray[i] = myFirstList[i + 1];
             }
-
+            this.myFirstList = removeArray;
         }
-        for(int i = count; i < myFirstList.length; i++) {
-            temp[i-1] = myFirstList[i];
-        }
-        myFirstList = temp;
-
     }
+
 
     public void set(int index, T obj) {
         this.myFirstList[index] = obj;
@@ -102,6 +103,16 @@ public class MyArrayList <T> {
         return (T[]) Arrays.copyOf(this.myFirstList,this.myFirstList.length,newArray.getClass());
 
     }
+
+    public T[] toArray() {
+        T[] temp = (T[]) new Object[this.size()];
+        for(int i =0; i<this.size(); i++) {
+            temp[i] = this.get(i);
+        }
+
+        return myFirstList = temp;
+    }
+
 
 
 

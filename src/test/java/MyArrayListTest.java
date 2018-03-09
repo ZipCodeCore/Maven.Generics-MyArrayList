@@ -16,6 +16,7 @@ public class MyArrayListTest {
         list.add(9);
         list.add(8);
 
+
         Integer expected = 5;
         Integer actual = list.size();
 
@@ -155,6 +156,21 @@ public class MyArrayListTest {
     }
 
     @Test
+    public void removeObj1() {
+        MyArrayList<String> list = new MyArrayList<>();
+        list.add("Kevin");
+        list.add("Blase");
+        list.add("Luke");
+        list.removeObj("Tom");
+
+        String[] expected = {"Kevin", "Blase", "Luke"};
+        String[] actual = list.toArray(new String[0]);
+        System.out.println(Arrays.toString(actual));
+        Assert.assertArrayEquals(expected, actual);
+    }
+
+
+    @Test
     public void set() {
         MyArrayList<Integer> list = new MyArrayList<>();
         list.add(1);
@@ -181,6 +197,21 @@ public class MyArrayListTest {
 
         String[] expected = {"Kevin", "Blase", "Luke"};
         String[] actual = list.toArray(new String[0]);
+
+        Assert.assertEquals(expected, actual);
+
+
+    }
+
+    @Test
+    public void toArray1() {
+        MyArrayList<String> list = new MyArrayList<>();
+        list.add("Kevin");
+        list.add("Blase");
+        list.add("Luke");
+
+        String[] expected = {"Kevin", "Blase", "Luke"};
+        Object[] actual = list.toArray();
 
         Assert.assertEquals(expected, actual);
 
