@@ -32,4 +32,13 @@ public class MySetTest{
         Assert.assertTrue(mySet.contains(one));
     }
 
+    @Test
+    public void hashTest(){
+        String one = "iowheiorhioewh";
+        int expected = one.hashCode();
+        mySet.add(one);
+        int actual = mySet.getHash();
+        Assert.assertEquals(expected, actual);
+    }
+
 }

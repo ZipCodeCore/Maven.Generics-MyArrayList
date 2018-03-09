@@ -12,4 +12,12 @@ public class MySet <T> extends MyCollection <T>{
         }
     }
 
+    public int getHash(){
+        int hash = 0;
+        for (T t:this.data) {
+            hash += t.hashCode();
+        }
+        return hash;
+    }
+
 }
