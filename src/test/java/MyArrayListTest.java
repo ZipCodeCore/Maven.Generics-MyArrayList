@@ -1,28 +1,45 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
-
 public class MyArrayListTest {
 
     @Test
     public void addTest(){
-        MyArrayList<Integer> testArrayList = new MyArrayList<>(5);
+        MyArrayList<Integer> testArrayList = new MyArrayList<>(2);
         Integer num = 8;
         Integer expected = 8;
         testArrayList.add(num);
-        Integer actual = testArrayList.get(0);
+        Integer actual = testArrayList.get(2);
         Assert.assertEquals(expected, actual);
     }
     @Test
     public void addTestSize(){
-        MyArrayList<Integer> testArrayList = new MyArrayList<>();
+        MyArrayList<Integer> testArrayList = new MyArrayList<>(0);
         testArrayList.add(1);
         testArrayList.add(2);
         Integer actual = testArrayList.size();
         Integer expected = 2;
         Assert.assertEquals(expected,actual);
+    }
+    @Test
+    public void addTestSize2(){
+        MyArrayList<Integer> testArrayList = new MyArrayList<>(5);
+        testArrayList.add(1);
+        Integer actual = testArrayList.size();
+        Integer expected = 1;
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void addTestO(){
+        MyArrayList<Integer> testArrayList = new MyArrayList<>();
+        testArrayList.add(1);
+        testArrayList.add(2);
+        testArrayList.add(3);
+        testArrayList.add(3, 2);
+        Integer expected = 2;
+        Integer actual = testArrayList.get(3);
+        Assert.assertEquals(expected, actual);
     }
     @Test
     public void removeTest(){
