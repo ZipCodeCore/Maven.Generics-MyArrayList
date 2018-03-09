@@ -79,5 +79,53 @@ public class MyArrayListTest {
         Assert.assertNotEquals(myArrayList.get(1), two);
     }
 
+    @Test
+    public void containsTrueTest(){
+        Integer one = 1;
+        Integer two = 2;
+        Integer three = 3;
+        Integer four = 4;
+        Integer five = 5;
+        myArrayList.add(one);
+        myArrayList.add(two);
+        myArrayList.add(three);
+        myArrayList.add(four);
+        myArrayList.add(five);
+        Assert.assertTrue(myArrayList.contains(one));
+    }
+
+    @Test
+    public void containsFalseTest(){
+        Integer one = 1;
+        Integer two = 2;
+        Integer three = 3;
+        Integer four = 4;
+        Integer five = 5;
+        myArrayList.add(one);
+        myArrayList.add(two);
+        myArrayList.add(four);
+        myArrayList.add(five);
+        Assert.assertFalse(myArrayList.contains(three));
+    }
+
+    @Test
+    public void isEmptyTrueTest(){
+        Integer one = 1;
+        Integer two = 2;
+        Integer three = 3;
+        Integer four = 4;
+        Integer five = 5;
+        myArrayList.add(one);
+        myArrayList.add(two);
+        myArrayList.add(three);
+        myArrayList.add(four);
+        myArrayList.add(five);
+        Assert.assertFalse(myArrayList.isEmpty());
+    }
+
+    @Test
+    public void isEmptyFalseTest(){
+        Assert.assertTrue(myArrayList.isEmpty());
+    }
 
 }
