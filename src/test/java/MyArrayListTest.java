@@ -116,12 +116,76 @@ public class MyArrayListTest {
         //Given
         MyArrayList<Integer> testArray = new MyArrayList<>();
         //When
-        int expected = 4;
-        testArray.remove(6);
+        int expected = 5;
+        testArray.remove(5);
         //Then
         int actual = testArray.size();
         Assert.assertEquals(expected, actual);
 
+    }
+
+    @Test
+    public void removeFalse() {
+
+        MyArrayList<String> testArray = new MyArrayList<>();
+        //When
+        testArray.add(0, "Hoobastank");
+        testArray.add(1, "Coldplay");
+        testArray.add(2, "Green Day");
+        testArray.add(3, "Blue Jupiter");
+        testArray.add(4, "Red October");
+        testArray.remove(0);
+        testArray.remove(1);
+        testArray.remove(2);
+        testArray.remove(3);
+        testArray.remove(4);
+        int expected = 2;
+        int actual = testArray.size();
+        Assert.assertEquals(expected, actual);
+
+
+    }
+
+
+    @Test
+    public void removeE() {
+
+        //Given
+        MyArrayList<String> testArray = new MyArrayList<>(0);
+
+        testArray.add("Heather");
+        testArray.add("Heather");
+        testArray.add("Cheyenne");
+        testArray.add("Heath");
+        testArray.add("Heather");
+        //When
+        int expected = 4;
+        testArray.remove("Heather");
+        //Then
+        int actual = testArray.size();
+        Assert.assertEquals(expected, actual);
+
+
+    }
+
+    @Test
+    public void removeEDouble() {
+
+        //Given
+        MyArrayList<String> testArray = new MyArrayList<>(0);
+
+        testArray.add("Heather");
+        testArray.add("Heather");
+        testArray.add("Cheyenne");
+        testArray.add("Heath");
+        testArray.add("Heather");
+        //When
+        int expected = 3;
+        testArray.remove("Heather");
+        testArray.remove("Heather");
+        //Then
+        int actual = testArray.size();
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
@@ -158,12 +222,12 @@ public class MyArrayListTest {
         testArray.add(1, "Coldplay");
         testArray.add(2, "Green Day");
         testArray.add(3, "Blue Jupiter");
-        testArray.add(4, "Blue Monday");
-        testArray.remove(0);
-        testArray.remove(1);
-        testArray.remove(2);
-        testArray.remove(3);
+        testArray.add(4, "Red October");
         testArray.remove(4);
+        testArray.remove(3);
+        testArray.remove(2);
+        testArray.remove(1);
+        testArray.remove(0);
         //Then
         Assert.assertTrue(testArray.isEmpty());
     }
