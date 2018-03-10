@@ -3,7 +3,6 @@ import java.util.Arrays;
 public class MyArrayList<T> {
 
     private int arraySize;
-    private int actualArraySize = 0;
     private int currentIndex = 0;
     protected T[] myArrayList;
 
@@ -26,12 +25,6 @@ public class MyArrayList<T> {
             myArrayList[currentIndex]=elementToAdd;
             currentIndex++;
         }
-//        if (this.myArrayList.length - size() < 5) {
-//            ensureCapacity();
-//        } else if (!contains(elementToAdd)) {
-//            myArrayList[currentIndex] = elementToAdd;
-//            currentIndex++;
-//        }
     }
 
     public void add(int index, T elementToAdd) {
@@ -41,18 +34,12 @@ public class MyArrayList<T> {
                 if(this.myArrayList.length-size()<5){
                     ensureCapacity();
                 }
- //           T tempValue =myArrayList[index];
-//            myArrayList[index]=elementToAdd;
             int counter = currentIndex;
             while (index < counter) {
                 myArrayList[counter] = myArrayList[counter-1];
                 counter--;
             }
             myArrayList[index]=elementToAdd;
-//
- //           myArrayList[index + 1] = tempValue;
-
-
         }
         currentIndex++;
     }
@@ -60,14 +47,14 @@ public class MyArrayList<T> {
     public void remove(int index) {
         if (index < size()) {
             myArrayList[index] = null;
-            actualArraySize--;
+            reSize(index);
         } else throw new ArrayIndexOutOfBoundsException();
-        //reArrangeElementsAferRemoving(index);
     }
     public void remove(T elementToRemove){
-        for(int i=0;i<myArrayList.length;i++){
+        for(int i=0;i<size();i++){
             if(myArrayList[i].equals(elementToRemove)){
                 remove(i);
+                reSize(i);
             }
         }
     }
@@ -88,6 +75,7 @@ public class MyArrayList<T> {
 
     public T[] clear() {
         myArrayList = (T[]) new Object[0];
+        currentIndex=0;
         return myArrayList;
 
     }
@@ -112,12 +100,13 @@ public class MyArrayList<T> {
         return currentIndex;
     }
 
-    public void reArrangeElementsAferRemoving(int indexOfElementRemoved) {
+    public void reSize(int indexOfElementRemoved) {
 
         int startingIndex = indexOfElementRemoved;
         while (startingIndex < size()) {
             myArrayList[startingIndex] = myArrayList[startingIndex + 1];
             myArrayList[startingIndex + 1] = null;
+            startingIndex++;
         }
         currentIndex--;
     }

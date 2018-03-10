@@ -18,7 +18,7 @@ public class MySetTest {
 
     @Test
     public void testAdd2() {
-        MySet<Integer> test = new MySet<Integer>();
+        MySet<Integer> test = new MySet<>();
         test.add(10);
         test.add(50);
         test.add(100);
@@ -29,7 +29,7 @@ public class MySetTest {
     }
     @Test
     public void testAdd3() {
-        MySet<Double> test = new MySet<Double>();
+        MySet<Double> test = new MySet<>();
         test.add(10.0);
         test.add(50.0);
         test.add(100.55);
@@ -39,7 +39,7 @@ public class MySetTest {
     }
     @Test
     public void testAdd4() {
-        MySet<String> test = new MySet<String>();
+        MySet<String> test = new MySet<>();
         test.add("Vince");
         test.add("Don");
         test.add("Bryan");
@@ -51,7 +51,7 @@ public class MySetTest {
     }
     @Test
     public void testAdd5() {
-        MySet<String> test = new MySet<String>();
+        MySet<String> test = new MySet<>();
         test.add("Vince");
         test.add("Don");
         test.add("Bryan");
@@ -65,7 +65,7 @@ public class MySetTest {
 
     @Test
     public void testRemove1() {
-        MySet<String> test = new MySet<String>();
+        MySet<String> test = new MySet<>();
         test.add("Vince");
         test.add("Don");
         test.add("Bryan");
@@ -76,10 +76,25 @@ public class MySetTest {
 
         Assert.assertFalse(actual);
     }
-
     @Test
     public void testRemove2() {
-        MySet<Double> test = new MySet<Double>();
+        MySet<String> test = new MySet<>();
+        test.add("Vince");
+        test.add("Micheal");
+        test.add("Bryan");
+        test.add("Laurence");
+        test.add("Bo");
+        test.add("Don");
+
+        boolean actual  = test.remove("Micheal");
+
+        Assert.assertTrue(actual);
+    }
+
+
+    @Test
+    public void testRemove3() {
+        MySet<Double> test = new MySet<>();
         test.add(33.35);
         test.add(13.78);
         test.add(45.32);
@@ -90,7 +105,7 @@ public class MySetTest {
 
     @Test
     public void testContains1() {
-        MySet<Float> test = new MySet<Float>();
+        MySet<Float> test = new MySet<>();
         test.add(10F);
         test.add(15.555F);
         test.add(33.1F);
@@ -102,7 +117,7 @@ public class MySetTest {
     }
     @Test
     public void testContains2(){
-        MySet<Long> test = new MySet<Long>();
+        MySet<Long> test = new MySet<>();
         test.add(100L);
         test.add(55555L);
         test.add(378L);
@@ -143,7 +158,7 @@ public class MySetTest {
         test2.add(12);
         test2.add(34);
         boolean expected = true;
-        boolean actual = test1.equals(test2);
+        boolean actual = test2.equals(test1);
 
         Assert.assertEquals(expected,actual);
     }

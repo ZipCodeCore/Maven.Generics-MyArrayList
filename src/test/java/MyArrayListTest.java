@@ -23,13 +23,12 @@ public class MyArrayListTest {
     @Test
     public void testAddAtIndex(){
         MyArrayList<String> test = new MyArrayList<String>();
-        test.add("Hey Joe");
+        test.add("Hey Bo, Jess");
         test.add("Tomorrow");
         test.add("is");
         test.add("only");
         test.add("Found");
         test.add("In");
-        //test.add("The");
         test.add("Calander");
         test.add("of");
         test.add("Fools");
@@ -37,6 +36,10 @@ public class MyArrayListTest {
 
         test.add(6,"The");
 
+        String expected = "The";
+        String actual = test.get(6);
+
+        Assert.assertEquals(expected,actual);
 
         test.printElements();
         System.out.println(test.size());
@@ -111,8 +114,8 @@ public class MyArrayListTest {
 
         test.clear();
 
-        int expected  = 0;
-        int actual = test.size();
+        boolean expected  = false;
+        boolean actual = test.contains(3);
 
         Assert.assertEquals(expected,actual);
 
