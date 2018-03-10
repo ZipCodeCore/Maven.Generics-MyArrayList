@@ -11,7 +11,7 @@ public class MyMapTest {
         Assert.assertEquals(expected, actual);
     }
 
-    @Test
+/*    @Test
     public void addTest(){
         MyMap<String, Integer> myMap = new MyMap<>();
         String k = "Key";
@@ -21,5 +21,5 @@ public class MyMapTest {
         myMap.add(myPair);
         MyArrayList actual = myMap.getMyMap();
     }
-
+*/
 }
