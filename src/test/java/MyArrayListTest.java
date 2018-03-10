@@ -15,7 +15,9 @@ public class MyArrayListTest<T> {
         MyArrayList<Integer> myArrayList = new MyArrayList<>();
         Integer expected = 3;
         myArrayList.add(expected);
+        //when
         Integer actual = myArrayList.get(0);
+        //then
         Assert.assertEquals(expected, actual);
 
     }
@@ -33,6 +35,22 @@ public class MyArrayListTest<T> {
         myArrayList.remove(indexToRemove);
         //when
         Integer actual = myArrayList.get(indexToRemove);
+        //then
+        Assert.assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void setTest() {
+        //given
+        MyArrayList<String> myArrayList = new MyArrayList<>();
+        String expected = "cervezas";
+        myArrayList.add("Yo");
+        myArrayList.add("Quiero");
+        myArrayList.add("Tacos");
+        myArrayList.set(expected, 2);
+        //when
+        String actual = myArrayList.get(2);
         //then
         Assert.assertEquals(expected, actual);
 

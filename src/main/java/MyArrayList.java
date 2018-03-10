@@ -26,6 +26,10 @@ public class MyArrayList<T> {
         return array[indexValue];
     }
 
+    public void set(T valueToSet, int index) {
+        array[index] = valueToSet;
+    }
+
     public void remove(int indexValueToRemove) {
         T[] tempArray = Arrays.copyOf(array, array.length - 1);
         int j = 0;
