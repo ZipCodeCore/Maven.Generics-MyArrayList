@@ -15,10 +15,18 @@ public class MySet<E> {
 
     //Methods
     public void add(E thing) {
-
-        E[] newSet = Arrays.copyOf(set, set.length + 1);
-        newSet[newSet.length-1] = thing;
-        set = newSet;
+        int count = 0;
+        for (int i = 0; i < set.length; i++) {
+            if (set[i] == thing) {
+                count++;
+            }
+        }
+            if (count == 0) {
+                E[] newSet = Arrays.copyOf(set, set.length + 1);
+                newSet[newSet.length - 1] = thing;
+                set = newSet;
+            }
+            else System.out.println("This value already exists in the Set");
     }
 
 

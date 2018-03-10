@@ -26,7 +26,20 @@ public class TestMySet {
         //then
         String actual = mySet.get(0);
         Assert.assertEquals(expected, actual);
+    }
 
+    @Test
+    public void strAddTestTwo(){
+        //given
+        MySet<String> mySet = new MySet<>();
+        mySet.add("Cat");
+        String expected = "Cat";
+        //when
+        mySet.add(expected);
+        //then
+        String actual = mySet.get(0);
+        Assert.assertEquals(expected, actual);
+        //Prints "This value already exists in the set"
     }
 
     @Test
