@@ -90,32 +90,36 @@ public class MyArrayListTest {
         //When
         testListNullary.add(testString1);
         testListNullary.add(testString2);
-        Object actual  = testListNullary.get(1);
+        String actual  = testListNullary.get(1).toString();
         //Then
         Assert.assertEquals(expected, actual);
     }
 
     @Test
-    public void removeTest(){
+    public void removeStringTest(){
+        //Given
+        String expected = testString2;
+        testListNullary.add(testString1);
+        testListNullary.add(testString2);
+        testListNullary.add(testString3);
         //When
-        testListNullary.add(newElement);
-        testListNullary.add(newElement1);
-        testListNullary.remove(2);
+        String actual = testListNullary.remove(1).toString();
         //Then
-        Assert.assertTrue(testListNullary.getMyArray().length == 1);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void setTest(){
         //Given
         Object newElement2 = new Object();
+        Object expected = newElement1;
         //When
         testListNullary.add(newElement);
         testListNullary.add(newElement1);
-        testListNullary.set(2, newElement2);
+        Object actual = testListNullary.set(1, newElement2);
         //Then
-        Assert.assertTrue(testListNullary.getMyArray().length == 2);
-        Assert.assertTrue(testListNullary.get(2).equals(newElement2));
+        Assert.assertEquals(expected, actual);
+        Assert.assertTrue(testListNullary.get(1).equals(newElement2));
     }
 
     @Test
@@ -125,7 +129,7 @@ public class MyArrayListTest {
         testListNullary.add(newElement1);
         testListNullary.clear();
         //Then
-        Assert.assertTrue(testListNullary.getMyArray() == null);
+        Assert.assertTrue(testListNullary.size() == 0);
     }
 
     @Test
@@ -156,6 +160,10 @@ public class MyArrayListTest {
 
     @Test
     public void resizeMyArrayTest(){
-        Assert.assertTrue(testList.size() == testList.getMyArray().length);
+        testList.add("Hi");
+        testList.add("How");
+        testList.add("are");
+        testList.add("you");
+        Assert.assertTrue(testList.getMyArray().length == 8);
     }
 }

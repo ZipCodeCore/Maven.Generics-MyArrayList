@@ -14,7 +14,7 @@ public class MyArrayList<T> {
     }
 
     public T[] getMyArray() {
-        return myArray;
+        return this.myArray;
     }
 
     public void add(T element){//add element to array
@@ -27,23 +27,39 @@ public class MyArrayList<T> {
     }
 
     public T remove(int index){// remove element at specified index return removed element
+        T originalValue = this.myArray[index];
+        int shiftOver = actualSize - index - 1;
+        if (shiftOver > 0)
+            System.arraycopy(this.myArray, index+1, this.myArray, index,
+                    shiftOver);
+        this.myArray[--actualSize] = null;
 
-        return null;
+        return originalValue;
     }
 
-    public void set(int index, T element){// replaces element at index with specific element
-
+    public T set(int index, T element){// replaces element at index with specific element
+        T originalValue = this.myArray[index];
+        this.myArray[index] = element;
+        return originalValue;
     }
 
     public void clear(){// removes all elements from list
-
+            for(int i = 0; i < actualSize; i++){
+                this.myArray[i] = null;
+            }
+         actualSize = 0;
     }
 
     public boolean isEmpty(){// returns true if array has no elements
         return actualSize == 0;
     }
 
-    public boolean contains(T t){//return true if array contains specified element
+    public boolean contains(T elementWanted){//return true if array contains specified element
+        for (T element : this.myArray){
+            if (element == elementWanted){
+                return true;
+            }
+        }
         return false;
     }
 
@@ -56,5 +72,6 @@ public class MyArrayList<T> {
            this.myArray = Arrays.copyOf(myArray, myArray.length + myArray.length);
         }
     }
+
 
 }
