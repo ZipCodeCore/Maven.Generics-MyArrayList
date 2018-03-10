@@ -8,6 +8,7 @@ public class MyArrayList<T> {
 
     private T[] myArrayList;
 
+
     public MyArrayList(int size) {
         this.myArrayList = (T[]) new Object[size];
     }
@@ -19,6 +20,7 @@ public class MyArrayList<T> {
     public MyArrayList() {
         this.myArrayList =(T[]) new Object[0];
     }
+
 
     public T[] getMyArrayList() {
         return this.myArrayList;
@@ -120,6 +122,14 @@ public class MyArrayList<T> {
         T val = myArrayList[index];
         for(int i = 0; i<myArrayList.length; i++){
             if(myArrayList[i].equals(val)) count++;
+        }
+        return count;
+    }
+
+    public Integer countDuplicateKeys(KeyValuePair key){
+        Integer count = 0;
+        for(int i = 0; i<myArrayList.length; i++){
+            if(myArrayList[i].equals(key.getKey())) count++;
         }
         return count;
     }
