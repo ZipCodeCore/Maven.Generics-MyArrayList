@@ -34,7 +34,6 @@ public class MyArrayList<T> {
     }
 
     public void add(T aThing, int index) {
-        Arrays.copyOf(this.array, this.array.length + 1);
         System.arraycopy(this.array, index, this.array, index + 1, ((this.array.length - index) - 1));
         this.array[index] = aThing;
         currentIndex++;
@@ -50,9 +49,8 @@ public class MyArrayList<T> {
         this.currentIndex--;
     }
 
-
     public void remove(T aThing) {
-        System.arraycopy(this.array, indexOf(aThing) + 1, this.array, indexOf(aThing), (this.array.length - 1) - indexOf(aThing));
+        System.arraycopy(this.array,indexOf(aThing) + 1, this.array, indexOf(aThing),(this.array.length - 1) - indexOf(aThing));
         this.array[this.array.length - 1] = null;
         this.currentIndex--;
     }
@@ -96,7 +94,7 @@ public class MyArrayList<T> {
 
     public int indexOf(T aThing) {
 
-        int indexOf = -1;
+        int indexOf = 0;
 
         for (int i = 0; i < this.array.length; i++) {
             if (array[i] == (aThing)) {
