@@ -1,4 +1,4 @@
-package com.zipcodewilmington.myarraylist.carolynn;
+
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -14,17 +14,29 @@ public class MyArrayListTest {
     @Test
     public void constructor2Test(){
         MyArrayList<String> array = new MyArrayList<>(3);
-        Assert.assertNotNull(array);
+        int expected = 3;
+        int actual = array.size();
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void addTest(){
-        Integer[] input = {1, 2, 3, 4};
-        MyArrayList<Integer> it = new MyArrayList<Integer>(input);
-        Integer toBeAdded = 5;
-        Integer[] expected = {1, 2, 3, 4, 5};
+        String[] input = {"1", "2", "3", "4"};
+        MyArrayList<String> it = new MyArrayList<>();
+        String toBeAdded = "5";
+        Object[] expected = {"5"};
         it.add(toBeAdded);
-        Integer[] actual = it.getMyArrayList();
+        Object[] actual = it.getMyArrayList();
+        Assert.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void add3Test(){
+        MyArrayList<Integer> myArray = new MyArrayList<>();
+        Integer toBeAdded = 5;
+        Object[] expected = {5};
+        myArray.add(toBeAdded);
+        Object[] actual = myArray.getMyArrayList();
         Assert.assertArrayEquals(expected, actual);
     }
 
@@ -111,6 +123,15 @@ public class MyArrayListTest {
         MyArrayList<Integer> array = new MyArrayList<>(input);
         int expected = 7;
         int actual = array.size();
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void countDupesTest(){
+        Integer[] input = {1,1,2,1,3,1,4,1,5,1,6,1,7};
+        MyArrayList<Integer> array = new MyArrayList<>(input);
+        Integer expected = 7;
+        Integer actual = array.countDupes(0);
         Assert.assertEquals(expected, actual);
     }
 }
