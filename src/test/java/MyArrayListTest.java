@@ -9,7 +9,7 @@ public class MyArrayListTest {
     public void MyArrayListConstructorLengthTest() {
         // Given
         int expectedArrayLength = 1;
-        mal = new MyArrayList<>(1);
+        mal = new MyArrayList<>(expectedArrayLength);
         // When
         int actualArrayLength = mal.length();
         // Then
@@ -22,7 +22,6 @@ public class MyArrayListTest {
         int expectedIntAtIndex0 = 0;
         int expectedIntAtIndex1 = 1;
         int startingLength = 1;
-//        int expectedIntToRemove = 0;
         // When
         mal = new MyArrayList<>(startingLength);
         mal.add(expectedIntAtIndex0);
@@ -39,8 +38,7 @@ public class MyArrayListTest {
         int expectedIntAtIndex0 = 0;
         int expectedIndex1 = 1;
         int expectedIntAtIndex1 = 1;
-        int startingLength = 1;
-//        int expectedIntToRemove = 0;
+        int startingLength = 0;
         // When
         mal = new MyArrayList<>(startingLength);
         mal.add(expectedIndex0, expectedIntAtIndex0);
@@ -59,6 +57,21 @@ public class MyArrayListTest {
         int actualArrayLength = mal.length();
         // Then
         Assert.assertEquals(expectedArrayLength, actualArrayLength);
+    }
+
+    @Test
+    public void removeTest() {
+        // Given
+        int expectedIntAtIndex0 = 0;
+        int expectedIntAtIndex1 = 1;
+        int startingLength = 1;
+        // When
+        mal = new MyArrayList<>(startingLength);
+        mal.add(expectedIntAtIndex0);
+        mal.add(expectedIntAtIndex1);
+        int actualIntAtIndex1 = mal.get(1);
+        // Then
+        Assert.assertEquals(expectedIntAtIndex1, actualIntAtIndex1);
     }
 
     @Test

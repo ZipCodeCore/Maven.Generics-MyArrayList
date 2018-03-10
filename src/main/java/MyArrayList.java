@@ -6,11 +6,18 @@ public class MyArrayList<E> {
     private int size = 0;
 
     public MyArrayList() {
-        this.myArrayList = (E[]) new Object[0];
+        this.myArrayList = (E[]) new Object[1];
     }
 
-    public MyArrayList(int length) {
-        this.myArrayList = (E[]) new Object[length];
+    public MyArrayList(int length) throws IllegalArgumentException {
+        if (length < 0) {
+            throw new IllegalArgumentException("Array length cannot be less than zero.");
+        }
+        if (length == 0) {
+            this.myArrayList = (E[]) new Object[1];
+        } else {
+            this.myArrayList = (E[]) new Object[length];
+        }
     }
 
     public E[] getMyArrayList() {
