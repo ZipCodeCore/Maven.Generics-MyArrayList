@@ -72,4 +72,17 @@ public class MySet <T> {
     public int size(){
         return mySet.size();
     }
+
+    public boolean equals(T[] newSet){
+        if(newSet.length!=mySet.size()){
+            return false;
+        }else{
+            for(int i=0;i<newSet.length;i++){
+                if(!mySet.contains(newSet[i])){
+                    return false;
+                }
+            }
+        }
+        return newSet.equals(mySet);
+    }
 }

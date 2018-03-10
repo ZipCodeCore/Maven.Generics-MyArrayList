@@ -14,7 +14,6 @@ public class MySetTest {
        boolean actual = test.add(10);
 
         Assert.assertEquals(expected,actual);
-
     }
 
     @Test
@@ -37,7 +36,6 @@ public class MySetTest {
 
         boolean actual = test.add(100.54);
         Assert.assertTrue(actual);
-
     }
     @Test
     public void testAdd4() {
@@ -77,8 +75,6 @@ public class MySetTest {
         boolean actual  = test.remove("Micheal");
 
         Assert.assertFalse(actual);
-
-
     }
 
     @Test
@@ -120,5 +116,35 @@ public class MySetTest {
     @Test
     public void testGet() {
 
+    }
+    @Test
+    public void testSize(){
+        MySet<String> test = new MySet<>();
+        test.add("Thomas");
+        test.add("John");
+        test.add("Joshua");
+
+        int expected = 3;
+        int actual = test.size();
+
+        Assert.assertEquals(expected,actual);
+
+    }
+    @Test
+    public void testEquals(){
+        MySet<Integer>test1 = new MySet<>();
+        MySet<Integer>test2 = new MySet<>();
+
+        test1.add(10);
+        test1.add(12);
+        test1.add(34);
+
+        test2.add(10);
+        test2.add(12);
+        test2.add(34);
+        boolean expected = true;
+        boolean actual = test1.equals(test2);
+
+        Assert.assertEquals(expected,actual);
     }
 }
