@@ -147,11 +147,10 @@ public class MyArrayListTest {
         arrayListTest.add(5);
         arrayListTest.add(4);
         arrayListTest.add(2);
-
-        arrayListTest.remove(4);
+        arrayListTest.remove(6);
 
         //When
-        Integer[] expected = {3,6,5,4,2};
+        Integer[] expected = {3,5,4,2};
         Integer[] actual = arrayListTest.toArray(new Integer[0]);
 
         //Then
