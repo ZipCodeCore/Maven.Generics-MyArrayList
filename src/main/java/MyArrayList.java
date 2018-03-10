@@ -9,7 +9,7 @@ public class MyArrayList <T> {
     public MyArrayList(){
         this.array = (T[]) new Object[0];
     }
-    public MyArrayList(int i){
+    public MyArrayList(Integer i){
         this.array = (T[]) new Object[i];
     }
     public void add(T value){
@@ -19,7 +19,7 @@ public class MyArrayList <T> {
         this.array = newArray;
 
     }
-    public void add(int i, T value){
+    public void add(Integer i, T value){
         T[] newArray = Arrays.copyOf(array, array.length+1);
         counter++;
         for (int index = 0, newIndex = 0; index < newArray.length; index++){
@@ -31,7 +31,7 @@ public class MyArrayList <T> {
         }
         this.array = newArray;
     }
-    public T get(int i){
+    public T get(Integer i){
         return array[i];
     }
     public void remove(int index){
