@@ -40,8 +40,4 @@ public class AddTest {
         Assert.assertEquals(expected, actual);
     }
 
-
-    @Test
-    public void add1() {
-    }
 }

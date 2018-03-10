@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -7,6 +8,7 @@ public class MyArrayList<E> {
     private boolean isEmpty = false;
     private int sizeOfList;
     private int capacitiy;
+    private int nullValues;
 
     private ArrayList<String> time;
 
@@ -41,12 +43,6 @@ public class MyArrayList<E> {
 
     }
 
-    //if smaller array falls below length increments of ten then resize the array
-    public void reFactorArraySize() {
-
-    }
-
-
     //adds to a specific index.
     public boolean add(E theObject, int index) {
 
@@ -62,9 +58,27 @@ public class MyArrayList<E> {
 
 
     public boolean remove(E theObject) {
-
-        return false;
+        boolean removed = false;
+        int index = indexOf(theObject);
+        if (index != -1) {
+            removed = removeFromList(index);
+        }
+        return removed;
     }
+
+    public boolean removeFromList(int index) {
+        numbers[index] = null;
+        for (int i = index; i < sizeOfList; i++) {
+
+            if (numbers[i + 1] != null) {
+                numbers[i] = numbers[i + 1];
+            }
+        }
+        nullValues++;
+        sizeOfList--;
+        return true;
+    }
+
 
     public boolean isEmpty() {
         return this.isEmpty;
@@ -72,7 +86,8 @@ public class MyArrayList<E> {
 
     // clears array by setting new array to size zero;
     public void clear() {
-
+        sizeOfList = 0;
+        clearAllResize();
     }
 
     public boolean contains(E theObject) {
@@ -92,8 +107,43 @@ public class MyArrayList<E> {
         return numbers.length;
     }
 
-    public void reSizeList() {
-        // check to see if the list is 3/4 full if so resize the list
-        // this.isEmpty
+    public E get(int index) {
+
+        if (index >= 0 && index <= sizeOfList) {
+            return numbers[index];
+        }
+        return null;
     }
+
+    public int indexOf(E theObject) {
+        for (int i = 0; i < sizeOfList; i++) {
+            if (theObject.equals(numbers[i]))
+                return i;
+        }
+        return -1;
+    }
+
+    public int getNumberOfNulls() {
+        return this.nullValues;
+    }
+
+    public void reSizeList() {
+        int oldCapasity = numbers.length;
+        int newCapasity = oldCapasity - DEFAULT_SIZE;
+        if (newCapasity > 10 && nullValues == 10) {
+            reSize();
+        }
+    }
+
+    public void reSize() {
+        numbers = Arrays.copyOf(numbers, numbers.length - DEFAULT_SIZE);
+    }
+
+    public void clearAllResize() {
+        numbers = Arrays.copyOf(numbers, DEFAULT_SIZE);
+        for (E number : numbers) {
+            number = null;
+        }
+    }
+
 }
