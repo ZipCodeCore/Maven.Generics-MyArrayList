@@ -38,16 +38,16 @@ public class MyArrayList<E> {
         numbers = Arrays.copyOf(numbers, newCapacity);
     }
 
-    //if smaller array falls below length increments of ten then resize the array
-    public void trimSize() {
-
-    }
-
     //adds to a specific index.
     public boolean add(E theObject, int index) {
-
-        return false;
+        ensureCapacity(sizeOfList + 1);
+        System.arraycopy(numbers, index, numbers, index + 1,
+                sizeOfList - index);
+        numbers[index] = theObject;
+        sizeOfList++;
+        return true;
     }
+
 
     //adds to the last index
     public boolean add(E theObject) {

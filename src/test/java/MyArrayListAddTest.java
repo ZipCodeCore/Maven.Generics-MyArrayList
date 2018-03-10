@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class AddTest {
+public class MyArrayListAddTest {
 
     private MyArrayList theList;
     private Integer[] numbers;
@@ -38,6 +38,19 @@ public class AddTest {
         boolean actual = theList.contains(test2);
 
         Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void addToSpecificIndex() {
+        for (int i = 1; i < 13; i++) {
+            theList.add(i);
+        }
+        theList.add(5, 7);
+
+        int expected = 5;
+        int actual = (Integer)theList.get(7);
+
+        assertEquals(expected, actual);
     }
 
 }
