@@ -19,7 +19,7 @@ Implement your own version of an ArrayList (we'll call it MyArrayList), with the
 - MyArrayList must be a generic type, which can store any other type of object
 - MyArrayList must not use List, ArrayList or any other collection type in its implementation, only Arrays (The purpose of this is to practice designing your own generic class from the ground up, so that you can appreciate their complexities and usefulness)
 - MyArrayList must have `add()`, `get()`, `remove()`, `set()`, `clear()`, `isEmpty()`, `contains()` and other methods to provide the same basic functionality described in the [ArrayList documentation](https://docs.oracle.com/javase/7/docs/api/java/util/ArrayList.html)
-- `add()` should be overridden to add an element to the end of the Array, or to add the element to a specified index in the array.
+- `add()` should be overridden to add an element to the end of the Array, or to add the element to a specified myLength in the array.
 - MyArrayList must have a no-argument constructor (`MyArrayList()`) to initialize a new instance, it should also have a one-argument constructor (`MyArrayList(int)`) that takes an int and starts the list off at the specified size.
 - MyArrayList should automatically resize and maintain its order.
 
