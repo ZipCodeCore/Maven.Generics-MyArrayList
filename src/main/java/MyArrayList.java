@@ -6,17 +6,18 @@ public class MyArrayList<E> {
     private static final Logger logger = Logger.getGlobal();
 
     private E[] myArrayList;
+    // where size = number of elements in array; size != array's length
     private int size = 0;
 
     public MyArrayList() {
         this.myArrayList = (E[]) new Object[10];
     }
 
-    public MyArrayList(int length) throws IllegalArgumentException {
-        if (length < 0) {
-            throw new IllegalArgumentException("Array length cannot be less than zero.");
+    public MyArrayList(int initialCapacity) throws IllegalArgumentException {
+        if (initialCapacity < 0) {
+            throw new IllegalArgumentException("The array's initial capacity cannot be less than zero.");
         } else {
-            this.myArrayList = (E[]) new Object[length];
+            this.myArrayList = (E[]) new Object[initialCapacity];
         }
     }
 
@@ -96,6 +97,10 @@ public class MyArrayList<E> {
 
     public int length() {
         return myArrayList.length;
+    }
+
+    public int size() {
+        return size;
     }
 
     public void ensureCapacity() {

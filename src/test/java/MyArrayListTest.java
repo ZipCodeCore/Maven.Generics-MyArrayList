@@ -54,10 +54,9 @@ public class MyArrayListTest {
         mal = new MyArrayList<>(startingLength);
         mal.add(expectedIndex0, expectedIntAtIndex0);
         mal.add(expectedIndex1, expectedIntAtIndex1);
-        System.out.println(mal.length());
-//        int actualIntAtIndex1 = mal.get(1);
+        int actualIntAtIndex1 = mal.get(1);
         // Then
-//        Assert.assertEquals(expectedIntAtIndex1, actualIntAtIndex1);
+        Assert.assertEquals(expectedIntAtIndex1, actualIntAtIndex1);
     }
 
     @Test
@@ -194,6 +193,24 @@ public class MyArrayListTest {
         boolean actualContains = mal.contains(originalIntAtIndex1);
         // Then
         Assert.assertEquals(expectedContains, actualContains);
+    }
+
+    @Test
+    public void sizeTest() {
+        // Given
+        int expectedIndex0 = 0;
+        int expectedIntAtIndex0 = 0;
+        int expectedIndex1 = 1;
+        int expectedIntAtIndex1 = 1;
+        int expectedLength = 3;
+        int expectedSize = 2;
+        // When
+        mal = new MyArrayList<>(expectedLength);
+        mal.add(expectedIndex0, expectedIntAtIndex0);
+        mal.add(expectedIndex1, expectedIntAtIndex1);
+        int actualSize = mal.size();
+        // Then
+        Assert.assertEquals(expectedSize, actualSize);
     }
 
     @Test
