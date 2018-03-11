@@ -7,7 +7,7 @@ public class MyArrayList<T> {
     protected T[] myArrayList;
 
     public MyArrayList() {
-        this.myArrayList = (T[]) new Object[10];
+        this.myArrayList = (T[]) new Object[0];
 
     }
 
@@ -19,8 +19,8 @@ public class MyArrayList<T> {
 
     public void add(T elementToAdd) {
         if(!contains(elementToAdd)){
-            if(myArrayList.length-size()<5){
-                ensureCapacity();
+            if(myArrayList.length-this.size()<5){
+                this.ensureCapacity();
             }
             myArrayList[currentIndex]=elementToAdd;
             currentIndex++;
@@ -32,7 +32,7 @@ public class MyArrayList<T> {
             myArrayList[index] = elementToAdd;
         } else {
                 if(this.myArrayList.length-size()<5){
-                    ensureCapacity();
+                    this.ensureCapacity();
                 }
             int counter = currentIndex;
             while (index < counter) {
@@ -42,6 +42,11 @@ public class MyArrayList<T> {
             myArrayList[index]=elementToAdd;
         }
         currentIndex++;
+    }
+    public void addAll(T[] arrayOfElementsToAdd){
+            this.myArrayList = Arrays.copyOf(this.myArrayList,this.size()+arrayOfElementsToAdd.length);
+            System.arraycopy(arrayOfElementsToAdd,0,myArrayList,this.size(),arrayOfElementsToAdd.length);
+            currentIndex+=arrayOfElementsToAdd.length;
     }
 
     public void remove(int index) {
@@ -91,11 +96,11 @@ public class MyArrayList<T> {
         System.out.println(builder.toString());
 
     }
-
+    //expands the capacity of the array by 10
     public void ensureCapacity() {
-        myArrayList = Arrays.copyOf(myArrayList, myArrayList.length + 10);
+        myArrayList = Arrays.copyOf(myArrayList, this.size() + 10);
     }
-
+    //returns the actual number of objects in the array.
     public int size() {
         return currentIndex;
     }
@@ -123,20 +128,17 @@ public class MyArrayList<T> {
         }
         return false;
     }
-
+    //returns true if there no object is added to the array.
     public boolean isEmpty() {
-        if (currentIndex == 0) {
-            return true;
-        }
-        return false;
+        return this.size()==0;
     }
 
     public void trimToSize() {
-        for (int i = 0; i < myArrayList.length; i++) {
-            if (myArrayList[i].equals(null)) {
-                remove(i);
-            }
-        }
+        this.myArrayList= Arrays.copyOf(this.myArrayList,this.size());
+    }
+
+    public T[] toArray(T[] anArray){
+        return (T[]) Arrays.copyOf(this.myArrayList,this.size(),anArray.getClass());
     }
 
 

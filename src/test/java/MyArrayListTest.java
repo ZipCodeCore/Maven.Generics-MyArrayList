@@ -8,21 +8,18 @@ public class MyArrayListTest {
 
     @Test
     public void testAdd() {
-        MyArrayList<Integer> test = new MyArrayList<Integer>();
+        MyArrayList<Integer> test = new MyArrayList<>();
         Integer elementToAdd = 10;
         test.add(elementToAdd);
-        System.out.println(test.size());
 
         Integer expected = 1;
         Integer actual = test.size();
 
         Assert.assertEquals(expected,actual);
-
-
     }
     @Test
     public void testAddAtIndex(){
-        MyArrayList<String> test = new MyArrayList<String>();
+        MyArrayList<String> test = new MyArrayList<>();
         test.add("Hey Bo, Jess");
         test.add("Tomorrow");
         test.add("is");
@@ -42,15 +39,38 @@ public class MyArrayListTest {
         Assert.assertEquals(expected,actual);
 
         test.printElements();
-        System.out.println(test.size());
 
 
+
+    }
+    @Test
+    public void testAddAll1(){
+        MyArrayList<Integer>test = new MyArrayList<>();
+        test.add(10);
+        test.add(33);
+        test.add(40);
+        Integer[] arrayOfElementsToAdd = {50,25,4,77};
+
+        test.addAll(arrayOfElementsToAdd);
+
+        Integer expected = 7;
+        Integer actual = test.size();
+        Assert.assertEquals(expected,actual);
+
+    }
+    @Test
+    public void testAddAll2(){
+        MyArrayList<String> test = new MyArrayList<>();
+
+        String[] expected = {"Joshua","Luis","Kibret"};
+        test.addAll(expected);
+        String[]actual = test.toArray(new String[0]);
 
     }
 
     @Test
     public void testRemove() {
-        MyArrayList<Double>test =new MyArrayList<Double>();
+        MyArrayList<Double>test =new MyArrayList<>();
         test.add(2.0);
         test.add(4.75);
         test.remove(0);
@@ -58,7 +78,7 @@ public class MyArrayListTest {
 
     @Test
     public void testRetIndex1() {
-        MyArrayList<Integer> test = new MyArrayList<Integer>();
+        MyArrayList<Integer> test = new MyArrayList<>();
         test.add(new Integer(1));
         test.add(new Integer(2));
         test.add(new Integer(3));
@@ -71,7 +91,7 @@ public class MyArrayListTest {
 
     @Test
     public void testGetIndex2(){
-        MyArrayList<String> test = new MyArrayList<String>();
+        MyArrayList<String> test = new MyArrayList<>();
        test.add("Hey Joe");
         test.add("Tomorrow");
         test.add("is");
@@ -94,7 +114,7 @@ public class MyArrayListTest {
 
     @Test
     public void testSet() {
-        MyArrayList<String> test = new MyArrayList<String>();
+        MyArrayList<String> test = new MyArrayList<>();
         test.add("Coding");
         test.add("Sucks");
         test.set(1,"is Fun");
@@ -106,17 +126,28 @@ public class MyArrayListTest {
     }
 
     @Test
-    public void testClear() {
-        MyArrayList<Integer> test = new MyArrayList<Integer>();
+    public void testClear1() {
+        MyArrayList<Integer> test = new MyArrayList<>();
         test.add(new Integer(1));
         test.add(new Integer(2));
         test.add(new Integer(3));
 
         test.clear();
 
-        boolean expected  = false;
         boolean actual = test.contains(3);
+        Assert.assertFalse(actual);
 
+    }
+    @Test
+    public void testClear2() {
+        MyArrayList<Long> test = new MyArrayList<>();
+        test.add(14L);
+        test.add(55L);
+        test.add(33L);
+
+        test.clear();
+        Integer expected = 0;
+        Integer actual = test.size();
         Assert.assertEquals(expected,actual);
 
     }
