@@ -23,14 +23,16 @@ public class MySetTest {
     @Test
     public void addTest() {
         // Given
-        int expectedSize = 1;
+        int expectedSize = 2;
         String expectedStringToAdd0 = "0";
-        String expectedStringToAdd1 = "0";
+        String expectedStringToAdd1 = "1";
         mySet = new MySet<>();
         // When
         mySet.add(expectedStringToAdd0);
         mySet.add(expectedStringToAdd1);
+        int actualSize = mySet.size();
         // Then
+        Assert.assertEquals(expectedSize, actualSize);
     }
 
     @Test

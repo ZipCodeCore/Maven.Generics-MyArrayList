@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.logging.Logger;
 
 public class MyArrayList<E> {
@@ -11,6 +13,20 @@ public class MyArrayList<E> {
 
     public MyArrayList() {
         this.myArrayList = (E[]) new Object[10];
+    }
+
+    public MyArrayList(Collection<? extends E> collection) {
+        this.myArrayList = (E[]) collection.toArray();
+        if (myArrayList.length == 0) {
+            size = 0;
+        } else {
+            for (int i = 0; i < myArrayList.length; i++) {
+                if (myArrayList[i] == null) {
+                    size = i;
+                    break;
+                }
+            }
+        }
     }
 
     public MyArrayList(int initialCapacity) throws IllegalArgumentException {
