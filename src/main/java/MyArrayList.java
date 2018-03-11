@@ -53,12 +53,10 @@ public class MyArrayList<E> {
             throw new ArrayIndexOutOfBoundsException(index);
         }
         E elementRemoved = myArrayList[index];
-        if ( (myArrayList.length == 1 && index == 0) || (index == size - 1) ) {
-            myArrayList[index] = null;
-        } else {
+        if (! (index == size - 1)) {
             shiftElementsFromSizeToIndex(index);
-            myArrayList[size - 1] = null;
         }
+        myArrayList[size - 1] = null;
         size--;
         return elementRemoved;
     }
@@ -73,7 +71,7 @@ public class MyArrayList<E> {
     }
 
     public void clear() {
-
+        this.myArrayList = (E[]) new Object[0];
     }
 
     public boolean isEmpty() {
