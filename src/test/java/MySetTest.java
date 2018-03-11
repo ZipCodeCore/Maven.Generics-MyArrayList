@@ -108,4 +108,19 @@ public class MySetTest {
         Assert.assertEquals(expected, actual);
     }
 
+    @Test
+    public void sizeTest(){
+        //Given
+        MySet<String> setTest = new MySet<>();
+        setTest.add("Bobby");
+        setTest.add("Peter");
+        setTest.add("Judy");
+
+        //When
+        int expected = 3;
+        int actual = setTest.size();
+
+        //Then
+        Assert.assertEquals(expected, actual);
+    }
 }

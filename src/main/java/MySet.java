@@ -1,13 +1,9 @@
 public class MySet <T> {
 
-    MyArrayList myArrayList;
+    private MyArrayList myArrayList;
 
     public MySet(){
         this.myArrayList = new MyArrayList<>();
-    }
-
-    public MySet(T[] array){
-
     }
 
     public void add(T value) {
@@ -22,6 +18,10 @@ public class MySet <T> {
                 myArrayList.add(array[i]);
             }
         }
+    }
+
+    public int size(){
+        return this.myArrayList.size();
     }
 
     public void clear() {

@@ -66,13 +66,11 @@ public class MyArrayList <T>{
     }
 
     public boolean removeObject(T object){
+        int count = 0;
+        int remove = 0;
         if(!contains(object)){
             return false;
         }
-
-        int count = 0;
-        int remove = 0;
-
         for (int i = 0; i < this.myArray.length; i++) {
             if (this.myArray[i] == object) {
                 count++;
