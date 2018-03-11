@@ -111,9 +111,18 @@ public class MyArrayList<E> {
 
     public boolean contains(E e) {
         for (int i = 0; i < myArray.length; i++) {
-            if (myArray[i] == e) return true;
+            if (myArray[i].equals(e)) return true;
         }
         return false;
+    }
+
+    public E[] toArray() {
+
+        E[] newArray = (E[]) new Object[this.size()];
+        for(int i =0; i < this.size(); i++) {
+            newArray[i] = this.get(i);
+        }
+        return newArray;
     }
 
 }

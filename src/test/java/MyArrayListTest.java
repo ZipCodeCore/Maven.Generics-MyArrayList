@@ -8,7 +8,7 @@ public class MyArrayListTest {
     @Test
     public void addIntegerTest() {
         //Given
-        MyArrayList<Integer> testArray = new MyArrayList<>();
+        MyArrayList<Integer> testArray = new MyArrayList<>(5);
         //When
         int expected = 6;
         testArray.add(1);
@@ -20,7 +20,7 @@ public class MyArrayListTest {
     @Test
     public void addStringTest() {
         //Given
-        MyArrayList<String> testArray = new MyArrayList<>();
+        MyArrayList<String> testArray = new MyArrayList<>(5);
         //When
         int expected = 6;
         testArray.add("Ain't no thang!");
@@ -32,7 +32,7 @@ public class MyArrayListTest {
     @Test
     public void addIntegerTestTwoArgs() {
         //Given
-        MyArrayList<Integer> testArray = new MyArrayList<>();
+        MyArrayList<Integer> testArray = new MyArrayList<>(5);
         //When
         int expected = 7;
         testArray.add(6, 22);
@@ -46,7 +46,7 @@ public class MyArrayListTest {
     public void addStringTestTwoArgs() {
 
         //Given
-        MyArrayList<String> testArray = new MyArrayList<>();
+        MyArrayList<String> testArray = new MyArrayList<>(5);
         //When
         int expected = 7;
         testArray.add(6, "Isn't it ironic?");
@@ -58,7 +58,7 @@ public class MyArrayListTest {
     @Test
     public void addAll() {
         //Given
-        MyArrayList<String> testArray = new MyArrayList<>();
+        MyArrayList<String> testArray = new MyArrayList<>(5);
         //When
         String[] people = {"Dan Stooser", "Martin Kleadman", "Freudman Rachborn", "Seanly Priborg"};
         testArray.add(0, "Reinhardt Massvender");
@@ -76,7 +76,7 @@ public class MyArrayListTest {
     @Test
     public void addAllIntegers() {
         //Given
-        MyArrayList<Integer> testArray = new MyArrayList<>();
+        MyArrayList<Integer> testArray = new MyArrayList<>(5);
         //When
         Integer[] people = {12, 21, 344,  3234, 324344};
         testArray.add(0, 98372);
@@ -94,7 +94,7 @@ public class MyArrayListTest {
     @Test
     public void get() {
         //Given
-        MyArrayList<String> testArray = new MyArrayList<>();
+        MyArrayList<String> testArray = new MyArrayList<>(5);
         //When
         Assert.assertTrue(testArray.get(3) == null);
         //Then
@@ -103,7 +103,7 @@ public class MyArrayListTest {
     @Test
     public void getInteger() {
         //Given
-        MyArrayList<Integer> testArray = new MyArrayList<>();
+        MyArrayList<Integer> testArray = new MyArrayList<>(5);
         //When
         testArray.set(4, 3);
         //Then
@@ -114,7 +114,7 @@ public class MyArrayListTest {
     public void remove() {
 
         //Given
-        MyArrayList<Integer> testArray = new MyArrayList<>();
+        MyArrayList<Integer> testArray = new MyArrayList<>(5);
         //When
         int expected = 5;
         testArray.remove(5);
@@ -191,7 +191,7 @@ public class MyArrayListTest {
     @Test
     public void set() {
         //Given
-        MyArrayList<Integer> testArray = new MyArrayList<>();
+        MyArrayList<Integer> testArray = new MyArrayList<>(5);
         int testIndex = 3;
         //When
         testArray.set(testIndex, 5);
@@ -206,7 +206,7 @@ public class MyArrayListTest {
     @Test
     public void clear() {
         //Given
-        MyArrayList<Integer> testArray = new MyArrayList<>();
+        MyArrayList<Integer> testArray = new MyArrayList<>(5);
         //When
         testArray.clear();
         //Then
@@ -216,7 +216,7 @@ public class MyArrayListTest {
     @Test
     public void isEmptyTrue() {
         //Given
-        MyArrayList<String> testArray = new MyArrayList<>();
+        MyArrayList<String> testArray = new MyArrayList<>(5);
         //When
         testArray.add(0, "Hoobastank");
         testArray.add(1, "Coldplay");
@@ -235,7 +235,7 @@ public class MyArrayListTest {
     @Test
     public void isEmptyStringFalse() {
         //Given
-        MyArrayList<String> testArray = new MyArrayList<>();
+        MyArrayList<String> testArray = new MyArrayList<>(5);
         //When
         testArray.set(0, "Twilight");
         testArray.set(1,  "Princess");
@@ -249,7 +249,7 @@ public class MyArrayListTest {
     @Test
     public void isEmptyFalse() {
         //Given
-        MyArrayList<Integer> testArray = new MyArrayList<>();
+        MyArrayList<Integer> testArray = new MyArrayList<>(5);
         //When
         testArray.set(0, 221);
         testArray.set(1,  12);
@@ -263,7 +263,7 @@ public class MyArrayListTest {
     @Test
     public void containsFalse() {
     //Given
-        MyArrayList<String> testArray = new MyArrayList<>();
+        MyArrayList<String> testArray = new MyArrayList<>(5);
     //When
         String searchCriteria = "Imperium";
         testArray.set(0, "Twilight");
@@ -278,7 +278,7 @@ public class MyArrayListTest {
     @Test
     public void containsTrue() {
         //Given
-        MyArrayList<String> testArray = new MyArrayList<>();
+        MyArrayList<String> testArray = new MyArrayList<>(5);
         //When
         String searchCriteria = "Imperium";
         testArray.set(0, "Twilight");
@@ -288,5 +288,17 @@ public class MyArrayListTest {
         testArray.set(4, "Sparkle");
         //Then
         Assert.assertTrue(testArray.contains(searchCriteria));
+    }
+
+    @Test
+    public void testToArray() {
+        MyArrayList<String> testArray = new MyArrayList<>(5);
+        testArray.set(0, "Twilight");
+        testArray.set(1,  "Princess");
+        testArray.set(2, "Filter");
+        testArray.set(3, "Zone");
+        testArray.set(4, "Sparkle");
+        String[] expected = {"Twilight", "Princess", "Filter", "Zone", "Sparkle"};
+        Assert.assertEquals(expected, testArray.toArray());
     }
 }

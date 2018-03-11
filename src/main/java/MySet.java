@@ -1,77 +1,58 @@
-import java.util.Arrays;
+
 import java.util.HashSet;
 import java.util.Iterator;
 
-public class MySet<E> {
+public class MySet<E>{
 
-    public E[] mySet;
+    MyArrayList<E> mySet;
 
     public MySet() {
-        this.mySet = (E[]) new Object[2];
+        mySet = new MyArrayList<>(5);
+    }
+
+    public MySet(int size){
+        mySet = new MyArrayList<>(size);
+    }
+
+    public E get(int index) {
+        return mySet.get(index);
     }
 
     public void add(E e) {
-        if (!contains(e)) {
-            E[] mySet1 = Arrays.copyOf(mySet, mySet.length + 1);
-            mySet1[mySet.length -1] = e;
-            mySet = mySet1;
-        }
-
+        if (!mySet.contains(e)) mySet.add(e);
     }
 
-    public void addAll(E[] e) {
 
+    public void addAll(E[] eray) {
+        for (int i = 0; i < eray.length; i++) {
+            mySet.add(eray[i]);
+        }
     }
 
     public void clear() {
-
+        this.mySet.clear();
     }
 
     public boolean contains(E e) {
-        return false;
-    }
+       return this.mySet.contains(e);
 
-    public boolean containsAll(E[] e) {
-        return false;
-    }
-
-    public boolean setEquals(E e){
-        return false;
-    }
-
-    public int mySetHashCode() {
-        return 0;
     }
 
     public boolean isEmpty() {
-        return false;
-    }
-
-    public Iterator<E> iterator() {
-        return null;
+        return this.mySet.isEmpty();
     }
 
     public void remove(E e) {
-
-    }
-
-    public void removeAll(E[] e) {
-
-    }
-
-    public E[] retainAll(E[] e) {
-        return null;
+        this.mySet.remove(e);
     }
 
     public int size() {
-        return this.mySet.length;
+        return this.mySet.size();
     }
 
     public E[] toArray() {
-        return null;
+        return mySet.toArray();
     }
 
-    public E[] toArray(E e) {
-        return null;
-    }
+
 }
