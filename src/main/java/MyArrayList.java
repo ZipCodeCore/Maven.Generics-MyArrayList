@@ -82,7 +82,15 @@ public class MyArrayList<E> {
         }
     }
 
-    public boolean contains() {
+    public boolean contains(E elementToFind) {
+        if (isEmpty()) {
+            return false;
+        }
+        for (E elementInList : myArrayList) {
+            if (elementInList == elementToFind) {
+                return true;
+            }
+        }
         return false;
     }
 

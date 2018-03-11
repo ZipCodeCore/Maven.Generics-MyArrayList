@@ -181,6 +181,22 @@ public class MyArrayListTest {
     }
 
     @Test
+    public void containsTest() {
+        // Given
+        boolean expectedContains = true;
+        int originalIntAtIndex0 = 0;
+        int originalIntAtIndex1 = 1;
+        int startingArrayLength = 2;
+        mal = new MyArrayList<>(startingArrayLength);
+        // When
+        mal.add(originalIntAtIndex0);
+        mal.add(originalIntAtIndex1);
+        boolean actualContains = mal.contains(originalIntAtIndex1);
+        // Then
+        Assert.assertEquals(expectedContains, actualContains);
+    }
+
+    @Test
     public void ensureCapacityTest() {
         // Given
         int expectedArrayLength = 2;
