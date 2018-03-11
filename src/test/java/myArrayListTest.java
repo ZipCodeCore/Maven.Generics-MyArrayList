@@ -6,7 +6,7 @@ public class myArrayListTest {
     @Test
     public void addLongTest() {
         //Given
-        MyArrayList<Long> myArrayList = new MyArrayList<>();
+        MyArrayList<Long, V> myArrayList = new MyArrayList<>();
         Long valueToAdd = 4L;
         myArrayList.add(1L);
         myArrayList.add(2L);
@@ -26,7 +26,7 @@ public class myArrayListTest {
     @Test
     public void addStringTest() {
         //Given
-        MyArrayList<String> myArrayList = new MyArrayList<>();
+        MyArrayList<String, V> myArrayList = new MyArrayList<>();
         String valueToAdd = "Paxton";
         myArrayList.add("Kay");
         myArrayList.add(valueToAdd);
@@ -46,7 +46,7 @@ public class myArrayListTest {
     @Test
     public void addIntegerTest() {
         //Given
-        MyArrayList<Integer> myArrayList = new MyArrayList<>();
+        MyArrayList<Integer, V> myArrayList = new MyArrayList<>();
         Integer valueToAdd = 12;
         myArrayList.add(2);
         myArrayList.add(9);
@@ -69,7 +69,7 @@ public class myArrayListTest {
     @Test
     public void sizeTest() {
         //Given
-        MyArrayList<Integer> myArrayList = new MyArrayList<>();
+        MyArrayList<Integer, V> myArrayList = new MyArrayList<>();
         Integer valueToAdd = 12;
         myArrayList.add(2);
         myArrayList.add(9);
@@ -92,7 +92,7 @@ public class myArrayListTest {
     @Test
     public void sizeStringTest() {
         //Given
-        MyArrayList<String> myArrayList = new MyArrayList<>();
+        MyArrayList<String, V> myArrayList = new MyArrayList<>();
         String valueToAdd = "Paxton";
         myArrayList.add("Kay");
         myArrayList.add(valueToAdd);
@@ -112,7 +112,7 @@ public class myArrayListTest {
     @Test
     public void setIntTest() {
         //Given
-        MyArrayList<Integer> myArrayList = new MyArrayList<>();
+        MyArrayList<Integer, V> myArrayList = new MyArrayList<>();
 
         myArrayList.add(0);
         myArrayList.add(1);
@@ -132,7 +132,7 @@ public class myArrayListTest {
     @Test
     public void setStringTest() {
         //Given
-        MyArrayList<String> myArrayList = new MyArrayList<>();
+        MyArrayList<String, V> myArrayList = new MyArrayList<>();
         myArrayList.add("Kay");
         myArrayList.add("Paxton");
         myArrayList.add("Joseph");
@@ -153,7 +153,7 @@ public class myArrayListTest {
     @Test
     public void addIndexTest() {
         //Given
-        MyArrayList<Integer> myArrayList = new MyArrayList<>();
+        MyArrayList<Integer, V> myArrayList = new MyArrayList<>();
 
         myArrayList.add(0);
         myArrayList.add(1);
@@ -173,7 +173,7 @@ public class myArrayListTest {
     @Test
     public void addStringIndexTest() {
         //Given
-        MyArrayList<String> myArrayList = new MyArrayList<>();
+        MyArrayList<String, V> myArrayList = new MyArrayList<>();
 
         myArrayList.add("Kay");
         myArrayList.add("Paxton");
@@ -193,7 +193,7 @@ public class myArrayListTest {
     @Test
     public void toArrayIntTest() {
         //Given
-        MyArrayList<Integer> myArrayList = new MyArrayList<>();
+        MyArrayList<Integer, V> myArrayList = new MyArrayList<>();
 
         myArrayList.add(0);
         myArrayList.add(1);
@@ -212,7 +212,7 @@ public class myArrayListTest {
     @Test
     public void toArrayStringTest() {
         //Given
-        MyArrayList<String> myArrayList = new MyArrayList<>();
+        MyArrayList<String, V> myArrayList = new MyArrayList<>();
 
         myArrayList.add("Kay");
         myArrayList.add("Paxton");
@@ -231,7 +231,7 @@ public class myArrayListTest {
     @Test
     public void getIndexIntTest() {
         //Given
-        MyArrayList<Integer> myArrayList = new MyArrayList<>();
+        MyArrayList<Integer, V> myArrayList = new MyArrayList<>();
 
         myArrayList.add(0);
         myArrayList.add(1);
@@ -251,7 +251,7 @@ public class myArrayListTest {
     @Test
     public void getIndexStringTest() {
         //Given
-        MyArrayList<String> myArrayList = new MyArrayList<>();
+        MyArrayList<String, V> myArrayList = new MyArrayList<>();
 
         myArrayList.add("Kay");
         myArrayList.add("Paxton");
@@ -271,7 +271,7 @@ public class myArrayListTest {
     @Test
     public void removeIntTest(){
         //Given
-        MyArrayList<Integer> myArrayList = new MyArrayList<>();
+        MyArrayList<Integer, V> myArrayList = new MyArrayList<>();
 
         myArrayList.add(0);
         myArrayList.add(1);
@@ -291,7 +291,7 @@ public class myArrayListTest {
     @Test
     public void removeStringTest(){
         //Given
-        MyArrayList<String> myArrayList = new MyArrayList<>();
+        MyArrayList<String, V> myArrayList = new MyArrayList<>();
 
         myArrayList.add("Kay");
         myArrayList.add("Paxton");
@@ -311,7 +311,7 @@ public class myArrayListTest {
     @Test
     public void clearTest(){
         //Given
-        MyArrayList<Integer> myArrayList = new MyArrayList<>();
+        MyArrayList<Integer, V> myArrayList = new MyArrayList<>();
 
         myArrayList.add(0);
         myArrayList.add(1);
@@ -332,7 +332,7 @@ public class myArrayListTest {
     @Test
     public void clearStringTest(){
         //Given
-        MyArrayList<String> myArrayList = new MyArrayList<>();
+        MyArrayList<String, V> myArrayList = new MyArrayList<>();
 
         myArrayList.add("Hello");
         myArrayList.add("There");
@@ -352,7 +352,7 @@ public class myArrayListTest {
     @Test
     public void isEmptyTest() {
         //Given
-        MyArrayList<Integer> myArrayList = new MyArrayList<>();
+        MyArrayList<Integer, V> myArrayList = new MyArrayList<>();
 
         myArrayList.add(0);
         myArrayList.add(1);
@@ -372,7 +372,7 @@ public class myArrayListTest {
     @Test
     public void isEmptyStringTest() {
         //Given
-        MyArrayList<String> myArrayList = new MyArrayList<>();
+        MyArrayList<String, V> myArrayList = new MyArrayList<>();
 
         myArrayList.add("Hello");
         myArrayList.add("There");
@@ -390,7 +390,7 @@ public class myArrayListTest {
     @Test
     public void containsTest(){
         //Given
-        MyArrayList<Integer> myArrayList = new MyArrayList<>();
+        MyArrayList<Integer, V> myArrayList = new MyArrayList<>();
 
         myArrayList.add(1);
         myArrayList.add(2);
@@ -408,7 +408,7 @@ public class myArrayListTest {
     @Test
     public void containsStringTest(){
         //Given
-        MyArrayList<String> myArrayList = new MyArrayList<>();
+        MyArrayList<String, V> myArrayList = new MyArrayList<>();
 
         myArrayList.add("Hello");
         myArrayList.add("There");
