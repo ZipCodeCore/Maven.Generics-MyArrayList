@@ -11,7 +11,7 @@ public class MyArrayListTest {
         int expectedArrayLength = 10;
         mal = new MyArrayList<>();
         // When
-        int actualArrayLength = mal.length();
+        int actualArrayLength = mal.capacity();
         // Then
         Assert.assertEquals(expectedArrayLength, actualArrayLength);
     }
@@ -22,7 +22,7 @@ public class MyArrayListTest {
         int expectedArrayLength = 0;
         mal = new MyArrayList<>(expectedArrayLength);
         // When
-        int actualArrayLength = mal.length();
+        int actualArrayLength = mal.capacity();
         // Then
         Assert.assertEquals(expectedArrayLength, actualArrayLength);
     }
@@ -65,7 +65,7 @@ public class MyArrayListTest {
         int expectedArrayLength = 1;
         mal = new MyArrayList<>(1);
         // When
-        int actualArrayLength = mal.length();
+        int actualArrayLength = mal.capacity();
         // Then
         Assert.assertEquals(expectedArrayLength, actualArrayLength);
     }
@@ -157,7 +157,7 @@ public class MyArrayListTest {
         mal.add(originalIntAtIndex0);
         mal.add(originalIntAtIndex1);
         mal.clear();
-        int actualArrayLength = mal.length();
+        int actualArrayLength = mal.capacity();
         // Then
         Assert.assertEquals(expectedArrayLength, actualArrayLength);
     }
@@ -222,7 +222,7 @@ public class MyArrayListTest {
         // When
         mal.add(7);
         mal.add(8);
-        int actualArrayLength = mal.length();
+        int actualArrayLength = mal.capacity();
         // Then
         Assert.assertEquals(expectedArrayLength, actualArrayLength);
     }

@@ -71,7 +71,7 @@ public class MySet<E> {
     }
 
     public int size() {
-        return myArrayList.length();
+        return myArrayList.size();
     }
 
     public Object[] toArray() {

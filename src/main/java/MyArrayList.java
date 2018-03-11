@@ -50,7 +50,11 @@ public class MyArrayList<E> {
 
     public E remove(int index) {
         if (index < 0 || index >= myArrayList.length) {
-            logger.info("Array length is zero. There are no elements to delete in this array.");
+            if (capacity() == 0) {
+                logger.info("Array length is zero. There are no elements to delete in this array.");
+            } else {
+                logger.info("Index out of bounds: " + index);
+            }
             throw new ArrayIndexOutOfBoundsException(index);
         }
         E elementRemoved = myArrayList[index];
@@ -95,7 +99,7 @@ public class MyArrayList<E> {
         return false;
     }
 
-    public int length() {
+    public int capacity() {
         return myArrayList.length;
     }
 
