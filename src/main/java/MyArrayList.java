@@ -8,6 +8,10 @@ public class MyArrayList<E> {
         myArrayList = (E[]) new Object[0];
     }
 
+    public MyArrayList(Integer size) {
+
+    }
+
     public E[] MyArrayList(int size) {
         return myArrayList = (E[]) new Object[size];
     }

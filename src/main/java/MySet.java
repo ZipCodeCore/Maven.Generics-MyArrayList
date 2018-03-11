@@ -1,4 +1,4 @@
-public class MySet <E> {
+public class MySet<E> {
 
     MyArrayList<E> mySet;
 
@@ -6,39 +6,43 @@ public class MySet <E> {
         mySet = new MyArrayList<>();
     }
 
-    public MySet(int size) {
-
+    public MySet(Integer size) {
+        mySet = new MyArrayList<>(size);
     }
 
     public void add(E elementToAppend) {
-
+        if (!mySet.contains(elementToAppend)) {
+            mySet.add(elementToAppend);
+        }
     }
 
     public void addAtIndex(Integer index, E elementToInsert) {
-
+        if (!mySet.contains(elementToInsert)) {
+            mySet.addAtIndex(index, elementToInsert);
+        }
     }
 
     public E get(Integer index) {
-        return null;
+        return mySet.get(index);
     }
 
     public void remove(Integer index) {
-
+        mySet.remove(index);
     }
 
     public E set(Integer index, E elementToStore) {
-        return null;
+        return mySet.set(index, elementToStore);
     }
 
     public void clear() {
-
+        mySet.clear();
     }
 
     public boolean isEmpty() {
-        return false;
+        return mySet.isEmpty();
     }
 
     public boolean contains(E value) {
-        return false;
+        return mySet.contains(value);
     }
 }

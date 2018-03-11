@@ -11,8 +11,8 @@ public class MySetTest {
         testSet.add(3);
         testSet.add(11);
         testSet.add(12);
-        int expected = 10;
-        int actual = testSet.get(3);
+        int expected = 11;
+        int actual = testSet.get(1);
         Assert.assertEquals(expected, actual);
 
     }
@@ -35,9 +35,10 @@ public class MySetTest {
     public void removeTest() {
         MySet<Integer> testSet = new MySet<>();
         testSet.add(3);
+        testSet.add(11);
         testSet.add(12);
         testSet.remove(1);
-        int expected = 12;
+        int expected = 11;
         int actual = testSet.get(1);
         Assert.assertEquals(expected, actual);
 
@@ -67,6 +68,17 @@ public class MySetTest {
         boolean actual = testSet.isEmpty();
 
         Assert.assertEquals(expected, actual);
+    }
 
+    @Test
+    public void containsTest() {
+        MySet<Integer> testSet = new MySet<>();
+        testSet.add(3);
+        testSet.add(12);
+
+        boolean expected = true;
+        boolean actual = testSet.contains(3);
+
+        Assert.assertEquals(expected, actual);
     }
 }
