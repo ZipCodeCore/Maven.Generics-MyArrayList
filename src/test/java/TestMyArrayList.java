@@ -7,7 +7,9 @@ public class TestMyArrayList {
     public void testConstructorDefaultSize() {
         int expectedElementCount = 0;
         MyArrayList<Integer> genericUtility = new MyArrayList<>();
+
         int actualLength = genericUtility.size();
+
         Assert.assertEquals(expectedElementCount, actualLength);
     }
 
@@ -18,7 +20,9 @@ public class TestMyArrayList {
         genericUtility.add("this");
         genericUtility.add("that");
         genericUtility.add("andTheOtherThing");
+
         int actualLength = genericUtility.size();
+
         Assert.assertEquals(expectedSize, actualLength);
     }
 
@@ -30,14 +34,18 @@ public class TestMyArrayList {
         genericUtility.add("this");
         genericUtility.add("that");
         genericUtility.add("andTheOtherThing");
+
         Boolean actualElements = genericUtility.isEmpty();
+
         Assert.assertEquals(false, actualElements);
     }
 
     @Test
     public void testIsSizeEmptyReturnsTrue() {
         MyArrayList<String> genericUtility = new MyArrayList<>();
+
         Boolean actualElements = genericUtility.isEmpty();
+
         Assert.assertEquals(true, actualElements);
     }
 
@@ -47,7 +55,9 @@ public class TestMyArrayList {
     public void testAddIntegerExpectTrue() {
         Integer addMe = 25;
         MyArrayList<Integer> genericUtility = new MyArrayList<>();
+
         Boolean actual = genericUtility.add(addMe);
+
         Assert.assertTrue(actual);
     }
 
@@ -55,7 +65,9 @@ public class TestMyArrayList {
     public void testAddLongExpectTrue() {
         Long addMe = 25L;
         MyArrayList<Long> genericUtility = new MyArrayList<>();
+
         Boolean actual = genericUtility.add(addMe);
+
         Assert.assertTrue(actual);
     }
 
@@ -63,7 +75,9 @@ public class TestMyArrayList {
     public void testAddStringExpectTrue() {
         String addMe = "last";
         MyArrayList<String> genericUtility = new MyArrayList<>();
+
         Boolean actual = genericUtility.add(addMe);
+
         Assert.assertTrue(actual);
     }
 
@@ -71,26 +85,28 @@ public class TestMyArrayList {
     public void testAddObjectExpectTrue() {
         Object addMe = "last";
         MyArrayList<Object> genericUtility = new MyArrayList<>();
+
         Boolean actual = genericUtility.add(addMe);
+
         Assert.assertTrue(actual);
     }
 
     @Test
     public void testAddAppendsAtEndOfList() {
-
         MyArrayList<String> genericUtility = new MyArrayList<>();
         String expected = "andTheOtherThing";
         genericUtility.add("this");
         genericUtility.add("that");
         genericUtility.add(expected);
+
         String actual = genericUtility.get(2);
+
         Assert.assertEquals(expected, actual);
     }
 
     //---------------Test addInsert
     @Test
     public void testAddInsertsAtIndex() {
-
         MyArrayList<Integer> genericUtility = new MyArrayList<>();
         Integer expected = 1000;
         genericUtility.add(25);
@@ -105,7 +121,6 @@ public class TestMyArrayList {
 
     @Test
     public void testAddShiftsIndexToRightByOne() {
-
         MyArrayList<Integer> genericUtility = new MyArrayList<>();
         Integer expected = 10;
         genericUtility.add(25);
@@ -125,7 +140,9 @@ public class TestMyArrayList {
         genericUtility.add(25L);
         genericUtility.add(10L);
         genericUtility.add(1L);
+
         Boolean actual = genericUtility.add(2, addMe);
+
         Assert.assertTrue(actual);
     }
 
@@ -136,7 +153,9 @@ public class TestMyArrayList {
         genericUtility.add("this");
         genericUtility.add("that");
         genericUtility.add("AndtheOtherThing");
-        Boolean actual = genericUtility.add(1,addMe);
+
+        Boolean actual = genericUtility.add(1, addMe);
+
         Assert.assertTrue(actual);
     }
 
@@ -147,7 +166,9 @@ public class TestMyArrayList {
         genericUtility.add("this");
         genericUtility.add("that");
         genericUtility.add("AndtheOtherThing");
-        Boolean actual = genericUtility.add(2,addMe);
+
+        Boolean actual = genericUtility.add(2, addMe);
+
         Assert.assertTrue(actual);
     }
 
@@ -183,7 +204,9 @@ public class TestMyArrayList {
         genericUtility.add("this");
         genericUtility.add(expected);
         genericUtility.add("stuff");
+
         Object actual = genericUtility.remove(1);
+
         Assert.assertEquals(expected, actual);
     }
 
@@ -193,20 +216,24 @@ public class TestMyArrayList {
         genericUtility.add("this");
         genericUtility.add("that");
         genericUtility.add("AndtheOtherThing");
+
         genericUtility.remove(2);
         Boolean actual = genericUtility.contains("AndtheOtherThing");
+
         Assert.assertEquals(false, actual);
     }
 
     @Test
     public void testRemoveShiftsIndexByOneToLeft() {
         MyArrayList<Object> genericUtility = new MyArrayList<>();
+        Object expected = "AndtheOtherThing";
         genericUtility.add("this");
         genericUtility.add("that");
         genericUtility.add("AndtheOtherThing");
+
         genericUtility.remove(1);
         Object actual = genericUtility.get(1);
-        Object expected = "AndtheOtherThing";
+
         Assert.assertEquals(expected, actual);
     }
 
@@ -216,13 +243,15 @@ public class TestMyArrayList {
         genericUtility.add("this");
         genericUtility.add("that");
         genericUtility.add("AndtheOtherThing");
+
         genericUtility.remove(2);
         Boolean actual = genericUtility.contains("AndtheOtherThing");
+
         Assert.assertEquals(false, actual);
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
-    public void testRemmoveAtIndexUpperBound() {
+    public void testRemoveAtIndexUpperBound() {
         MyArrayList<Integer> genericUtility = new MyArrayList<>();
         genericUtility.add(0, 1);
         genericUtility.add(1, 3);
@@ -296,8 +325,8 @@ public class TestMyArrayList {
 
         genericUtility.clear();
         int actual = genericUtility.size();
-        Assert.assertEquals(0, actual);
 
+        Assert.assertEquals(0, actual);
     }
 
 
@@ -314,6 +343,7 @@ public class TestMyArrayList {
 
         genericUtility.set(1, "stuff");
         String actual = genericUtility.get(1);
+
         Assert.assertEquals(expected, actual);
     }
 
@@ -328,6 +358,7 @@ public class TestMyArrayList {
         genericUtility.add("allTheThings");
 
         String actual = genericUtility.set(1, "stuff");
+
         Assert.assertEquals(expected, actual);
     }
 
@@ -340,8 +371,10 @@ public class TestMyArrayList {
         genericUtility.add("everyThing");
         genericUtility.add("allTheThings");
         int expected = 5;
+
         genericUtility.set(1, "stuff");
         int actual = genericUtility.size();
+
         Assert.assertEquals(expected, actual);
     }
 
@@ -355,6 +388,7 @@ public class TestMyArrayList {
         genericUtility.add("allTheThings");
 
         genericUtility.clear();
+
         String actual = genericUtility.set(0, "stuff");
     }
 
@@ -367,7 +401,7 @@ public class TestMyArrayList {
         genericUtility.add("everyThing");
         genericUtility.add("allTheThings");
 
-        String actual = genericUtility.set(-1, "stuff");
+        genericUtility.set(-1, "stuff");
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
@@ -379,7 +413,7 @@ public class TestMyArrayList {
         genericUtility.add("everyThing");
         genericUtility.add("allTheThings");
 
-        String actual = genericUtility.set(5, "stuff");
+        genericUtility.set(5, "stuff");
     }
     //---------------Test contains
 

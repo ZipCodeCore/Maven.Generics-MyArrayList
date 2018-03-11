@@ -4,142 +4,165 @@ import org.junit.Test;
 
 public class TestMySet {
 
-    private MySet testObject;
-
-    @Before
-    public void setup() {
-        testObject = new MySet();
-    }
-
     //---------------test MySet constructor
+
     @Test
-    public void testConstructorIntialArrayCapacity() {
-        MySet<Integer> testOb = new MySet<>(3);
-        Integer[] expected = {null, null, null};
-        Integer[] actual = testOb.toArray(new Integer[0]);
-        Assert.assertArrayEquals(expected, actual);
+    public void testConstructorDefaultSize() {
+        int expectedElementCount = 0;
+        MySet<Integer> testSet = new MySet<>();
+
+        int actualElementCount = testSet.size();
+
+        Assert.assertEquals(expectedElementCount, actualElementCount);
     }
 
     @Test
-    public void testConstructorIntegerArray() {
-        Integer[] expected = {50, 60, 70};
-        MySet<Integer> testOb = new MySet<>(expected);
-        Integer[] actual = testOb.toArray(new String[0]);
-        Assert.assertArrayEquals(expected, actual);
+    public void testConstructorSizeIncrease() {
+        int expectedSize = 3;
+        MySet<String> testSet = new MySet<>();
+        testSet.add("this");
+        testSet.add("that");
+        testSet.add("andTheOtherThing");
+
+        int actualLength = testSet.size();
+
+        Assert.assertEquals(expectedSize, actualLength);
     }
 
+    @Test
+    public void testConstructoreIngnoreDup() {
+        MySet<Integer> testSet = new MySet<>();
+
+        boolean unique = testSet.add(10);
+        boolean dup = testSet.add(10);
+
+        Assert.assertTrue(unique);
+        Assert.assertFalse(dup);
+        Assert.assertEquals(1, testSet.size());
+    }
+
+    @Test
+    public void testConstructorIgnoresMultipleDups() {
+        MySet<Integer> testSet = new MySet<>();
+        testSet.add(10);
+        testSet.add(20);
+
+        boolean dup = testSet.add(10);
+        boolean dup2 = testSet.add(20);
+        boolean dup3 = testSet.add(20);
+
+        Assert.assertFalse(dup);
+        Assert.assertFalse(dup2);
+        Assert.assertFalse(dup3);
+        Assert.assertEquals(2, testSet.size());
+    }
+
+
+    //------------>What I'm trying to do here is test that the constructor assigns correct type to generic object.
+    //not sure if I'm testing this correctly. Come back to it.
     @Test
     public void testConstructorLongArray() {
-        Long[] expected = {50L, 60L, 70L};
-        MySet<Long> testOb = new MySet<>(expected);
-        Long[] actual = testOb.toArray(new String[0]);
-        Assert.assertArrayEquals(expected, actual);
-    }
+        MySet<Long> testSet = new MySet<>();
+        testSet.add(50L);
+        testSet.add(60L);
+        testSet.add(70L);
+        int expected = 3;
 
-    @Test
-    public void testConstructorStringArray() {
-        String[] expected = {"this", "that", "andTheOtherThing"};
-        MySet<String> testOb = new MySet<>(expected);
-        String[] actual = testOb.toArray(new String[0]);
-        Assert.assertArrayEquals(expected, actual);
-    }
+        int actual = testSet.size();
 
-    @Test
-    public void testConstructorObjectArray() {
-        Object[] expected = {"this", "that", "andTheOtherThing"};
-        MySet<Object> testOb = new MySet<>(expected);
-        String[] actual = testOb.toArray(new String[0]);
-        Assert.assertArrayEquals(expected, actual);
-    }
-
-    @Test
-    public void testConstructorIgnoresDups() {
-        Object[] input = {"this", "that", "this", "andTheOtherThing", "this", "this"};
-        MySet<Object> testOb = new MySet<>(input);
-        Object[] expected = {"this", "that", "andTheOtherThing"};
-        String[] actual = testOb.toArray(new String[0]);
-        Assert.assertArrayEquals(expected, actual);
-    }
-
-    //---------------test MySet size()
-
-    /**
-     * Returns:
-     * the number of elements in this set (its cardinality)
-     */
-    @Test
-    public void testSizeReturnsDefaultElementCount() {
-        MySet<Integer> testOb = new MySet<>();
-        int expected = 0;
-        int actual = testOb.size();
         Assert.assertEquals(expected, actual);
     }
 
     @Test
-    public void testSizeReturnsElementCountIfLessThanCapacity() {
-        MySet<Integer> testOb = new MySet<>(20);
-        testOb.add("this");
-        testOb.add("that");
-        testOb.add("andTheOtherThing");
+    public void testConstructorStringArray() {
+        MySet<String> testSet = new MySet<>();
+        testSet.add("this");
+        testSet.add("that");
+        testSet.add("andTheOtherThing");
         int expected = 3;
-        int actual = testOb.size();
+
+        int actual = testSet.size();
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testConstructorObjectArray() {
+        MySet<Object> testSet = new MySet<>();
+        testSet.add("this");
+        testSet.add("that");
+        testSet.add("andTheOtherThing");
+        int expected = 3;
+
+        int actual = testSet.size();
+
+        Assert.assertEquals(expected, actual);
+    }
+
+
+    //---------------test MySet size()
+
+    @Test
+    public void testSizeReturnsElementCountIfLessThanCapacity() {
+        MySet<Integer> testSet = new MySet<>(20);
+        testSet.add("this");
+        testSet.add("that");
+        testSet.add("andTheOtherThing");
+        int expected = 3;
+
+        int actual = testSet.size();
+
         Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void testSizeReturnsElementCountIfMaxCapacity() {
-        MySet<Integer> testOb = new MySet<>(5);
-        testOb.add("this");
-        testOb.add("that");
-        testOb.add("andTheOtherThing");
-        testOb.add("allTheThings");
-        testOb.add("SomeThings");
+        MySet<Integer> testSet = new MySet<>(5);
+        testSet.add("this");
+        testSet.add("that");
+        testSet.add("andTheOtherThing");
+        testSet.add("allTheThings");
+        testSet.add("SomeThings");
         int expected = 5;
-        int actual = testOb.size();
+
+        int actual = testSet.size();
+
         Assert.assertEquals(expected, actual);
     }
 
 
     //---------------test MySet isEmpty()
-
-    /**
-     * isEmpty
-     * returns true if this set contains no elements
-     */
     @Test
-    public void testIsSizeEmptyReturnsFalse() {
-        testObject.add("this");
-        testObject.add("that");
-        testObject.add("andTheOtherThing");
-        Boolean actualElements = testObject.isEmpty();
+    public void testIsEmptyReturnsFalse() {
+        MySet<Integer> testSet = new MySet<>(5);
+        testSet.add("this");
+        testSet.add("that");
+        testSet.add("andTheOtherThing");
+
+        Boolean actualElements = testSet.isEmpty();
+
         Assert.assertEquals(false, actualElements);
     }
 
     @Test
-    public void testIsSizeEmptyReturnsTrue() {
-        Boolean actualElements = testObject.isEmpty();
+    public void testIsEmptyReturnsTrue() {
+        MySet<Integer> testSet = new MySet<>(0);
+
+        Boolean actualElements = testSet.isEmpty();
+
         Assert.assertEquals(true, actualElements);
     }
 
     //---------------test MySet contains()
-
-    /**
-     * boolean contains(Object o)
-     * Returns true if this set contains the specified element.
-     * Returns:
-     * true if this set contains the specified element
-     * Throws:
-     * ClassCastException - if the type of the specified element is incompatible with this set (optional)
-     * NullPointerException - if the specified element is null and this set does not permit null elements (optional)
-     */
     @Test
     public void testContainsTrue() {
-        MySet<Integer> testOb = new MySet<>(20);
-        testObject.add("thisThing");
-        testObject.add("thatThing");
-        testObject.add("theOtherThing");
+        MySet<Integer> testSet = new MySet<>(5);
+        testSet.add("thisThing");
+        testSet.add("thatThing");
+        testSet.add("something");
+        testSet.add("theOtherThing");
 
-        Boolean actual = testObject.contains("something");
+        Boolean actual = testSet.contains("something");
 
         Assert.assertEquals(true, actual);
 
@@ -147,28 +170,169 @@ public class TestMySet {
 
     @Test
     public void testContainsFalse() {
-        testObject.add("thisThing");
-        testObject.add("thatThing");
-        testObject.add("theOtherThing");
+        MySet<Integer> testSet = new MySet<>(5);
+        testSet.add("thisThing");
+        testSet.add("thatThing");
+        testSet.add("theOtherThing");
 
-        Boolean actual = testObject.contains("SoManyThings");
+        Boolean actual = testSet.contains("SoManyThings");
+
+        Assert.assertEquals(false, actual);
+
+    }
+
+
+    @Test(expected = NullPointerException.class)
+    public void testContainsThrowsExceptionIfElementSpecifiedNull() {
+        MySet<Integer> testSet = new MySet<>();
+        testSet.contains(null);
+    }
+
+    //------------test Myset Bool add(E e)
+    @Test //Check that element is in list after adding
+    public void testAdd_SetContainsElementAfterAdd_True() {
+        MySet<Integer> testSet = new MySet<>();
+        testSet.add(10);
+
+        Boolean actual = testSet.contains(10);
+
+        Assert.assertEquals(true, actual);
+    }
+
+//    @Test
+//    public void testAddAppendsAtEndOfList() {
+//        MySet<String> testSet = new MySet<>();
+//        String expected = "andTheOtherThing";
+//        testSet.add("this");
+//        testSet.add("that");
+//        testSet.add(expected);
+//        String actual = testSet.get(2);
+//        Assert.assertEquals(expected, actual);
+//    }
+
+    @Test //return true if set did not contain the specified element
+    public void testAdd_DoesNotContainElement_True() {
+        MySet<String> testSet = new MySet<>();
+        testSet.add("thisThing");
+        testSet.add("thatThing");
+        testSet.add("theOtherThing");
+
+        Boolean actual = testSet.add("something");
+
+        Assert.assertEquals(true, actual);
+    }
+
+    @Test//return false if set already contains element
+    public void testAdd_AlreadyContainsElement_False() {
+        MySet<String> testSet = new MySet<>();
+        testSet.add("thisThing");
+        testSet.add("thatThing");
+        testSet.add("theOtherThing");
+
+        Boolean actual = testSet.add("thatThing");
+
+        Assert.assertEquals(false, actual);
+    }
+
+//    @Test //returns false if set already contains element make sure leaves set unchanged
+//    public void testAdd_AlreadyContainsElement_AddDoesNotAlterSet_True() {
+//        MySet<String> testSet = new MySet<>();
+//        testSet.add(10);
+//        testSet.add(20);
+//        testSet.add(30);
+//        Boolean actual = testSet.add(20);
+//        Assert.assertEquals(false, actual);
+//    }
+
+    @Test //make sure you can't add duplicates
+    public void testAdd_MultipleDuplicates_False() {
+        MySet<Integer> testSet = new MySet<>(5);
+        boolean unique1 = testSet.add(10);
+        boolean dup1 = testSet.add(10);
+        boolean unique2 = testSet.add(20);
+        boolean dup2 = testSet.add(10);
+        boolean dup3 = testSet.add(20);
+
+        Assert.assertTrue(unique1);
+        Assert.assertFalse(dup1);
+        Assert.assertTrue(unique2);
+        Assert.assertFalse(dup2);
+        Assert.assertFalse(dup3);
+        Assert.assertEquals(2, testSet.size());
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testAdd_ThrowsExceptionIfElementSpecifiedNull() {
+        MySet<String> testObject = new MySet<>();
+        testObject.add(null);
+    }
+
+
+    //------------test Myset Bool remove(Object o)
+
+    @Test //remove returns false when the element does not exist
+    public void testRemove_DoesNotContainElementAndRemoves_False() {
+        MySet<Integer> testSet = new MySet<>();
+        testSet.add(10);
+        testSet.add(20);
+        testSet.add(30);
+
+        Boolean actual = testSet.remove(400);
+
+        Assert.assertEquals(false, actual);
+    }
+
+    @Test //removes element from list and returns true
+    public void testRemove_ContainsElementAndRemoves_True() {
+        MySet<Integer> testObject = new MySet<>();
+        testObject.add(10);
+        testObject.add(20);
+        testObject.add(30);
+
+        Boolean actual = testObject.remove(20);
+
+        Assert.assertEquals(true, actual);
+
+    }
+
+    @Test //remove element from list and check to see if it contains that element
+    public void testRemove_SetNoLongerContainsElement_False() {
+
+        MySet<String> testSet = new MySet<>();
+        testSet.add("this");
+        testSet.add("that");
+        testSet.add("theOtherThing");
+
+        testSet.remove("that");
+        Boolean actual = testSet.contains("that");
 
         Assert.assertEquals(false, actual);
 
     }
 
     @Test(expected = NullPointerException.class)
-    public void testContainsThrowsExceptionIfNullFound() {
-        testObject.add("thisThing");
-        testObject.add("thatThing");
-        testObject.add("theOtherThing");
-        testObject.add("null");
-        testObject.add("null");
-
-        Boolean actual = testObject.contains(null);
+    public void testRemove_ThrowsExceptionIfElementSpecifiedNull() {
+        MySet<String> testSet = new MySet<>();
+        testSet.remove(null);
     }
 
-    //---------------test MySet toArray() Object[] toArray()
+    //------------test Myset void clear()
+    @Test
+    public void testClearSetsSizeToZero() {
+        MySet<Integer> testSet = new MySet<>();
+        testSet.add(1);
+        testSet.add(2);
+        testSet.add(3);
+        testSet.add(3);
+        testSet.add(4);
+
+        testSet.clear();
+        int actual = testSet.size();
+
+        Assert.assertEquals(0, actual);
+
+    }
+//---------------test MySet toArray() Object[] toArray()
     /**
      * Returns an array containing all of the elements in this set
      * the returned array will be "safe" in that no references to it are maintained by this set
@@ -177,111 +341,6 @@ public class TestMySet {
      */
 
     //--------------test Myset toArray() <T> T[] toArray(T[] a)
-
-    //------------test Myset Bool add(E e)
-
-    /**
-     * Parameters:
-     * e - element to be added to this set
-     * Returns:
-     * true if this set did not already contain the specified element
-     * If this set already contains the element, the call leaves the set
-     * unchanged and returns false. In combination with the restriction on constructors, this ensures that sets
-     * never contain duplicate elements.
-     * NullPointerException - if the specified element is null and this set does not permit null elements
-     */
-    @Test
-    public void testAdd_SetContainsElementAfterAdd_True() {
-        String[] input = {"this", "that", "andTheOtherThing"};
-        MySet<String> testOb = new MySet<>(input);
-        testOb.add("So many things");
-        String[] expected = {"this", "that", "andTheOtherThing", "So many things"};
-        String[] actual = testOb.toArray(new String[0]);
-        Assert.assertArrayEquals(expected, actual);
-    }
-
-    @Test
-    public void testAdd_DoesNotContainElement_True() {
-        String[] expected = {"this", "that", "andTheOtherThing"};
-        MySet<String> testOb = new MySet<>(expected);
-        Boolean actual = testOb.add("something");
-        Assert.assertEquals(true, actual);
-    }
-
-    @Test
-    public void testAdd_AlreadyContainsElement_False() {
-        String[] input = {"this", "that", "andTheOtherThing"};
-        MySet<String> testOb = new MySet<>(input);
-        Boolean actual = testOb.add("thatThing");
-        Assert.assertEquals(false, actual);
-    }
-
-    @Test
-    public void testAdd_MultipleDuplicates_False() {
-        MySet<Integer> testOb = new MySet<>(5);
-        testOb.add(10);
-        testOb.add(10);
-        testOb.add(20);
-        testOb.add(10);
-        testOb.add(20);
-        Integer[] expected = {10, 20, null, null, null};
-        Integer[] actual = testOb.toArray(new Integer[0]);
-        Assert.assertArrayEquals(expected, actual);
-    }
-
-    @Test
-    public void testAdd_AlreadyContainsElement_AddDoesNotAlterSet_True() {
-        String[] expected = {"this", "that", "andTheOtherThing"};
-        MySet<String> testOb = new MySet<>(expected);
-        testObject.add("that");
-        String[] actual = testOb.toArray(new String[0]);
-        Assert.assertArrayEquals(expected, actual);
-    }
-
-    @Test(expected = NullPointerException.class)
-    public void testAdd_Null_Exception() {
-        String[] expected = {"this", "that", "andTheOtherThing"};
-        MySet<String> testOb = new MySet<>(10);
-        testObject.add(null);
-    }
-
-
-    //------------test Myset Bool remove(Object o)
-    /**
-     *  Removes the specified element from this set if it is present (optional operation).
-     *  o - object to be removed from this set, if present
-     Returns:
-     true if this set contained the specified element
-     NullPointerException - if the specified element is null and this set does not permit null elements (optional)*/
-
-    @Test
-    public void testRemove_SetDoesNotContainElementAfterRemove_True() {
-        String[] input = {"this", "that", "andTheOtherThing"};
-        MySet<String> testOb = new MySet<>(input);
-        testObject.remove("that");
-        String[] expected  = {"this","andTheOtherThing", null};
-        String[] actual = testOb.toArray(new String[0]);
-        Assert.assertArrayEquals(expected, actual);
-
-    }
-
-    @Test
-    public void testRemove_ContainsElementAndRemoves_True() {
-        String[] input = {"this", "that", "andTheOtherThing"};
-        MySet<String> testOb = new MySet<>(input);
-        Boolean actual = testObject.remove("that");
-        Assert.assertEquals(true, actual);
-
-    }
-
-    @Test
-    public void testRemove_DoesNotContainElementAndRemoves_False() {
-        String[] input = {"this", "that", "andTheOtherThing"};
-        MySet<String> testOb = new MySet<>(input);
-        Boolean actual = testObject.remove("stuff");
-        Assert.assertEquals(false, actual);
-    }
-
 
 
     //------------test Myset Bool containsAll(Collection<?> c)
@@ -294,32 +353,19 @@ public class TestMySet {
      this set does not permit null elements (optional), or if the specified collection is null*/
 
 
-
-
     //------------test Myset Bool addAll(Collection<? extends E> c)
-    /**Adds all of the elements in the specified collection to
-     this set if they're not already present (optional operation).
-     If the specified collection is also a set, the addAll operation effectively
-     modifies this set so that its value is the union of the two sets. The behavior of this
-     operation is undefined if the specified collection is modified while the operation is in progress.
-     Parameters:
-     c - collection containing elements to be added to this set
-     Returns:
-     true if this set changed as a result of the call
-     NullPointerException - if the specified collection contains one or more null elements
-     and this set does not permit null elements, or if the specified collection is null*/
-    @Test
-    public void testAddAll_Union2Sets() {
-        Integer[] array1 = {10, 20, 30, 40};
-        Integer[] array2 = {50, 60, 70, 80};
-        MySet<Integer> testOb = new MySet<>();
-        testOb.addAll(array1);
-        testOb.addAll(array2);
-
-        Integer[] expected = {10, 20, 30, 40, 50, 60, 70, 80};
-        Integer[] actual = testOb.toArray(new Integer[0]);
-        Assert.assertArrayEquals(expected, actual);
-    }
+//    @Test
+//    public void testAddAll_Union2Sets() {
+//        Integer[] array1 = {10, 20, 30, 40};
+//        Integer[] array2 = {50, 60, 70, 80};
+//        MySet<Integer> testOb = new MySet<>();
+//        testOb.addAll(array1);
+//        testOb.addAll(array2);
+//
+//        Integer[] expected = {10, 20, 30, 40, 50, 60, 70, 80};
+//        Integer[] actual = testOb.toArray(new Integer[0]);
+//        Assert.assertArrayEquals(expected, actual);
+//    }
 
 
     //------------test Myset boolean retainAll(Collection<?> c)
@@ -336,7 +382,6 @@ public class TestMySet {
      */
 
 
-
     //------------test Myset boolean removeAll(Collection<?> c)
     /** Removes from this set all of its elements that are contained in the specified collection (optional operation).
      If the specified collection is also a set, this operation effectively modifies this set so that its value is
@@ -349,22 +394,6 @@ public class TestMySet {
      elements (optional), or if the specified collection is null
      See Also:
      remove(Object), contains(Object)*/
-
-
-
-    //------------test Myset void clear()
-    /** Removes all of the elements from this set (optional operation).
-     * The set will be empty after this call returns. */
-
-    @Test
-    public void testClear_SetEmpty() {
-        Integer[] input = {50, 60, 70};
-        MySet<Integer> testOb = new MySet<>(input);
-        testOb.clear();
-        String[] expected  = {null,null,null,null};
-        String [] actual = test.toArray(new String[0]);
-        Assert.assertArrayEquals(expected, actual);
-    }
 
 
     //------------test boolean equals(Object o)
@@ -381,7 +410,6 @@ public class TestMySet {
      true if the specified object is equal to this set
      See Also:
      Object.hashCode(), HashMap*/
-
 
 
     //------------test int hashCode()

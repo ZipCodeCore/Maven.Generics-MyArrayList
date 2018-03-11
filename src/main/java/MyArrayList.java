@@ -69,7 +69,7 @@ public class MyArrayList<E> {
         if (index < 0 || index >= size()) {
             throw new IndexOutOfBoundsException("Index is too large or negative");
         }
-        int length = size()-index;
+        int length = size() - index;
         ensureCapacity();
         System.arraycopy(this.inputArray, index, this.inputArray, index + 1, length);
         this.inputArray[index] = addMe;
@@ -111,6 +111,10 @@ public class MyArrayList<E> {
         return (E) this.inputArray[index];
     }
 
+    /**
+     * Removes all of the elements from this list
+     * The list will be empty after this call returns.
+     */
     public void clear() {
         this.inputArray = new Object[DEFAULT_CAPACITY];
         this.size = 0;
