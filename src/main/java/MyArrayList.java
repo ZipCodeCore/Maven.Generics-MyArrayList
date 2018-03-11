@@ -6,15 +6,12 @@ public class MyArrayList<E> {
     private int size = 0;
 
     public MyArrayList() {
-        this.myArrayList = (E[]) new Object[1];
+        this.myArrayList = (E[]) new Object[10];
     }
 
     public MyArrayList(int length) throws IllegalArgumentException {
         if (length < 0) {
             throw new IllegalArgumentException("Array length cannot be less than zero.");
-        }
-        if (length == 0) {
-            this.myArrayList = (E[]) new Object[1];
         } else {
             this.myArrayList = (E[]) new Object[length];
         }
@@ -35,7 +32,19 @@ public class MyArrayList<E> {
         if (index < 0) {
             throw new ArrayIndexOutOfBoundsException(index);
         }
+
         ensureCapacity();
+//        if (myArrayList.length == 1) {
+//            myArrayList[index] = element;
+//        } else {
+//            for (int i = size; i > index; i--) {
+//                myArrayList[i] = myArrayList[i - 1];
+//            }
+//            myArrayList[index] = element;
+//        }
+        if (myArrayList.length > 1) {
+            shiftElementsFromIndexToSize(index);
+        }
         myArrayList[index] = element;
         size++;
     }
@@ -76,12 +85,23 @@ public class MyArrayList<E> {
     }
 
     public void ensureCapacity() {
-        if (size == myArrayList.length) {
-            E[] arrayWithDoubleCapacity = (E[]) new Object[size * 2];
-            System.arraycopy(myArrayList, 0, arrayWithDoubleCapacity, 0, size);
-            myArrayList = arrayWithDoubleCapacity;
+        if (myArrayList.length == 0) {
+            myArrayList = (E[]) new Object[1];
+        } else if (size == myArrayList.length) {
+            doubleArrayCapacity();
         }
     }
 
+    public void doubleArrayCapacity() {
+        E[] arrayWithDoubleCapacity = (E[]) new Object[size * 2];
+        System.arraycopy(myArrayList, 0, arrayWithDoubleCapacity, 0, size);
+        myArrayList = arrayWithDoubleCapacity;
+    }
+
+    public void shiftElementsFromIndexToSize(int index) {
+        for (int i = size; i > index; i--) {
+            myArrayList[i] = myArrayList[i - 1];
+        }
+    }
 
 }
