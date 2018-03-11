@@ -17,7 +17,7 @@ public class MyArrayListTest {
     }
 
     @Test
-    public void MyArrayListConstructorLengthTest() {
+    public void MyArrayListConstructorInitialCapacityTest() {
         // Given
         int expectedArrayLength = 0;
         mal = new MyArrayList<>(expectedArrayLength);
@@ -193,6 +193,24 @@ public class MyArrayListTest {
         boolean actualContains = mal.contains(originalIntAtIndex1);
         // Then
         Assert.assertEquals(expectedContains, actualContains);
+    }
+
+    @Test
+    public void capacityTest() {
+        // Given
+        int expectedIndex0 = 0;
+        int expectedIntAtIndex0 = 0;
+        int expectedIndex1 = 1;
+        int expectedIntAtIndex1 = 1;
+        int expectedLength = 3;
+        int expectedSize = 2;
+        // When
+        mal = new MyArrayList<>(expectedLength);
+        mal.add(expectedIndex0, expectedIntAtIndex0);
+        mal.add(expectedIndex1, expectedIntAtIndex1);
+        int actualLength = mal.capacity();
+        // Then
+        Assert.assertEquals(expectedLength, actualLength);
     }
 
     @Test
