@@ -37,11 +37,6 @@ public class MyArrayListTest {
         String actual = test.get(6);
 
         Assert.assertEquals(expected,actual);
-
-        test.printElements();
-
-
-
     }
     @Test
     public void testAddAll1(){
@@ -103,7 +98,6 @@ public class MyArrayListTest {
         test.add("of");
         test.add("Fools");
         test.add("Get Back To Work");
-        test.printElements();
 
         String expected ="Tomorrow";
         String actual = test.get(1);
@@ -150,6 +144,47 @@ public class MyArrayListTest {
         Integer actual = test.size();
         Assert.assertEquals(expected,actual);
 
+    }
+    @Test
+    public void testIsEmpty1(){
+        MyArrayList<String> test = new MyArrayList<>(0);
+        boolean actual = test.isEmpty();
+        Assert.assertTrue(actual);
+    }
+    @Test
+    public void testIsEmpty2(){
+        MyArrayList<Character> test = new MyArrayList<>(10);
+        boolean actual = test.isEmpty();
+
+        Assert.assertTrue(actual);
+    }
+    @Test
+    public void testIsEmpty3(){
+        MyArrayList<String> test = new MyArrayList<>();
+        test.add(null);
+        boolean actual = test.isEmpty();
+        Assert.assertFalse(actual);
+    }
+    @Test
+    public void testGetCapacity(){
+        MyArrayList<Integer>test = new MyArrayList<>(20);
+        test.add(33);
+        test.add(55);
+        test.add(100);
+        Integer actual = test.getCapacity();
+        Integer expected =20;
+        Assert.assertEquals(expected,actual);
+    }
+    @Test
+    public void testTrimToSize2(){
+        MyArrayList<Integer>test = new MyArrayList<>(20);
+        test.add(33);
+        test.add(55);
+        test.add(100);
+        test.trimToSize();
+        Integer actual = test.getCapacity();
+        Integer expected =3;
+        Assert.assertEquals(expected,actual);
     }
 
 }

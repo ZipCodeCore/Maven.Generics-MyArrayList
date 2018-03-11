@@ -145,21 +145,21 @@ public class MySetTest {
         Assert.assertEquals(expected,actual);
 
     }
-    @Test
-    public void testEquals(){
-        MySet<Integer>test1 = new MySet<>();
-        MySet<Integer>test2 = new MySet<>();
-
-        test1.add(10);
-        test1.add(12);
-        test1.add(34);
-
-        test2.add(10);
-        test2.add(12);
-        test2.add(34);
-        boolean expected = true;
-        boolean actual = test2.equals(test1);
-
-        Assert.assertEquals(expected,actual);
-    }
+//    @Test
+//    public void testEquals(){
+//        MySet<Integer>test1 = new MySet<>();
+//        MySet<Integer>test2 = new MySet<>();
+//
+//        test1.add(10);
+//        test1.add(12);
+//        test1.add(34);
+//
+//        test2.add(10);
+//        test2.add(12);
+//        test2.add(34);
+//        boolean expected = true;
+//        boolean actual = test2.equals(test1);
+//
+//        Assert.assertEquals(expected,actual);
+//    }
 }

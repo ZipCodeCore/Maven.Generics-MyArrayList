@@ -53,18 +53,12 @@ public class MySet <T> {
     public boolean contains(T element){
 
         return mySet.contains(element);
-//        for(int i =0;i<mySet.size();i++){
-//            if(mySet.get(i).equals(element)){
-//                return true;
-//            }
-//        }
-//        return false;
     }
 
     public T get(int index){
         for(int i=0;i<mySet.size();i++){
             if(mySet.get(i).equals(mySet.get(index))){
-                //return mySet.get(i);
+                return (T) mySet.get(i);
             }
         }
         return null;
@@ -73,16 +67,16 @@ public class MySet <T> {
         return mySet.size();
     }
 
-    public boolean equals(T[] newSet){
-        if(newSet.length!=mySet.size()){
-            return false;
-        }else{
-            for(int i=0;i<newSet.length;i++){
-                if(!mySet.contains(newSet[i])){
-                    return false;
-                }
-            }
-        }
-        return newSet.equals(mySet);
-    }
+//    public boolean equals(T[] newSet){
+//        if(mySet.size()!=newSet.length){
+//            return false;
+//        }else{
+//            for(int i=0;i<newSet.length;i++){
+//                if(!this.contains(newSet[i])){
+//                    return false;
+//                }
+//            }
+//        }
+//        return true;
+//    }
 }

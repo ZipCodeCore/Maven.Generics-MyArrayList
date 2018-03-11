@@ -13,18 +13,16 @@ public class MyArrayList<T> {
 
     public MyArrayList(int arraySize) {
 
-        this.arraySize = arraySize;
+     this.myArrayList = (T[]) new Object[arraySize];
 
     }
 
     public void add(T elementToAdd) {
-        if(!contains(elementToAdd)){
             if(myArrayList.length-this.size()<5){
                 this.ensureCapacity();
             }
             myArrayList[currentIndex]=elementToAdd;
             currentIndex++;
-        }
     }
 
     public void add(int index, T elementToAdd) {
@@ -84,18 +82,6 @@ public class MyArrayList<T> {
         return myArrayList;
 
     }
-
-    public void printElements() {
-        StringBuilder builder = new StringBuilder();
-
-        for (int i = 0; i < size(); i++) {
-            builder.append(myArrayList[i]);
-            builder.append(" ");
-
-        }
-        System.out.println(builder.toString());
-
-    }
     //expands the capacity of the array by 10
     public void ensureCapacity() {
         myArrayList = Arrays.copyOf(myArrayList, this.size() + 10);
@@ -139,6 +125,9 @@ public class MyArrayList<T> {
 
     public T[] toArray(T[] anArray){
         return (T[]) Arrays.copyOf(this.myArrayList,this.size(),anArray.getClass());
+    }
+    public Integer getCapacity(){
+        return myArrayList.length;
     }
 
 
