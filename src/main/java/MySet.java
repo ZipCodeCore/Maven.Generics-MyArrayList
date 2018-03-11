@@ -1,6 +1,6 @@
 public class MySet <K> {
 
-    private MyArrayList<K, V> mySet;
+    private MyArrayList<K> mySet;
 
     public MySet() {
         mySet = new MyArrayList<>();
@@ -47,3 +47,4 @@ public class MySet <K> {
 //
 //    }
 }
+

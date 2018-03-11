@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 
-public class MyArrayList <K, V>{
+public class MyArrayList <K>{
 
     private K[] inputArray;
 
