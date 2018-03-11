@@ -33,7 +33,7 @@ public class MySet<E> {
      * @return true if this set did not already contain the specified element. false if set already contains element
      * and leaves the set unchanged
      */
-    public boolean add(Object element) {
+    public boolean add(E element) {
         if (element == null) {
             throw new NullPointerException("Specified element can't be null");
         }
@@ -59,7 +59,7 @@ public class MySet<E> {
      * @param element to be checked
      * @return true if this set contains the specified element
      */
-    public Boolean contains(Object element) {
+    public Boolean contains(E element) {
         if (element == null) {
             throw new NullPointerException("Specified element can't be null");
         }
@@ -77,14 +77,14 @@ public class MySet<E> {
      * @param element - element to be removed from this set, if present
      * @return true if this set contained the specified element
      */
-    public boolean remove(Object element) {
+    public boolean remove(E element) {
         if (element == null) {
             throw new NullPointerException("Specified element can't be null");
         }
         boolean canRemove = false;
         int indexOf = 0;
         for (int i = 0; i < this.inputArray.length; i++) {
-            if (this.inputArray[i].equals(element)) {
+            if (this.inputArray[i] != null && this.inputArray[i].equals(element)) {
                 indexOf = i;
                 canRemove = true;
                 break;
@@ -108,10 +108,10 @@ public class MySet<E> {
      * @param container collection containing elements to be added to this set
      * @return true if this set changed as a result of the call
      */
-    public boolean addAll(Collection container) {
+    public boolean addAll(Collection<E> container) {
         boolean allAdded = container.size() > 0;
-        for (Object o : container) {
-            if (!this.add(o)) {
+        for (E obj : container) {
+            if (!this.add(obj)) {
                 allAdded = false;
             }
         }
@@ -129,10 +129,12 @@ public class MySet<E> {
 
     /**
      * Get array representation of set
-     * @return
+     * makes a copy of input array and removes all the nulls.
+     * @return array with only elements
      */
-    public Object[] toArray() {
-        return  trimTrailingNull(this.inputArray);
+    @SuppressWarnings("unchecked")
+    public E[] toArray() {
+        return  (E[]) trimTrailingNull(this.inputArray);
     }
 
     /**
@@ -141,6 +143,7 @@ public class MySet<E> {
      * Trim the null values from an array.
      * @param arr array to be altered assumed that all non-null values are contiguous starting at index 0
      * @return array with with trailing nulls removed
+     * Do not make generic, internal to class,
      */
     private static Object[] trimTrailingNull(Object[] arr) {
         int lastNotNull = 0;
@@ -167,6 +170,7 @@ public class MySet<E> {
      * Shift all null values to the end and make non-null values contiguous starting at index 0
      * @param arr array to be altered
      * @return array altered
+     * Do not make generic, internal to class, everything internal is object, everything external is type
      */
     private static Object[] shiftAllNullsToEnd(Object[] arr) {
         int j = 0;

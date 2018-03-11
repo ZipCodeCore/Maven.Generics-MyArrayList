@@ -105,9 +105,9 @@ public class TestMySet {
     @Test
     public void testSizeReturnsElementCountIfLessThanCapacity() {
         MySet<Integer> testSet = new MySet<>(20);
-        testSet.add("this");
-        testSet.add("that");
-        testSet.add("andTheOtherThing");
+        testSet.add(10);
+        testSet.add(11);
+        testSet.add(12);
         int expected = 3;
 
         int actual = testSet.size();
@@ -117,7 +117,7 @@ public class TestMySet {
 
     @Test
     public void testSizeReturnsElementCountIfMaxCapacity() {
-        MySet<Integer> testSet = new MySet<>(5);
+        MySet<String> testSet = new MySet<>(5);
         testSet.add("this");
         testSet.add("that");
         testSet.add("andTheOtherThing");
@@ -134,7 +134,7 @@ public class TestMySet {
     //---------------test MySet isEmpty()
     @Test
     public void testIsEmptyReturnsFalse() {
-        MySet<Integer> testSet = new MySet<>(5);
+        MySet<String> testSet = new MySet<>(5);
         testSet.add("this");
         testSet.add("that");
         testSet.add("andTheOtherThing");
@@ -156,7 +156,7 @@ public class TestMySet {
     //---------------test MySet contains()
     @Test
     public void testContainsTrue() {
-        MySet<Integer> testSet = new MySet<>(5);
+        MySet<String> testSet = new MySet<>(5);
         testSet.add("thisThing");
         testSet.add("thatThing");
         testSet.add("something");
@@ -170,7 +170,7 @@ public class TestMySet {
 
     @Test
     public void testContainsFalse() {
-        MySet<Integer> testSet = new MySet<>(5);
+        MySet<String> testSet = new MySet<>(5);
         testSet.add("thisThing");
         testSet.add("thatThing");
         testSet.add("theOtherThing");
@@ -199,16 +199,6 @@ public class TestMySet {
         Assert.assertEquals(true, actual);
     }
 
-//    @Test
-//    public void testAddAppendsAtEndOfList() {
-//        MySet<String> testSet = new MySet<>();
-//        String expected = "andTheOtherThing";
-//        testSet.add("this");
-//        testSet.add("that");
-//        testSet.add(expected);
-//        String actual = testSet.get(2);
-//        Assert.assertEquals(expected, actual);
-//    }
 
     @Test //return true if set did not contain the specified element
     public void testAdd_DoesNotContainElement_True() {
@@ -241,6 +231,7 @@ public class TestMySet {
 //        testSet.add(20);
 //        testSet.add(30);
 //        Boolean actual = testSet.add(20);
+    //check size before and after
 //        Assert.assertEquals(false, actual);
 //    }
 
@@ -344,27 +335,32 @@ public class TestMySet {
 
 
     //------------test Myset Bool containsAll(Collection<?> c)
-    /**  Returns true if this set contains all of the elements of the specified collection.
-     If the specified collection is also a set, this method returns true if it is a subset of this set.
-     c - collection to be checked for containment in this set
-     Returns:
-     true if this set contains all of the elements of the specified collection
-     NullPointerException - if the specified collection contains one or more null elements and
-     this set does not permit null elements (optional), or if the specified collection is null*/
+
+    /**
+     * Returns true if this set contains all of the elements of the specified collection.
+     * If the specified collection is also a set, this method returns true if it is a subset of this set.
+     * c - collection to be checked for containment in this set
+     * Returns:
+     * true if this set contains all of the elements of the specified collection
+     * NullPointerException - if the specified collection contains one or more null elements and
+     * this set does not permit null elements (optional), or if the specified collection is null
+     */
 
 
-    //------------test Myset Bool addAll(Collection<? extends E> c)
+//    ------------test Myset Bool addAll(Collection<? extends E> c)
 //    @Test
 //    public void testAddAll_Union2Sets() {
-//        Integer[] array1 = {10, 20, 30, 40};
-//        Integer[] array2 = {50, 60, 70, 80};
-//        MySet<Integer> testOb = new MySet<>();
-//        testOb.addAll(array1);
-//        testOb.addAll(array2);
+//        MySet<String> set1 = new MySet<>();
+//        set1.add("yes");
+//        set1.add("is");
+//        set1.add("fun");
+//        MySet<String> set2 = new MySet<>();
+//        set2.add("this");
+//        set2.add("is");
+//        set2.add("fun");
 //
-//        Integer[] expected = {10, 20, 30, 40, 50, 60, 70, 80};
-//        Integer[] actual = testOb.toArray(new Integer[0]);
-//        Assert.assertArrayEquals(expected, actual);
+//        set1.addAll(set2);
+//
 //    }
 
 
