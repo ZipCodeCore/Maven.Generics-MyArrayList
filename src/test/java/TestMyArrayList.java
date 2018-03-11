@@ -2,7 +2,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class TestMyArrayList {
-
     //---------------Test Constructor
     @Test
     public void testConstructorDefaultSize() {
