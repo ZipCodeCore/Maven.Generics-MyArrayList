@@ -75,7 +75,11 @@ public class MyArrayList<E> {
     }
 
     public boolean isEmpty() {
-        return false;
+        if (myArrayList.length == 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public boolean contains() {

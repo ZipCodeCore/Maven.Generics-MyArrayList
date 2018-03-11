@@ -164,6 +164,23 @@ public class MyArrayListTest {
     }
 
     @Test
+    public void isEmptyTest() {
+        // Given
+        boolean expectedIsEmpty = true;
+        int originalIntAtIndex0 = 0;
+        int originalIntAtIndex1 = 1;
+        int startingArrayLength = 2;
+        mal = new MyArrayList<>(startingArrayLength);
+        // When
+        mal.add(originalIntAtIndex0);
+        mal.add(originalIntAtIndex1);
+        mal.clear();
+        boolean actualIsEmpty = mal.isEmpty();
+        // Then
+        Assert.assertEquals(expectedIsEmpty, actualIsEmpty);
+    }
+
+    @Test
     public void ensureCapacityTest() {
         // Given
         int expectedArrayLength = 2;
