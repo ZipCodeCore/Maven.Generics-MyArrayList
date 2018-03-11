@@ -1,6 +1,9 @@
 import java.util.Arrays;
+import java.util.logging.Logger;
 
 public class MyArrayList<E> {
+
+    private static final Logger logger = Logger.getGlobal();
 
     private E[] myArrayList;
     private int size = 0;
@@ -32,16 +35,7 @@ public class MyArrayList<E> {
         if (index < 0) {
             throw new ArrayIndexOutOfBoundsException(index);
         }
-
         ensureCapacity();
-//        if (myArrayList.length == 1) {
-//            myArrayList[index] = element;
-//        } else {
-//            for (int i = size; i > index; i--) {
-//                myArrayList[i] = myArrayList[i - 1];
-//            }
-//            myArrayList[index] = element;
-//        }
         if (myArrayList.length > 1) {
             shiftElementsFromIndexToSize(index);
         }
@@ -54,18 +48,28 @@ public class MyArrayList<E> {
     }
 
     public E remove(int index) {
-        // return the element that was removed
-        return null;
+        if (index < 0 || index >= myArrayList.length) {
+            logger.info("Array length is zero. There are no elements to delete in this array.");
+            throw new ArrayIndexOutOfBoundsException(index);
+        }
+        E elementRemoved = myArrayList[index];
+        if ( (myArrayList.length == 1 && index == 0) || (index == size - 1) ) {
+            myArrayList[index] = null;
+        } else {
+            shiftElementsFromSizeToIndex(index);
+            myArrayList[size - 1] = null;
+        }
+        size--;
+        return elementRemoved;
     }
 
     public E set(int index, E element) {
-        // returns the element previously at the specified position
-        E previousElement = myArrayList[index];
+        E elementPreviouslyAtIndex = myArrayList[index];
         if (index < 0 || index >= myArrayList.length) {
             throw new ArrayIndexOutOfBoundsException(index);
         }
         myArrayList[index] = element;
-        return previousElement;
+        return elementPreviouslyAtIndex;
     }
 
     public void clear() {
@@ -101,6 +105,12 @@ public class MyArrayList<E> {
     public void shiftElementsFromIndexToSize(int index) {
         for (int i = size; i > index; i--) {
             myArrayList[i] = myArrayList[i - 1];
+        }
+    }
+
+    public void shiftElementsFromSizeToIndex(int index) {
+        for (int i = index; i < size - 1; i++) {
+            myArrayList[i] = myArrayList[i + 1];
         }
     }
 

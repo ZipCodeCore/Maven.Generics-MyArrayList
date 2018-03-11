@@ -6,9 +6,20 @@ public class MyArrayListTest {
     private MyArrayList<Integer> mal;
 
     @Test
+    public void MyArrayListDefaultConstructorTest() {
+        // Given
+        int expectedArrayLength = 10;
+        mal = new MyArrayList<>();
+        // When
+        int actualArrayLength = mal.length();
+        // Then
+        Assert.assertEquals(expectedArrayLength, actualArrayLength);
+    }
+
+    @Test
     public void MyArrayListConstructorLengthTest() {
         // Given
-        int expectedArrayLength = 1;
+        int expectedArrayLength = 0;
         mal = new MyArrayList<>(expectedArrayLength);
         // When
         int actualArrayLength = mal.length();
@@ -60,20 +71,67 @@ public class MyArrayListTest {
         Assert.assertEquals(expectedArrayLength, actualArrayLength);
     }
 
-//    @Test
-//    public void removeTest() {
-//        // Given
-//        int expectedIntAtIndex0 = 0;
-//        int expectedIntAtIndex1 = 1;
-//        int startingLength = 1;
-//        // When
-//        mal = new MyArrayList<>(startingLength);
-//        mal.add(expectedIntAtIndex0);
-//        mal.add(expectedIntAtIndex1);
-//        int actualIntAtIndex1 = mal.get(1);
-//        // Then
-//        Assert.assertEquals(expectedIntAtIndex1, actualIntAtIndex1);
-//    }
+    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    public void removeElementWhenArrayLengthIsZeroExceptionTest() throws ArrayIndexOutOfBoundsException {
+        // Given
+        int startingLength = 0;
+        // When
+        mal = new MyArrayList<>(startingLength);
+        mal.remove(0);
+    }
+
+    @Test
+    public void removeElementWhenArrayLengthIsOneTest() {
+        // Given
+        int originalIntAtIndex0 = 0;
+        int startingLength = 1;
+        Integer expectedIntAtIndex0 = null;
+        // When
+        mal = new MyArrayList<>(startingLength);
+        mal.add(originalIntAtIndex0);
+        mal.remove(0);
+        Integer actualIntAtIndex0 = mal.get(0);
+        // Then
+        Assert.assertEquals(expectedIntAtIndex0, actualIntAtIndex0);
+    }
+
+    @Test
+    public void removeElementWhenItsIndexIsSizeMinusOneTest() {
+        // Given
+        int originalIntAtIndex0 = 0;
+        int originalIntAtIndex1 = 1;
+        int originalIntAtIndex2 = 2;
+        int startingLength = 0;
+        Integer expectedIntAtIndex2 = null;
+        // When
+        mal = new MyArrayList<>(startingLength);
+        mal.add(originalIntAtIndex0);
+        mal.add(originalIntAtIndex1);
+        mal.add(originalIntAtIndex2);
+        mal.remove(2);
+        Integer actualIntAtIndex1 = mal.get(2);
+        // Then
+        Assert.assertEquals(expectedIntAtIndex2, actualIntAtIndex1);
+    }
+
+    @Test
+    public void removeElementWhenArrayLengthIsThreeTest() {
+        // Given
+        int originalIntAtIndex0 = 0;
+        int originalIntAtIndex1 = 1;
+        int originalIntAtIndex2 = 2;
+        int startingLength = 1;
+        int expectedIntAtIndex1 = originalIntAtIndex2;
+        // When
+        mal = new MyArrayList<>(startingLength);
+        mal.add(originalIntAtIndex0);
+        mal.add(originalIntAtIndex1);
+        mal.add(originalIntAtIndex2);
+        mal.remove(1);
+        int actualIntAtIndex1 = mal.get(1);
+        // Then
+        Assert.assertEquals(expectedIntAtIndex1, actualIntAtIndex1);
+    }
 
     @Test
     public void setTest() {
