@@ -2,7 +2,9 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class MyArrayListTest<T> {
-    public MyArrayListTest(){}
+    public MyArrayListTest() {
+    }
+
     private MyArrayList<String> myStrArrayList = new MyArrayList<>();
     private MyArrayList<Integer> myIntArrayList = new MyArrayList<>();
     private MySet<Integer> genericIntSet = new MySet<>();
@@ -88,7 +90,7 @@ public class MyArrayListTest<T> {
         int actual = genericIntSet.getSize();
 
         //Then
-        Assert.assertEquals(expected,actual);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
@@ -107,7 +109,7 @@ public class MyArrayListTest<T> {
         String actual = genericStrSet.get(indexToRemove);
 
         //Then
-        Assert.assertEquals(expected,actual);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
@@ -126,7 +128,7 @@ public class MyArrayListTest<T> {
         int actual = genericIntSet.getSize();
 
         //Then
-        Assert.assertEquals(expected,actual);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
@@ -144,7 +146,7 @@ public class MyArrayListTest<T> {
         String actual = genericStrSet.get(4);
 
         //Then
-        Assert.assertEquals(expected,actual);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
@@ -165,7 +167,7 @@ public class MyArrayListTest<T> {
         int actual = genericIntSet.getSize();
 
         //Then
-        Assert.assertEquals(expected,actual);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
@@ -179,7 +181,7 @@ public class MyArrayListTest<T> {
         int actual = genericStrSet.getSize();
 
         //Then
-        Assert.assertEquals(expected,actual);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
@@ -194,7 +196,7 @@ public class MyArrayListTest<T> {
         boolean actual = genericIntSet.contains(4);
 
         //Then
-        Assert.assertEquals(true,actual);
+        Assert.assertEquals(true, actual);
     }
 
     @Test
@@ -210,7 +212,7 @@ public class MyArrayListTest<T> {
         boolean actual = genericStrSet.contains("Money");
 
         //Then
-        Assert.assertEquals(true,actual);
+        Assert.assertEquals(true, actual);
     }
 
     @Test
@@ -226,7 +228,7 @@ public class MyArrayListTest<T> {
         boolean actual = genericIntSet.contains(11);
 
         //Then
-        Assert.assertEquals(false,actual);
+        Assert.assertEquals(false, actual);
     }
 
     @Test
@@ -242,7 +244,7 @@ public class MyArrayListTest<T> {
         boolean actual = genericStrSet.contains("Deebo");
 
         //Then
-        Assert.assertEquals(false,actual);
+        Assert.assertEquals(false, actual);
     }
 
     @Test
@@ -256,7 +258,7 @@ public class MyArrayListTest<T> {
         boolean actual = myIntArrayList.isEmpty();
 
         //Then
-        Assert.assertEquals(false,actual);
+        Assert.assertEquals(false, actual);
     }
 
     @Test
@@ -270,6 +272,23 @@ public class MyArrayListTest<T> {
         boolean actual = genericStrSet.isEmpty();
 
         //Then
-        Assert.assertEquals(false,actual);
+        Assert.assertEquals(false, actual);
     }
+//
+//    @Test
+//    public void toArrayTest() {
+//        //Given
+//        String[] strings = new String[myStrArrayList.getSize()];
+//        myStrArrayList.add("Hope");
+//        myStrArrayList.add("This");
+//        myStrArrayList.add("Works");
+//        expected
+//        //When
+//        myStrArrayList.toArray(strings);
+//        actual
+//
+//        //Then
+//        Assert.assertEquals(expected, actual);
+//
+//    }
 }

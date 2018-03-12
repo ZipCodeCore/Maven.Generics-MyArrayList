@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.ArrayList;
 
 public class MyArrayList<T> {
     private T[] genericArray;
@@ -42,7 +43,7 @@ public class MyArrayList<T> {
         return firstValue;
     }
 
-    public void clear() { //clear all the values or 'elements' with the array, this should return null with no values after logic
+    public void clear() { //clear all the values or 'elements' within the array, this should return null with no values after logic
         for (int i = 0; i < genericArray.length; i++) {
             genericArray[i] = null;
         }
@@ -69,10 +70,36 @@ public class MyArrayList<T> {
     }
 
     @SuppressWarnings("unchecked")
-    public <T> T[] toArray(T[] value) {
+    public <T> T[] toArray(T[] value) { //this method should return an the elements of any type T object
         String[] str = {"This", "is", "confusing", "af"};
         if (genericArray.length < size)
             return (T[]) Arrays.copyOf(str, size, value.getClass());
         return (T[]) str;
+    }
+
+    public static class ToArrayTest { //this does not test my method but is giving me an idea for map and generic version
+        public static void main(String[] args) { //to array should return whatever elements are contained in the array
+            //Given
+            ArrayList<String> strArrayList = new ArrayList<>();
+            strArrayList.add("Power");
+            strArrayList.add("level");
+            strArrayList.add("over");
+            strArrayList.add("9000 \n");
+
+            System.out.println("Here are the elements within this other array: \n");
+
+            for (String str : strArrayList) {
+                System.out.println("String: " + str);
+            }
+            //When
+            String stringList2[] = new String[strArrayList.size()];
+            stringList2 = strArrayList.toArray(stringList2);
+
+            System.out.println("Here are the elements within this array: \n");
+            //Then
+            for (String str : stringList2) {
+                System.out.println("String: " + str);
+            }
+        }
     }
 }
