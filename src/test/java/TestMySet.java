@@ -504,17 +504,7 @@ public class TestMySet {
     }
 
     //------------test Myset boolean retainAll(Collection<?> c)
-    /**Retains only the elements in this set that are contained in the specified collection
-     (optional operation). In other words, removes from this set all of its elements that are not
-     contained in the specified collection. If the specified collection is also a set, this operation
-     effectively modifies this set so that its value is the intersection of the two sets.
-     Parameters:
-     c - collection containing elements to be retained in this set
-     Returns:
-     true if this set changed as a result of the call
-     NullPointerException - if this set contains a null element and the specified
-     collection does not permit null elements (optional), or if the specified collection is null
-     *///if dup retain it
+
     @Test //returning matching elements
     public void testRetainAll_RetainOnlyDups() {
         MySet<String> testSet = new MySet<>();
@@ -534,7 +524,7 @@ public class TestMySet {
     }
 
     @Test //if no matching elements then return empty array
-    public void testRetainAll_RetainOnlyDups() {
+    public void testRetainAll_NoMatches_ReturnEmptyArray() {
         MySet<String> testSet = new MySet<>();
         testSet.add("yes");
         testSet.add("like");
@@ -551,7 +541,7 @@ public class TestMySet {
         Assert.assertArrayEquals(expected, actual);
     }
     @Test(expected = NullPointerException.class)
-    public void testContainsAll_ThrowsExceptionIfElementSpecifiedNull() {
+    public void testRetainAll_ThrowsExceptionIfElementSpecifiedNull() {
         MySet<String> testSet = new MySet<>();
         testSet.add("yes");
         testSet.add("like");

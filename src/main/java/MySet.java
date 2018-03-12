@@ -141,6 +141,22 @@ public class MySet<E> {
     }
 
     /**
+     * Remove all elements from set except those in c, keeps matching elements
+     * @param container collection containing elements to be retained in this set
+     * @return true if this set changed as a result of the call.
+     */
+    public boolean retainAll(Collection<E> container) {
+        for (int i = 0; i < this.inputArray.length; i++) {
+            if (!container.contains(this.inputArray[i])) {
+                this.inputArray[i] = null;
+                this.size--;
+            }
+        }
+        this.inputArray = shiftAllNullsToEnd(this.inputArray);
+        return true;
+    }
+
+    /**
      * Removes all of the elements from this set
      * The set will be empty after this call returns.
      */
