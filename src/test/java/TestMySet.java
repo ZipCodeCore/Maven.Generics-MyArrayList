@@ -157,6 +157,7 @@ public class TestMySet {
     }
 
     //---------------test MySet contains()
+
     @Test
     public void testContainsTrue() {
         MySet<String> testSet = new MySet<>(5);
@@ -192,6 +193,7 @@ public class TestMySet {
     }
 
     //------------test Myset Bool add(E e)
+
     @Test //Check that element is in list after adding
     public void testAdd_SetContainsElementAfterAdd_True() {
         MySet<Integer> testSet = new MySet<>();
@@ -312,6 +314,7 @@ public class TestMySet {
     }
 
     //------------test Myset void clear()
+
     @Test
     public void testClearSetsSizeToZero() {
         MySet<Integer> testSet = new MySet<>();
@@ -329,6 +332,7 @@ public class TestMySet {
     }
 
     //---------------test MySet toArray() Object[] toArray()
+
     @Test//check nulls that populate the original capacity of an array(10) are not returned
     public void testToArrayAllNullsRemoved() {
         MySet<Integer> testSet = new MySet<>();
@@ -401,10 +405,9 @@ public class TestMySet {
         Assert.assertArrayEquals(expected, actual);
     }
 
-    //--------------test Myset toArray() <T> T[] toArray(T[] a)
-
 
     //------------test Myset Bool containsAll(Collection<?> c)
+
     @Test
     public void testContainsAll_True() {
         MySet<Integer> testSet = new MySet<>();
@@ -467,6 +470,7 @@ public class TestMySet {
     }
 
     //------------test Myset Bool addAll(Collection<? extends E> c)
+
     @Test
     public void testAddAll_Union2Sets() {
         MySet<String> testSet = new MySet<>();
@@ -540,6 +544,7 @@ public class TestMySet {
 
         Assert.assertArrayEquals(expected, actual);
     }
+
     @Test(expected = NullPointerException.class)
     public void testRetainAll_ThrowsExceptionIfElementSpecifiedNull() {
         MySet<String> testSet = new MySet<>();
@@ -550,6 +555,9 @@ public class TestMySet {
         testSet.retainAll(null);
 
     }
+
+    //--------------test Myset toArray() <T> T[] toArray(T[] a)
+
     //------------test Myset boolean removeAll(Collection<?> c)
     /** Removes from this set all of its elements that are contained in the specified collection (optional operation).
      If the specified collection is also a set, this operation effectively modifies this set so that its value is

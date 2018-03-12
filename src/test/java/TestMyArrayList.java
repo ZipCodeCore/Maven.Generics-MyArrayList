@@ -26,7 +26,6 @@ public class TestMyArrayList {
         Assert.assertEquals(expectedSize, actualLength);
     }
 
-
     //---------------Test isEmpty
     @Test
     public void testIsSizeEmptyReturnsFalse() {

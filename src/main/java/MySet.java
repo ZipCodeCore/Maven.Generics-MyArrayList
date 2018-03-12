@@ -75,7 +75,6 @@ public class MySet<E> {
         return false;
     }
 
-
     /**
      * Removes the specified element from this set if it is present
      *
@@ -124,9 +123,6 @@ public class MySet<E> {
     }
 
     /**
-     * NullPointerException - if the specified collection contains one or more null elements and
-     * this set does not permit null elements (optional), or if the specified collection is null
-     *
      * @param container collection to be checked for containment in this set
      * @return true if this set contains all of the elements of the specified collection.
      * If the specified collection is also a set, this method returns true if it is a subset of this set.
@@ -142,6 +138,7 @@ public class MySet<E> {
 
     /**
      * Remove all elements from set except those in c, keeps matching elements
+     *
      * @param container collection containing elements to be retained in this set
      * @return true if this set changed as a result of the call.
      */
@@ -178,10 +175,6 @@ public class MySet<E> {
     }
 
     /**
-     * NullPointerException - if the specified collection contains one or more null elements
-     * and this set does not permit null elements, or if the specified collection is null
-     * Trim the null values from an array.
-     *
      * @param arr array to be altered assumed that all non-null values are contiguous starting at index 0
      * @return array with with trailing nulls removed
      * Do not make generic, internal to class,
