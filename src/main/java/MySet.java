@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -133,8 +134,9 @@ public class MySet<E> {
      * @return array with only elements
      */
     @SuppressWarnings("unchecked")
-    public E[] toArray() {
-        return  (E[]) trimTrailingNull(this.inputArray);
+    public E[] toArray(E[] in) {
+        Object[] t = trimTrailingNull(this.inputArray);
+        return (E[]) Arrays.copyOf(t, t.length, in.getClass());
     }
 
     /**
@@ -145,7 +147,8 @@ public class MySet<E> {
      * @return array with with trailing nulls removed
      * Do not make generic, internal to class,
      */
-    private static Object[] trimTrailingNull(Object[] arr) {
+    @SuppressWarnings("unchecked")
+    private  static Object[] trimTrailingNull(Object[] arr) {
         int lastNotNull = 0;
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] != null) {
@@ -159,7 +162,7 @@ public class MySet<E> {
         }
 
         Object[] trimmed = new Object[lastNotNull];
-        for (int i = 0; i <= lastNotNull; i++) {
+        for (int i = 0; i < lastNotNull; i++) {
             trimmed[i] = arr[i];
         }
 

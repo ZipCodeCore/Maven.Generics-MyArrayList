@@ -1,6 +1,9 @@
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.ArrayList;
 
 public class TestMySet {
 
@@ -323,13 +326,79 @@ public class TestMySet {
         Assert.assertEquals(0, actual);
 
     }
-//---------------test MySet toArray() Object[] toArray()
-    /**
-     * Returns an array containing all of the elements in this set
-     * the returned array will be "safe" in that no references to it are maintained by this set
-     * meaning this method must allocate a new array if if this set is backed by an array
-     * user should be free to modify the returned array
-     */
+
+    //---------------test MySet toArray() Object[] toArray()
+    @Test//check nulls that populate the original capacity of an array(10) are not returned
+    public void testToArrayAllNullsRemoved() {
+        MySet<Integer> testSet = new MySet<>();
+        Integer[] actual = testSet.toArray(new Integer[0]);
+        Integer[] expected = {};
+        Assert.assertArrayEquals(expected, actual);
+    }
+
+    @Test //check no loss of non-null elements
+    public void testToArrayAllElementsReturned() {
+        MySet<Integer> testSet = new MySet<>();
+        testSet.add(1);
+        testSet.add(2);
+        testSet.add(3);
+        testSet.add(4);
+        Integer[] actual = testSet.toArray(new Integer[0]);
+        Integer[] expected = {1, 2, 3, 4};
+        Assert.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void testToArray_ModifyReturnedArray_DoesNotModify_OriginialArray() {
+        MySet<Integer> testSet = new MySet<>();
+        testSet.add(1);
+        testSet.add(2);
+        testSet.add(3);
+        testSet.add(4);
+
+        Integer[] actual = testSet.toArray(new Integer[0]);
+        actual[1] = 100;
+        Integer[] expectedOriginal = {1, 2, 3, 4};
+        Integer[] expectedModified = {1, 100, 3, 4};
+
+        Assert.assertNotEquals(expectedOriginal[1], expectedModified[1]);
+    }
+
+    @Test //check works with type double
+    public void testToArray_Double() {
+        MySet<Double> testSet = new MySet<>();
+        testSet.add(1.0001);
+        testSet.add(2.0001);
+        testSet.add(3.0001);
+        testSet.add(4.0001);
+        Double[] actual = testSet.toArray(new Double[0]);
+        Double[] expected = {1.0001, 2.0001, 3.0001, 4.0001};
+        Assert.assertArrayEquals(expected, actual);
+    }
+
+    @Test //check works with type long
+    public void testToArray_Long() {
+        MySet<Long> testSet = new MySet<>();
+        testSet.add(1L);
+        testSet.add(2L);
+        testSet.add(3L);
+        testSet.add(4L);
+        Long[] actual = testSet.toArray(new Long[0]);
+        Long[] expected = {1L, 2L, 3L, 4L};
+        Assert.assertArrayEquals(expected, actual);
+    }
+
+    @Test //check works with type String
+    public void testToArray_String() {
+        MySet<String> testSet = new MySet<>();
+        testSet.add("f");
+        testSet.add("d");
+        testSet.add("c");
+        testSet.add("w");
+        String[] actual = testSet.toArray(new String[0]);
+        String[] expected = {"f", "d", "c", "w"};
+        Assert.assertArrayEquals(expected, actual);
+    }
 
     //--------------test Myset toArray() <T> T[] toArray(T[] a)
 
@@ -347,22 +416,42 @@ public class TestMySet {
      */
 
 
-//    ------------test Myset Bool addAll(Collection<? extends E> c)
-//    @Test
-//    public void testAddAll_Union2Sets() {
-//        MySet<String> set1 = new MySet<>();
-//        set1.add("yes");
-//        set1.add("is");
-//        set1.add("fun");
-//        MySet<String> set2 = new MySet<>();
-//        set2.add("this");
-//        set2.add("is");
-//        set2.add("fun");
-//
-//        set1.addAll(set2);
-//
-//    }
+    //------------test Myset Bool addAll(Collection<? extends E> c)
+    @Test
+    public void testAddAll_Union2Sets() {
+        MySet<String> testSet = new MySet<>();
+        testSet.add("yes");
+        testSet.add("this");
+        testSet.add("is");
+        ArrayList<String> testList2 = new ArrayList<>();
+        testList2.add("super");
+        testList2.add("fun");
+        testList2.add("!");
+        String[] expected = new String[]{"yes", "this", "is", "super", "fun", "!"};
 
+        testSet.addAll(testList2);
+        String[] actual = testSet.toArray(new String[0]);
+
+        Assert.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void testAddAll_Union2Sets_WithOnlyUniqueValues() {
+        MySet<String> testSet = new MySet<>();
+        testSet.add("yes");
+        testSet.add("is");
+        testSet.add("fun");
+        ArrayList<String> testList2 = new ArrayList<>();
+        testList2.add("this");
+        testList2.add("is");
+        testList2.add("fun");
+        String[] expected = new String[]{"yes", "is", "fun", "this"};
+
+        testSet.addAll(testList2);
+        String[] actual = testSet.toArray(new String[0]);
+
+        Assert.assertArrayEquals(expected, actual);
+    }
 
     //------------test Myset boolean retainAll(Collection<?> c)
     /**Retains only the elements in this set that are contained in the specified collection
