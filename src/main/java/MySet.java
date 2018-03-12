@@ -26,63 +26,68 @@ public class MySet<E> {
         return true;
     }
 
-    public boolean addAll(Collection<? extends E> collection) {
-        for (E element : collection) {
-            myArrayList.add(element);
-        }
-        return true;
-    }
+    // Could not get this method to work
+//    public boolean addAll(Collection<? extends E> collection) {
+//        for (E element : collection) {
+//            myArrayList.add(element);
+//        }
+//        return true;
+//    }
 
     public void clear() {
         this.myArrayList.clear();
     }
 
-    public boolean contains(Object object) {
-        return false;
+    public boolean contains(E elementToFind) {
+        return this.myArrayList.contains(elementToFind);
     }
 
-    public boolean containsAll(Collection<?> collection) {
-        return false;
-    }
+//    public boolean containsAll(Collection<?> collection) {
+//        return false;
+//    }
 
-    public boolean equals(Object object) {
-        return false;
-    }
+//    public boolean equals(Object object) {
+//        return false;
+//    }
 
-    public int hashCode() {
-        return 0;
-    }
+//    public int hashCode() {
+//        return 0;
+//    }
 
     public boolean isEmpty() {
-        return false;
+        return this.myArrayList.isEmpty();
     }
 
-    public Iterator<E> iterator() {
-        return null;
+//    public Iterator<E> iterator() {
+//        return null;
+//    }
+
+    public void remove(E element) {
+        this.myArrayList.remove(element);
     }
 
-    public boolean remove(Object object) {
-        return false;
-    }
+//    public boolean removeAll(Collection<?> collection) {
+//        return false;
+//    }
 
-    public boolean removeAll(Collection<?> collection) {
-        return false;
-    }
-
-    public boolean retainAll(Collection<?> collection) {
-        return false;
-    }
+//    public boolean retainAll(Collection<?> collection) {
+//        return false;
+//    }
 
     public int size() {
         return myArrayList.size();
+    }
+
+    public int capacity() {
+        return myArrayList.capacity();
     }
 
     public Object[] toArray() {
         return myArrayList.toArray();
     }
 
-    public <T> T[] toArray(T[] a) {
-        return null;
-    }
+//    public <T> T[] toArray(T[] a) {
+//        return a.toArray();
+//    }
 
 }

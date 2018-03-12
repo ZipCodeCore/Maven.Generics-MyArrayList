@@ -82,6 +82,10 @@ public class MyArrayList<E> {
         return elementRemoved;
     }
 
+    public void remove(E element) {
+        this.remove(this.indexOf(element)) ;
+    }
+
     public E set(int index, E element) {
         E elementPreviouslyAtIndex = myArrayList[index];
         if (index < 0 || index >= myArrayList.length) {
@@ -93,6 +97,7 @@ public class MyArrayList<E> {
 
     public void clear() {
         this.myArrayList = (E[]) new Object[0];
+        this.size = 0;
     }
 
     public boolean isEmpty() {
@@ -151,5 +156,24 @@ public class MyArrayList<E> {
 
     public Object[] toArray() {
         return Arrays.copyOf(myArrayList, size);
+    }
+
+    public int indexOf(E element) {
+
+        if (element == null) {
+            for (int i = 0; i < this.myArrayList.length; i++) {
+                if (this.myArrayList[i] == element) {
+                    return i;
+                }
+            }
+        }
+
+        for (int i = 0; i < this.myArrayList.length; i++) {
+            if (this.myArrayList[i].equals(element)) {
+                return i;
+            }
+        }
+
+        return -1;
     }
 }
