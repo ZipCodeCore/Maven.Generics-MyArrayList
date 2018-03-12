@@ -10,7 +10,7 @@ public class MySet<E> {
     }
 
     public MySet(Collection<? extends E> collection) {
-
+        this.myArrayList = new MyArrayList<>(collection);
     }
 
     public MySet(int initialCapacity) {
@@ -27,7 +27,10 @@ public class MySet<E> {
     }
 
     public boolean addAll(Collection<? extends E> collection) {
-        return false;
+        for (E element : collection) {
+            myArrayList.add(element);
+        }
+        return true;
     }
 
     public void clear() {
@@ -75,7 +78,7 @@ public class MySet<E> {
     }
 
     public Object[] toArray() {
-        return null;
+        return myArrayList.toArray();
     }
 
     public <T> T[] toArray(T[] a) {

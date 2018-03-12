@@ -149,4 +149,7 @@ public class MyArrayList<E> {
         }
     }
 
+    public Object[] toArray() {
+        return Arrays.copyOf(myArrayList, size);
+    }
 }

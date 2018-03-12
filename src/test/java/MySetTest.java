@@ -1,6 +1,8 @@
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Arrays;
+
 public class MySetTest {
 
     private MySet mySet;
@@ -33,6 +35,28 @@ public class MySetTest {
         int actualSize = mySet.size();
         // Then
         Assert.assertEquals(expectedSize, actualSize);
+    }
+
+    @Test
+    public void addAllTest() {
+        // Given
+        Integer[] startingArray = { 0, 1, 2 };
+        Integer[] arrayToAdd = { 3, 4, 5 };
+        Integer[] expectedFinalArray = { 0, 1, 2, 3, 4, 5 };
+        String expectedFinalArrayString = Arrays.toString(expectedFinalArray);
+        // When
+        mySet = new MySet<>(Arrays.asList(startingArray));
+        int mySetSize = mySet.size();
+//        mySet.addAll(Arrays.asList(arrayToAdd));
+        Integer[] actualFinalArray = (Integer[]) mySet.toArray(new Integer[0]);
+
+        String actualFinalArrayString = Arrays.toString(actualFinalArray);
+        System.out.println(mySetSize);
+        System.out.println(expectedFinalArrayString);
+        System.out.println(actualFinalArrayString);
+
+        // Then
+//        Assert.assertEquals(expectedFinalArrayString, actualFinalArrayString);
     }
 
     @Test
