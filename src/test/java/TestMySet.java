@@ -514,9 +514,52 @@ public class TestMySet {
      true if this set changed as a result of the call
      NullPointerException - if this set contains a null element and the specified
      collection does not permit null elements (optional), or if the specified collection is null
-     */
+     *///if dup retain it
+    @Test //returning matching elements
+    public void testRetainAll_RetainOnlyDups() {
+        MySet<String> testSet = new MySet<>();
+        testSet.add("yes");
+        testSet.add("is");
+        testSet.add("fun");
+        ArrayList<String> testList2 = new ArrayList<>();
+        testList2.add("this");
+        testList2.add("is");
+        testList2.add("fun");
+        String[] expected = new String[]{"is", "fun"};
 
+        testSet.retainAll(testList2);
+        String[] actual = testSet.toArray(new String[0]);
 
+        Assert.assertArrayEquals(expected, actual);
+    }
+
+    @Test //if no matching elements then return empty array
+    public void testRetainAll_RetainOnlyDups() {
+        MySet<String> testSet = new MySet<>();
+        testSet.add("yes");
+        testSet.add("like");
+        testSet.add("dog");
+        ArrayList<String> testList2 = new ArrayList<>();
+        testList2.add("this");
+        testList2.add("is");
+        testList2.add("fun");
+        String[] expected = new String[]{};
+
+        testSet.retainAll(testList2);
+        String[] actual = testSet.toArray(new String[0]);
+
+        Assert.assertArrayEquals(expected, actual);
+    }
+    @Test(expected = NullPointerException.class)
+    public void testContainsAll_ThrowsExceptionIfElementSpecifiedNull() {
+        MySet<String> testSet = new MySet<>();
+        testSet.add("yes");
+        testSet.add("like");
+        testSet.add("dog");
+
+        testSet.retainAll(null);
+
+    }
     //------------test Myset boolean removeAll(Collection<?> c)
     /** Removes from this set all of its elements that are contained in the specified collection (optional operation).
      If the specified collection is also a set, this operation effectively modifies this set so that its value is
