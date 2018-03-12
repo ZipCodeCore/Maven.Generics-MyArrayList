@@ -154,6 +154,21 @@ public class MySet<E> {
     }
 
     /**
+     * Remove all elements that are also in c
+     * @param container collection containing elements to be removed from this set
+     * @return true if ANY elements are removed
+     */
+    public boolean removeAll(Collection<E> container) {
+        boolean anyRemoved = false;
+        for (E obj : container) {
+            if (this.remove(obj)) {
+                anyRemoved = true;
+            }
+        }
+        return anyRemoved;
+    }
+
+    /**
      * Removes all of the elements from this set
      * The set will be empty after this call returns.
      */
@@ -232,5 +247,7 @@ public class MySet<E> {
     }
 
 }
+
+
 
 

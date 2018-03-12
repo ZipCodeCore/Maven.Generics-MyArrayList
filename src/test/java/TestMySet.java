@@ -555,10 +555,7 @@ public class TestMySet {
         testSet.retainAll(null);
 
     }
-
-    //--------------test Myset toArray() <T> T[] toArray(T[] a)
-
-    //------------test Myset boolean removeAll(Collection<?> c)
+//------------test Myset boolean removeAll(Collection<?> c)
     /** Removes from this set all of its elements that are contained in the specified collection (optional operation).
      If the specified collection is also a set, this operation effectively modifies this set so that its value is
      the asymmetric set difference of the two sets.
@@ -570,6 +567,68 @@ public class TestMySet {
      elements (optional), or if the specified collection is null
      See Also:
      remove(Object), contains(Object)*/
+
+    @Test //remove all items from list2 that are in list 1
+    public void testRemoveAll_() {
+        MySet<String> testSet = new MySet<>();
+        testSet.add("yes");
+        testSet.add("is");
+        testSet.add("fun");
+        ArrayList<String> testList2 = new ArrayList<>();
+        testList2.add("this");
+        testList2.add("is");
+        testList2.add("fun");
+        String[] expected = new String[]{"yes"};
+
+        testSet.removeAll(testList2);
+        String[] actual = testSet.toArray(new String[0]);
+
+        Assert.assertArrayEquals(expected, actual);
+    }
+
+    @Test //if removed returned true
+    public void testRemoveAll_ReturnsTrueIfChanged() {
+        MySet<String> testSet = new MySet<>();
+        testSet.add("yes");
+        testSet.add("is");
+        testSet.add("fun");
+        ArrayList<String> testList2 = new ArrayList<>();
+        testList2.add("this");
+        testList2.add("is");
+        testList2.add("fun");
+
+        Boolean actual =testSet.removeAll(testList2);
+
+        Assert.assertEquals(true, actual);
+    }
+
+    @Test //if nothing removed return false
+    public void testRemoveAll_ReturnsFalseIfNoChanged() {
+        MySet<String> testSet = new MySet<>();
+        testSet.add("yes");
+        testSet.add("no");
+        testSet.add("maybe");
+        ArrayList<String> testList2 = new ArrayList<>();
+        testList2.add("this");
+        testList2.add("that");
+        testList2.add("theOtherThing");
+
+        Boolean actual =testSet.removeAll(testList2);
+
+        Assert.assertEquals(false, actual);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testRemoveAll_ThrowsExceptionIfElementSpecifiedNull() {
+        MySet<String> testSet = new MySet<>();
+        testSet.add("yes");
+        testSet.add("like");
+        testSet.add("dog");
+
+        testSet.removeAll(null);
+    }
+
+    //--------------test Myset toArray() <T> T[] toArray(T[] a)
 
 
     //------------test boolean equals(Object o)
