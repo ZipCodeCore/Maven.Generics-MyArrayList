@@ -41,7 +41,7 @@ public class MyMap<K,V>
         {
             if (entries.get(i).getKey().equals(key))
             {
-                remove(i);
+                entries.remove(entries.get(i));
             }
         }
 
