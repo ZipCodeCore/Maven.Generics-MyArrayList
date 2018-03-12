@@ -405,17 +405,6 @@ public class TestMySet {
 
 
     //------------test Myset Bool containsAll(Collection<?> c)
-
-    /**
-     * Returns true if this set contains all of the elements of the specified collection.
-     * If the specified collection is also a set, this method returns true if it is a subset of this set.
-     * c - collection to be checked for containment in this set
-     * Returns:
-     * true if this set contains all of the elements of the specified collection
-     * NullPointerException - if the specified collection contains one or more null elements and
-     * this set does not permit null elements (optional), or if the specified collection is null
-     */
-
     @Test
     public void testContainsAll_True() {
         MySet<Integer> testSet = new MySet<>();
@@ -424,9 +413,15 @@ public class TestMySet {
         testSet.add(3);
         testSet.add(4);
 
-        Integer[] actual = testSet.containsAll({1, 2, 3, 4});
+        ArrayList<Integer> check = new ArrayList<Integer>();
+        check.add(1);
+        check.add(2);
+        check.add(3);
+        check.add(4);
 
-        Assert.assertArrayEquals(true, actual);
+        boolean actual = testSet.containsAll(check);
+
+        Assert.assertTrue(actual);
     }
 
     @Test
@@ -437,9 +432,15 @@ public class TestMySet {
         testSet.add(3);
         testSet.add(4);
 
-        Integer[] actual = testSet.containsAll({5,6,7,8});
+        ArrayList<Integer> check = new ArrayList<Integer>();
+        check.add(5);
+        check.add(6);
+        check.add(7);
+        check.add(8);
 
-        Assert.assertArrayEquals(false, actual);
+        boolean actual = testSet.containsAll(check);
+
+        Assert.assertFalse(actual);
     }
 
     @Test
@@ -450,9 +451,13 @@ public class TestMySet {
         testSet.add(3);
         testSet.add(4);
 
-        Integer[] actual = testSet.containsAll({1,2});
+        ArrayList<Integer> check = new ArrayList<Integer>();
+        check.add(1);
+        check.add(2);
 
-        Assert.assertArrayEquals(true, actual);
+        boolean actual = testSet.containsAll(check);
+
+        Assert.assertTrue(actual);
     }
 
     @Test(expected = NullPointerException.class)

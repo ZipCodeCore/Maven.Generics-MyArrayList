@@ -22,6 +22,7 @@ public class MySet<E> {
 
     /**
      * Get set size
+     *
      * @return current number of elements in this list
      */
     public int size() {
@@ -30,6 +31,7 @@ public class MySet<E> {
 
     /**
      * Add Object o to set
+     *
      * @param element - object to be added to this set
      * @return true if this set did not already contain the specified element. false if set already contains element
      * and leaves the set unchanged
@@ -50,6 +52,7 @@ public class MySet<E> {
 
     /**
      * Check if set is empty
+     *
      * @return true if this set contains no elements
      */
     public boolean isEmpty() {
@@ -75,6 +78,7 @@ public class MySet<E> {
 
     /**
      * Removes the specified element from this set if it is present
+     *
      * @param element - element to be removed from this set, if present
      * @return true if this set contained the specified element
      */
@@ -120,6 +124,23 @@ public class MySet<E> {
     }
 
     /**
+     * NullPointerException - if the specified collection contains one or more null elements and
+     * this set does not permit null elements (optional), or if the specified collection is null
+     *
+     * @param container collection to be checked for containment in this set
+     * @return true if this set contains all of the elements of the specified collection.
+     * If the specified collection is also a set, this method returns true if it is a subset of this set.
+     */
+    public boolean containsAll(Collection<E> container) {
+        for (E obj : container) {
+            if (!this.contains(obj)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
      * Removes all of the elements from this set
      * The set will be empty after this call returns.
      */
@@ -131,6 +152,7 @@ public class MySet<E> {
     /**
      * Get array representation of set
      * makes a copy of input array and removes all the nulls.
+     *
      * @return array with only elements
      */
     @SuppressWarnings("unchecked")
@@ -143,12 +165,13 @@ public class MySet<E> {
      * NullPointerException - if the specified collection contains one or more null elements
      * and this set does not permit null elements, or if the specified collection is null
      * Trim the null values from an array.
+     *
      * @param arr array to be altered assumed that all non-null values are contiguous starting at index 0
      * @return array with with trailing nulls removed
      * Do not make generic, internal to class,
      */
     @SuppressWarnings("unchecked")
-    private  static Object[] trimTrailingNull(Object[] arr) {
+    private static Object[] trimTrailingNull(Object[] arr) {
         int lastNotNull = 0;
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] != null) {
@@ -171,6 +194,7 @@ public class MySet<E> {
 
     /**
      * Shift all null values to the end and make non-null values contiguous starting at index 0
+     *
      * @param arr array to be altered
      * @return array altered
      * Do not make generic, internal to class, everything internal is object, everything external is type
