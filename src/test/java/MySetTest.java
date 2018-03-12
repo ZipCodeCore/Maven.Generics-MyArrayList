@@ -60,6 +60,23 @@ public class MySetTest {
     }
 
     @Test
+    public void clearTest() {
+        // Given
+        int expectedArrayLength = 0;
+        int originalIntAtIndex0 = 0;
+        int originalIntAtIndex1 = 1;
+        int startingArrayLength = 2;
+        mySet = new MySet(startingArrayLength);
+        // When
+        mySet.add(originalIntAtIndex0);
+        mySet.add(originalIntAtIndex1);
+        mySet.clear();
+        int actualArrayLength = mySet.size();
+        // Then
+        Assert.assertEquals(expectedArrayLength, actualArrayLength);
+    }
+
+    @Test
     public void sizeTest() {
         // Given
         int expectedSize = 1;

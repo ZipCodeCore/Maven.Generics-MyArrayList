@@ -34,7 +34,7 @@ public class MySet<E> {
     }
 
     public void clear() {
-
+        this.myArrayList.clear();
     }
 
     public boolean contains(Object object) {
