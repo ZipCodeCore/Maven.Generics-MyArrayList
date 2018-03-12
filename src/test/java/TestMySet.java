@@ -227,16 +227,17 @@ public class TestMySet {
         Assert.assertEquals(false, actual);
     }
 
-//    @Test //returns false if set already contains element make sure leaves set unchanged
-//    public void testAdd_AlreadyContainsElement_AddDoesNotAlterSet_True() {
-//        MySet<String> testSet = new MySet<>();
-//        testSet.add(10);
-//        testSet.add(20);
-//        testSet.add(30);
-//        Boolean actual = testSet.add(20);
-    //check size before and after
-//        Assert.assertEquals(false, actual);
-//    }
+    @Test //returns false if set already contains element make sure leaves set unchanged
+    public void testAdd_AlreadyContainsElement_AddDoesNotAlterSet_True() {
+        MySet<Integer> testSet = new MySet<>();
+        testSet.add(10);
+        testSet.add(20);
+        testSet.add(30);
+        testSet.add(20);
+        int expected = 3;
+        int actual = testSet.size();
+        Assert.assertEquals(expected, actual);
+    }
 
     @Test //make sure you can't add duplicates
     public void testAdd_MultipleDuplicates_False() {
@@ -415,6 +416,50 @@ public class TestMySet {
      * this set does not permit null elements (optional), or if the specified collection is null
      */
 
+    @Test
+    public void testContainsAll_True() {
+        MySet<Integer> testSet = new MySet<>();
+        testSet.add(1);
+        testSet.add(2);
+        testSet.add(3);
+        testSet.add(4);
+
+        Integer[] actual = testSet.containsAll({1, 2, 3, 4});
+
+        Assert.assertArrayEquals(true, actual);
+    }
+
+    @Test
+    public void testContainsAll_False() {
+        MySet<Integer> testSet = new MySet<>();
+        testSet.add(1);
+        testSet.add(2);
+        testSet.add(3);
+        testSet.add(4);
+
+        Integer[] actual = testSet.containsAll({5,6,7,8});
+
+        Assert.assertArrayEquals(false, actual);
+    }
+
+    @Test
+    public void testContainsAll_subsetOfSet_True() {
+        MySet<Integer> testSet = new MySet<>();
+        testSet.add(1);
+        testSet.add(2);
+        testSet.add(3);
+        testSet.add(4);
+
+        Integer[] actual = testSet.containsAll({1,2});
+
+        Assert.assertArrayEquals(true, actual);
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testContainsAll_ThrowsExceptionIfElementSpecifiedNull() {
+        MySet<String> testObject = new MySet<>();
+        testObject.containsAll(null);
+    }
 
     //------------test Myset Bool addAll(Collection<? extends E> c)
     @Test
