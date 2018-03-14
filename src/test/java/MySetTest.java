@@ -7,7 +7,7 @@ public class MySetTest {
 
     @Test
     public void addTest(){
-        Integer
+        //Integer
 
     }
 
