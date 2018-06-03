@@ -22,11 +22,11 @@ public class MyArrayListTest {
     @Test
     public void addTest(){
         String[] input = {"1", "2", "3", "4"};
-        MyArrayList<String> it = new MyArrayList<>();
+        MyArrayList<String> it = new MyArrayList<>(input);
         String toBeAdded = "5";
-        Object[] expected = {"5"};
+        String[] expected = {"1","2","3","4","5"};
         it.add(toBeAdded);
-        Object[] actual = it.getMyArrayList();
+        String[] actual = it.getMyArrayList();
         Assert.assertArrayEquals(expected, actual);
     }
 
@@ -34,7 +34,7 @@ public class MyArrayListTest {
     public void add3Test(){
         MyArrayList<Integer> myArray = new MyArrayList<>();
         Integer toBeAdded = 5;
-        Object[] expected = {5};
+        Integer[] expected = {5};
         myArray.add(toBeAdded);
         Object[] actual = myArray.getMyArrayList();
         Assert.assertArrayEquals(expected, actual);
@@ -51,6 +51,30 @@ public class MyArrayListTest {
         Integer[] it = actual.getMyArrayList();
         Assert.assertArrayEquals(expected, it);
     }
+
+    @Test
+    public void addAllTest(){
+        Integer[] input = {1,2,3,4,5};
+        MyArrayList<Integer> id = new MyArrayList<>(input);
+        Integer[] toAdd = {6,7,8};
+        id.addAll(toAdd);
+        Integer [] expected = {1,2,3,4,5,6,7,8};
+        Integer[] actual = id.getMyArrayList();
+
+        Assert.assertArrayEquals(expected, actual);
+    }
+
+//    @Test
+//    public void removeAllTest(){
+//        Integer[] input ={1,2,3,4,5,6,7,8};
+//        MyArrayList<Integer> id = new MyArrayList<>(input);
+//        Integer[] toRemove = {2,4,6,8};
+//        id.removeAll(toRemove);
+//        Integer[] actual = id.getMyArrayList();
+//        Integer[] expected = {1,3,5,7};
+//
+//        Assert.assertArrayEquals(expected, actual);
+//    }
 
     @Test
     public void getTest(){

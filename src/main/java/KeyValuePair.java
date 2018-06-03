@@ -25,4 +25,12 @@ public class KeyValuePair<K,V> {
     public V getValue() {
         return value;
     }
+
+    public boolean equalTo(K key1){
+        if(key.equals(key1)){
+            return true;
+        }
+        return false;
+    }
+
 }

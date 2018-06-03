@@ -1,5 +1,6 @@
 
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.lang.*;
 
@@ -27,10 +28,8 @@ public class MyArrayList<T> {
     }
 
     public void add(T toBeAdded) {
-        int mid = myArrayList.length + 1;
-        T[] tempArray = Arrays.copyOf(myArrayList, mid);
-        tempArray[tempArray.length - 1] = toBeAdded;
-        myArrayList = Arrays.copyOf(tempArray, tempArray.length);
+        myArrayList = Arrays.copyOf(myArrayList, myArrayList.length + 1);
+        myArrayList[myArrayList.length - 1] = toBeAdded;
     }
 
     public void add(int index, T toBeAdded) {
@@ -48,13 +47,23 @@ public class MyArrayList<T> {
                     newArray[i] = myArrayList[i - 1];
                 }
             }
-
             myArrayList = Arrays.copyOf(newArray, newArray.length);
         }
     }
 
+    public void addAll(T[] toBeAdded){
+        int x = toBeAdded.length;
+        int y = myArrayList.length;
+        int counter = 0;
+        myArrayList = Arrays.copyOf(myArrayList, myArrayList.length+x);
+        for(int i = y; i<myArrayList.length; i++) {
+            myArrayList[i] = toBeAdded[counter];
+            counter++;
+        }
+    }
+
     public T get(int index) {
-        T temp = null;
+        T temp = myArrayList[0];
         for (int i = 0; i < myArrayList.length; i++) {
             if (i == index) {
                 temp = myArrayList[i];
@@ -66,18 +75,37 @@ public class MyArrayList<T> {
     public void remove(int index) {
         T[] tempArray = Arrays.copyOf(myArrayList, myArrayList.length);
         for (int i = 0; i < myArrayList.length; i++) {
-            if (i < index) {
-                tempArray[i] = myArrayList[i];
-            } else if (i >= index) {
+            if (i >= index) {
                 if (i == myArrayList.length - 1) {
-                    tempArray[i] = null;
+                    myArrayList[i] = null;
                 } else {
-                    tempArray[i] = myArrayList[i + 1];
+                    myArrayList[i] = myArrayList[i + 1];
                 }
             }
         }
-        myArrayList = Arrays.copyOf(tempArray, tempArray.length - 1);
+        myArrayList = Arrays.copyOf(myArrayList, tempArray.length - 1);
     }
+
+//    public void removeAll(T[] toBeRemoved){
+//        for(T myItem: myArrayList)
+//            for(T toRemove: toBeRemoved){
+//            if(myItem.equals(toRemove)){
+//                myItem = null;
+//            }
+//        }
+//        int count = 0;
+//        for(int i = 0; i<myArrayList.length; i++){
+//            if(myArrayList[i] == null){
+//                if(i == myArrayList.length-1){
+//                    count++;
+//                } else {
+//                    myArrayList[i] = myArrayList[i+1];
+//                    count++;
+//                }
+//            }
+//        }
+//        myArrayList = Arrays.copyOf(myArrayList, myArrayList.length-count);
+//    }
 
     public void clear() {
         myArrayList = Arrays.copyOf(myArrayList, 0);
@@ -95,21 +123,20 @@ public class MyArrayList<T> {
     }
 
     public boolean contains(T value) {
-        boolean doesContain = false;
         for (T val : myArrayList) {
-            if (val.equals(value)) doesContain = true;
+            if (val.equals(value)) return true;
         }
-        return doesContain;
+        return false;
     }
 
     public boolean isEmpty() {
         if (myArrayList.length == 0) return true;
-        else return false;
+        return false;
     }
 
     public T[] subList(int from, int to) {
-        myArrayList = Arrays.copyOfRange(myArrayList, from, to);
-        return myArrayList;
+        return Arrays.copyOfRange(myArrayList, from, to);
+
     }
 
     public int size() {
@@ -122,14 +149,6 @@ public class MyArrayList<T> {
         T val = myArrayList[index];
         for(int i = 0; i<myArrayList.length; i++){
             if(myArrayList[i].equals(val)) count++;
-        }
-        return count;
-    }
-
-    public Integer countDuplicateKeys(KeyValuePair key){
-        Integer count = 0;
-        for(int i = 0; i<myArrayList.length; i++){
-            if(myArrayList[i].equals(key.getKey())) count++;
         }
         return count;
     }
