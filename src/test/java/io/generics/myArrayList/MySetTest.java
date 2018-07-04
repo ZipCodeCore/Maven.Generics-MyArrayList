@@ -1,9 +1,8 @@
-
+package io.generics.myArrayList;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Arrays;
 public class MySetTest {
 
     @Test
@@ -73,6 +72,30 @@ public class MySetTest {
     }
 
     @Test
+    public void addAllTest1(){
+        Integer[] input = {1,2,3,4,5};
+        MyArrayList<Integer> in = new MyArrayList<>(input);
+        MySet<Integer> mySet = new MySet<>(in);
+        Integer[] toBeAdded = {6,7,8};
+        Integer[] expected = {1,2,3,4,5,6,7,8};
+        mySet.addAll(toBeAdded);
+        Integer[] actual = mySet.toArray();
+        Assert.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void addAllTest2(){
+        Integer[] input = {1,2,3,4,5};
+        MyArrayList<Integer> in = new MyArrayList<>(input);
+        MySet<Integer> mySet = new MySet<>(in);
+        Integer[] toBeAdded = {6,7,8};
+        Integer[] expected = {1,2,6,7,8,3,4,5};
+        mySet.addAll(2, toBeAdded);
+        Integer[] actual = mySet.toArray();
+        Assert.assertArrayEquals(expected, actual);
+    }
+
+    @Test
     public void removeTest(){
         Integer[] input = {1,2,3,4,5};
         MyArrayList<Integer> in = new MyArrayList<>(input);
@@ -137,17 +160,6 @@ public class MySetTest {
         Integer[] actual = mySet.toArray();
 
         Assert.assertArrayEquals(expected, actual);
-    }
-
-    @Test
-    public void getTest(){
-        Integer[] input = {1,2,3,4,5};
-        MyArrayList<Integer> in = new MyArrayList<>(input);
-        MySet<Integer> mySet = new MySet<>(in);
-        Integer actual = mySet.get(1);
-        Integer expected = 2;
-
-        Assert.assertEquals(expected, actual);
     }
 
 

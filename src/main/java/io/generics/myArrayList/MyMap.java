@@ -1,4 +1,5 @@
-import java.util.Arrays;
+package io.generics.myArrayList;
+
 
 public class MyMap<K,V> {
 
