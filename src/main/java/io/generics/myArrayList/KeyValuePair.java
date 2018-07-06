@@ -12,6 +12,12 @@ public class KeyValuePair<K,V> {
         this.value = value;
     }
 
+    public KeyValuePair(){
+        this.setValue(value);
+        this.setKey(key);
+
+    }
+
     public void setKey(K key) {
         this.key = key;
     }
@@ -21,18 +27,29 @@ public class KeyValuePair<K,V> {
     }
 
     public K getKey() {
+        this.setKey(key);
         return key;
     }
 
     public V getValue() {
+        this.setValue(value);
         return value;
     }
 
-    public boolean equalTo(K key1){
-        if(key.equals(key1)){
+    public boolean equalTo(K key){
+        if(getKey().equals(key)){
             return true;
         }
         return false;
+    }
+
+
+    public boolean keyEquals(K key2){
+        if(this.getKey() == key2) return true;
+        if(key2 == null) return false;
+        if(this.getKey().getClass()!=key2.getClass()) return false;
+        K other = key2;
+        return this.getKey().equals(other);
     }
 
 }

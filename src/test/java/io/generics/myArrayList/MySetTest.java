@@ -95,14 +95,25 @@ public class MySetTest {
         Assert.assertArrayEquals(expected, actual);
     }
 
+
     @Test
     public void removeTest(){
-        Integer[] input = {1,2,3,4,5};
+        String[] input = {"a","b","c","d","e"};
+        MyArrayList<String> in = new MyArrayList<>(input);
+        MySet<String> mySet = new MySet<>(in);
+        mySet.remove("c");
+        String[] expected = {"a","b","d","e"};
+        String[] actual = mySet.toArray();
+        Assert.assertArrayEquals(expected,actual);
+    }
+
+    @Test
+    public void retainAll(){
+        Integer[] input = {1,2,3,4,5,6,7};
         MyArrayList<Integer> in = new MyArrayList<>(input);
         MySet<Integer> mySet = new MySet<>(in);
-        int index = 2;
-        mySet.remove(index);
-        Integer[] expected = {1,2,4,5};
+        Integer[] expected = {4,5,6,7};
+        mySet.retainAll(new Integer[]{4,5,6,7});
         Integer[] actual = mySet.toArray();
         Assert.assertArrayEquals(expected,actual);
     }
@@ -122,10 +133,26 @@ public class MySetTest {
         Integer[] input = {1,2,3,4,5};
         MyArrayList<Integer> in = new MyArrayList<>(input);
         MySet<Integer> mySet = new MySet<>(in);
-        boolean expected = true;
         boolean actual = mySet.contains(3);
+        Assert.assertTrue(actual);
+    }
 
-        Assert.assertEquals(expected, actual);
+    @Test
+    public void containsAll(){
+        Integer[] input = {1,2,3,4,5};
+        MyArrayList<Integer> in = new MyArrayList<>(input);
+        MySet<Integer> mySet = new MySet<>(in);
+
+        Assert.assertTrue(mySet.containsAll(new Integer[]{2,5}));
+    }
+
+    @Test
+    public void containsAll2(){
+        Integer[] input = {1,2,3,4,5};
+        MyArrayList<Integer> in = new MyArrayList<>(input);
+        MySet<Integer> mySet = new MySet<>(in);
+
+        Assert.assertFalse(mySet.containsAll(new Integer[]{5,7}));
     }
 
     @Test
@@ -133,10 +160,8 @@ public class MySetTest {
         Integer[] input = {4};
         MyArrayList<Integer> in = new MyArrayList<>(input);
         MySet<Integer> mySet = new MySet<>(in);
-        boolean expected = false;
-        boolean actual = mySet.isEmpty();
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertFalse(mySet.isEmpty());
     }
 
     @Test
@@ -144,10 +169,8 @@ public class MySetTest {
         Integer[] input = {};
         MyArrayList<Integer> in = new MyArrayList<>(input);
         MySet<Integer> mySet = new MySet<>(in);
-        boolean expected = true;
-        boolean actual = mySet.isEmpty();
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertTrue(mySet.isEmpty());
     }
 
     @Test

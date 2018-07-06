@@ -104,17 +104,17 @@ public class MyArrayListTest {
         Assert.assertArrayEquals(expected, actual);
     }
 
-//    @Test
-//    public void removeAllTest(){
-//        Integer[] input ={1,2,3,4,5,6,7,8};
-//        MyArrayList<Integer> id = new MyArrayList<>(input);
-//        Integer[] toRemove = {2,4,6,8};
-//        id.removeAll(toRemove);
-//        Integer[] actual = id.getMyArrayList();
-//        Integer[] expected = {1,3,5,7};
-//
-//        Assert.assertArrayEquals(expected, actual);
-//    }
+    @Test
+    public void removeAllTest(){
+        Integer[] input ={1,2,3,4,5,6,7,8};
+        MyArrayList<Integer> id = new MyArrayList<>(input);
+        Integer[] toRemove = {1,2,3,4};
+        id.removeAll(toRemove);
+        Integer[] actual = id.getMyArrayList();
+        Integer[] expected = {5,6,7,8};
+
+        Assert.assertArrayEquals(expected, actual);
+    }
 
     @Test
     public void retainAllTest(){
@@ -123,6 +123,16 @@ public class MyArrayListTest {
         Integer[] expected = {2,4,6,8};
         arrayList.retainAll(new Integer[]{2,4,6,8});
         Integer[] actual = arrayList.getMyArrayList();
+        Assert.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void retainAll2Test(){
+        String[] input= {"a","b","c","d","e","f"};
+        MyArrayList<String> arrayList = new MyArrayList<>(input);
+        String[] expected = {"a","c","f"};
+        arrayList.retainAll(new String[]{"a","c","f"});
+        String[] actual = arrayList.getMyArrayList();
         Assert.assertArrayEquals(expected, actual);
     }
 
@@ -160,18 +170,16 @@ public class MyArrayListTest {
     public void containsTest(){
         Integer[] input = {1,2,3,4,5,6};
         MyArrayList<Integer> array = new MyArrayList<>(input);
-        boolean expected = true;
-        boolean actual = array.contains(4);
-        Assert.assertEquals(expected, actual);
+
+        Assert.assertTrue(array.contains(4));
     }
 
     @Test
     public void isEmptyTest(){
         String[] input = {};
         MyArrayList<String> array = new MyArrayList<>(input);
-        boolean expected = true;
-        boolean actual = array.isEmpty();
-        Assert.assertEquals(expected, actual);
+        
+        Assert.assertTrue(array.isEmpty());
     }
 
     @Test

@@ -16,24 +16,28 @@ public class MyMap<K,V> {
         this.myMap = new MyArrayList<>(size);
     }
 
-    public MyMap(MyArrayList<KeyValuePair<K, V>> myMap){
-        this.myMap = myMap;
+    public MyMap(MyArrayList<KeyValuePair<K, V>> myMap1){
+        myMap = myMap1;
     }
 
-    public void setMyMap(MyArrayList<KeyValuePair<K, V>> myMap) {
-        this.myMap = myMap;
-    }
+    public void setMyMap(MyArrayList<KeyValuePair<K, V>> myMap1) { }
 
     public MyArrayList<KeyValuePair<K, V>> getMyMap() {
         return myMap;
     }
 
-    public void add(KeyValuePair<K,V> value){
-        for(int i=0; i<myMap.size(); i++){
-            if(!myMap.get(i).equalTo(value.getKey())){
-                myMap.add(value);
-            }
+    public boolean add(KeyValuePair<K,V> value) {
+        MyArrayList<K> keySet = new MyArrayList<>();
+        for(int i = 0; i<myMap.size(); i++){
+            keySet.add(myMap.get(i).getKey());
         }
+        K valueKey = value.getKey();
+        if(keySet.contains(valueKey)) {
+            return false;
+        } else {
+            myMap.add(value);
+        }
+        return true;
     }
 
     public void remove(int index){
@@ -45,7 +49,13 @@ public class MyMap<K,V> {
     }
 
 
-    public boolean containsKey(K value){
+    public boolean containsKey(K key){
+        for(int i = 0; i<myMap.size(); i++){
+            K key1 = myMap.get(i).getKey();
+            if(key1.equals(key)){
+                return true;
+            }
+        }
         return false;
     }
 

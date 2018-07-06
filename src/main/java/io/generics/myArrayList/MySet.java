@@ -52,12 +52,17 @@ public class MySet <T> {
         return true;
     }
 
-    public boolean remove(int index){
-        mySet.remove(index);
-        return true;
+
+    public boolean remove(T object){
+        if(mySet.contains(object)) {
+            mySet.remove(object);
+            return true;
+        }
+        return false;
     }
 
     public boolean retainAll(T[] array){
+        mySet.retainAll(array);
         return true;
     }
 
@@ -75,6 +80,15 @@ public class MySet <T> {
 
     public boolean contains(T value){
         return mySet.contains(value);
+    }
+
+    public boolean containsAll(T[] array){
+        for(T object: array){
+            if(!mySet.contains(object)){
+                return false;
+            }
+        }
+        return true;
     }
 
     public boolean isEmpty(){

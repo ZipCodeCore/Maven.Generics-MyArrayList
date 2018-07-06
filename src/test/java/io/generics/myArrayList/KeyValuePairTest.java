@@ -6,9 +6,7 @@ import org.junit.Test;
 public class KeyValuePairTest {
     @Test
     public void constructorTest(){
-        String k = "Key";
-        Integer v = 5;
-        KeyValuePair<String, Integer> myPair = new KeyValuePair<>(k, v);
+        KeyValuePair<String, Integer> myPair = new KeyValuePair<>("Key", 5);
         String expectedKey = "Key";
         Integer expectedValue = 5;
         String actualKey = myPair.getKey();
@@ -16,5 +14,12 @@ public class KeyValuePairTest {
         Assert.assertEquals(expectedKey, actualKey);
         Assert.assertEquals(expectedValue, actualValue);
 
+    }
+
+    @Test
+    public void equalsTest(){
+        KeyValuePair<String, Integer> myPair = new KeyValuePair<>("Key", 5);
+        boolean actual = myPair.equals("Key");
+        Assert.assertTrue(actual);
     }
 }

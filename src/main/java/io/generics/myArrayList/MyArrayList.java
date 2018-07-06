@@ -8,6 +8,8 @@ public class MyArrayList<T> {
 
     private T[] myArrayList;
 
+    private T element;
+
 
     public MyArrayList(int size) {
         this.myArrayList = (T[]) new Object[size];
@@ -91,7 +93,6 @@ public class MyArrayList<T> {
     }
 
     public boolean remove(int index) {
-        T[] tempArray = Arrays.copyOf(myArrayList, myArrayList.length);
         for (int i = 0; i < myArrayList.length; i++) {
             if (i >= index) {
                 if (i == myArrayList.length - 1) {
@@ -101,7 +102,7 @@ public class MyArrayList<T> {
                 }
             }
         }
-        myArrayList = Arrays.copyOf(myArrayList, tempArray.length - 1);
+        myArrayList = Arrays.copyOf(myArrayList, myArrayList.length - 1);
         return true;
     }
 
@@ -122,26 +123,9 @@ public class MyArrayList<T> {
         return isPresent;
     }
 
-//    public boolean removeAll(T[] objects) {
-//        T[] tempArray = Arrays.copyOf(myArrayList, myArrayList.length);
-//        int j = 0;
-//        int x = 0;
-//        for(int i = 0; i<myArrayList.length; i++){
-//            if(j<myArrayList.length-1) {
-//                if (myArrayList[i].equals(objects[j]) == false) {
-//                    tempArray[x] = myArrayList[i];
-//                    x++;
-//                    j++;
-//                }
-//            } else if (j == myArrayList.length-1){
-//                if (myArrayList[i].equals(objects[j])) {
-//                    tempArray[x] = myArrayList[i];
-//                }
-//            }
-//        }
-//        myArrayList = Arrays.copyOf(tempArray, tempArray.length-objects.length);
-//        return true;
-//    }
+    public boolean removeAll(T[] objects) {
+        return true;
+    }
 
     public boolean retainAll(T[]objects){
         T[] tempArray = Arrays.copyOf(myArrayList, objects.length);
@@ -185,6 +169,8 @@ public class MyArrayList<T> {
         }
         return false;
     }
+
+
 
     public boolean isEmpty() {
         if (myArrayList.length == 0) return true;
@@ -230,6 +216,14 @@ public class MyArrayList<T> {
         return myArrayList;
     }
 
+    @Override
+    public boolean equals(Object object){
+        if(this == object) return true;
+        if(object == null) return false;
+        if(getClass()!=object.getClass()) return false;
+        T other = (T) object;
+        return this.equals(other);
+    }
 
     public Integer countDupes(int index){
         Integer count = 0;
