@@ -35,21 +35,21 @@ public class MyArrayList<T> {
     }
 
     public boolean add(int index, T toBeAdded) {
+        myArrayList = Arrays.copyOf(myArrayList, myArrayList.length + 1);
         if (myArrayList.length == 0) {
-            myArrayList = Arrays.copyOf(myArrayList, myArrayList.length + 1);
             myArrayList[0] = toBeAdded;
         } else {
-            T[] newArray = Arrays.copyOf(myArrayList, myArrayList.length + 1);
-            for (int i = 0; i < newArray.length; i++) {
-                if (i < index) {
-                    newArray[i] = myArrayList[i];
-                } else if (i == index) {
-                    newArray[i] = toBeAdded;
+            T[] temp = Arrays.copyOf(myArrayList, myArrayList.length);
+            for (int i = 0; i < myArrayList.length; i++) {
+                if(i<index){
+                    temp[i] = myArrayList[i];
                 } else if (i > index) {
-                    newArray[i] = myArrayList[i - 1];
+                    temp[i] = myArrayList[i - 1];
+                } else if (i == index) {
+                    temp[i] = toBeAdded;
                 }
             }
-            myArrayList = Arrays.copyOf(newArray, newArray.length);
+            myArrayList = Arrays.copyOf(temp, temp.length);
         }
         return true;
     }
@@ -161,6 +161,14 @@ public class MyArrayList<T> {
             }
         }
         return replaced;
+    }
+
+    public void replace(int index, T valueReplacing){
+        for(int i = 0; i< myArrayList.length; i++){
+            if(i==index){
+                myArrayList[i] = valueReplacing;
+            }
+        }
     }
 
     public boolean contains(T value) {

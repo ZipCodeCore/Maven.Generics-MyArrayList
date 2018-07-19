@@ -1,8 +1,5 @@
 package io.generics.myArrayList;
 
-
-import java.util.Arrays;
-
 public class MySet <T> {
 
     private MyArrayList<T> mySet;

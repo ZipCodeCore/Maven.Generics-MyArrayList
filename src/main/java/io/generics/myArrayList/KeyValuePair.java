@@ -43,13 +43,8 @@ public class KeyValuePair<K,V> {
         return false;
     }
 
-
-    public boolean keyEquals(K key2){
-        if(this.getKey() == key2) return true;
-        if(key2 == null) return false;
-        if(this.getKey().getClass()!=key2.getClass()) return false;
-        K other = key2;
-        return this.getKey().equals(other);
+    public void replace(V value1){
+        this.value = value1;
     }
 
 }

@@ -104,17 +104,17 @@ public class MyArrayListTest {
         Assert.assertArrayEquals(expected, actual);
     }
 
-    @Test
-    public void removeAllTest(){
-        Integer[] input ={1,2,3,4,5,6,7,8};
-        MyArrayList<Integer> id = new MyArrayList<>(input);
-        Integer[] toRemove = {1,2,3,4};
-        id.removeAll(toRemove);
-        Integer[] actual = id.getMyArrayList();
-        Integer[] expected = {5,6,7,8};
-
-        Assert.assertArrayEquals(expected, actual);
-    }
+//    @Test
+//    public void removeAllTest(){
+//        Integer[] input ={1,2,3,4,5,6,7,8};
+//        MyArrayList<Integer> id = new MyArrayList<>(input);
+//        Integer[] toRemove = {1,2,3,4};
+//        id.removeAll(toRemove);
+//        Integer[] actual = id.getMyArrayList();
+//        Integer[] expected = {5,6,7,8};
+//
+//        Assert.assertArrayEquals(expected, actual);
+//    }
 
     @Test
     public void retainAllTest(){
