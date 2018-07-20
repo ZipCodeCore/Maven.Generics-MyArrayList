@@ -4,11 +4,9 @@ import java.util.Arrays;
 import java.lang.*;
 
 
-public class MyArrayList<T> {
+public class MyArrayList<T> implements Collections<T> {
 
     private T[] myArrayList;
-
-    private T element;
 
 
     public MyArrayList(int size) {
@@ -28,6 +26,7 @@ public class MyArrayList<T> {
         return this.myArrayList;
     }
 
+    @Override
     public boolean add(T toBeAdded) {
         myArrayList = Arrays.copyOf(myArrayList, myArrayList.length + 1);
         myArrayList[myArrayList.length - 1] = toBeAdded;
@@ -54,6 +53,7 @@ public class MyArrayList<T> {
         return true;
     }
 
+    @Override
     public boolean addAll(T[] toBeAdded) {
         int x = toBeAdded.length;
         int y = myArrayList.length;
@@ -82,6 +82,24 @@ public class MyArrayList<T> {
         return true;
     }
 
+    @Override
+    public void clear() {
+        myArrayList = Arrays.copyOf(myArrayList, 0);
+    }
+
+    @Override
+    public boolean contains(T value) {
+        for (T val : myArrayList) {
+            if (val.equals(value)) return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean containsAll(T[] array) {
+        return false;
+    }
+
     public T get(int index) {
         T temp = myArrayList[0];
         for (int i = 0; i < myArrayList.length; i++) {
@@ -92,105 +110,10 @@ public class MyArrayList<T> {
         return temp;
     }
 
-    public boolean remove(int index) {
-        for (int i = 0; i < myArrayList.length; i++) {
-            if (i >= index) {
-                if (i == myArrayList.length - 1) {
-                    myArrayList[i] = null;
-                } else {
-                    myArrayList[i] = myArrayList[i + 1];
-                }
-            }
-        }
-        myArrayList = Arrays.copyOf(myArrayList, myArrayList.length - 1);
-        return true;
-    }
-
-    public boolean remove(T object){
-        boolean isPresent = false;
-        int indexOfRemoved = 0;
-        for(int i = 0; i< myArrayList.length; i++){
-            if(myArrayList[i].equals(object)){
-                myArrayList[i] = myArrayList[i+1];
-                indexOfRemoved = i+1;
-            }
-            if(indexOfRemoved != 0 && i<myArrayList.length-1){
-                myArrayList[i] = myArrayList[i+1];
-            }
-        }
-        if(indexOfRemoved != 0)
-            myArrayList = Arrays.copyOf(myArrayList,myArrayList.length-1);
-        return isPresent;
-    }
-
-    public boolean removeAll(T[] objects) {
-        return true;
-    }
-
-    public boolean retainAll(T[]objects){
-        T[] tempArray = Arrays.copyOf(myArrayList, objects.length);
-        int j = 0;
-        int x = 0;
-        for(int i = 0; i<myArrayList.length; i++){
-            if(x<myArrayList.length-1) {
-                if (myArrayList[i].equals(objects[j])) {
-                    tempArray[x] = myArrayList[i];
-                    x++;
-                    j++;
-                }
-            } else if (x == myArrayList.length-1){
-                if (myArrayList[i].equals(objects[j])) {
-                    tempArray[x] = myArrayList[i];
-                }
-            }
-        }
-        myArrayList = Arrays.copyOf(tempArray, tempArray.length);
-        return true;
-    }
-
-    public void clear() {
-        myArrayList = Arrays.copyOf(myArrayList, 0);
-    }
-
-    public T set(int index, T valueReplacing) {
-        T replaced = null;
-        for (int i = 0; i < myArrayList.length; i++) {
-            if (i == index) {
-                replaced = myArrayList[i];
-                myArrayList[i] = valueReplacing;
-            }
-        }
-        return replaced;
-    }
-
-    public void replace(int index, T valueReplacing){
-        for(int i = 0; i< myArrayList.length; i++){
-            if(i==index){
-                myArrayList[i] = valueReplacing;
-            }
-        }
-    }
-
-    public boolean contains(T value) {
-        for (T val : myArrayList) {
-            if (val.equals(value)) return true;
-        }
-        return false;
-    }
-
-
-
+    @Override
     public boolean isEmpty() {
         if (myArrayList.length == 0) return true;
         return false;
-    }
-
-    public T[] subList(int from, int to) {
-        return Arrays.copyOfRange(myArrayList, from, to);
-    }
-
-    public int size() {
-        return myArrayList.length;
     }
 
     public int indexOf(T value){
@@ -215,25 +138,111 @@ public class MyArrayList<T> {
         return x;
     }
 
-    public T[] toArray(T[] array){
-        myArrayList = array;
-        return myArrayList;
+    public boolean remove(int index) {
+        for (int i = 0; i < myArrayList.length; i++) {
+            if (i >= index) {
+                if (i == myArrayList.length - 1) {
+                    myArrayList[i] = null;
+                } else {
+                    myArrayList[i] = myArrayList[i + 1];
+                }
+            }
+        }
+        myArrayList = Arrays.copyOf(myArrayList, myArrayList.length - 1);
+        return true;
     }
 
+    @Override
+    public boolean remove(T object){
+        boolean isPresent = false;
+        int indexOfRemoved = 0;
+        for(int i = 0; i< myArrayList.length; i++){
+            if(myArrayList[i].equals(object)){
+                myArrayList[i] = myArrayList[i+1];
+                indexOfRemoved = i+1;
+            }
+            if(indexOfRemoved != 0 && i<myArrayList.length-1){
+                myArrayList[i] = myArrayList[i+1];
+            }
+        }
+        if(indexOfRemoved != 0)
+            myArrayList = Arrays.copyOf(myArrayList,myArrayList.length-1);
+        return isPresent;
+    }
+
+    @Override
+    public boolean removeAll(T[] objects) {
+        return true;
+    }
+
+
+    public void replace(int index, T valueReplacing){
+        for(int i = 0; i< myArrayList.length; i++){
+            if(i==index){
+                myArrayList[i] = valueReplacing;
+            }
+        }
+    }
+
+    @Override
+    public boolean retainAll(T[]objects){
+        T[] tempArray = Arrays.copyOf(myArrayList, objects.length);
+        int j = 0;
+        int x = 0;
+        for(int i = 0; i<myArrayList.length; i++){
+            if(x<myArrayList.length-1) {
+                if (myArrayList[i].equals(objects[j])) {
+                    tempArray[x] = myArrayList[i];
+                    x++;
+                    j++;
+                }
+            } else if (x == myArrayList.length-1){
+                if (myArrayList[i].equals(objects[j])) {
+                    tempArray[x] = myArrayList[i];
+                }
+            }
+        }
+        myArrayList = Arrays.copyOf(tempArray, tempArray.length);
+        return true;
+    }
+
+
+    public T set(int index, T valueReplacing) {
+        T replaced = null;
+        for (int i = 0; i < myArrayList.length; i++) {
+            if (i == index) {
+                replaced = myArrayList[i];
+                myArrayList[i] = valueReplacing;
+            }
+        }
+        return replaced;
+    }
+
+    public T[] subList(int from, int to) {
+        return Arrays.copyOfRange(myArrayList, from, to);
+    }
+
+    public int size() {
+        return myArrayList.length;
+    }
+
+
+    @Override
     public Object[] toArray(){
         return myArrayList;
     }
 
     @Override
-    public boolean equals(Object object){
-        if(this == object) return true;
-        if(object == null) return false;
-        if(getClass()!=object.getClass()) return false;
-        T other = (T) object;
-        return this.equals(other);
+    public T[] toArray(T[] array){
+        myArrayList = array;
+        return myArrayList;
     }
 
-    public Integer countDupes(int index){
+    public void trimToSize(){
+
+    }
+
+    public Integer countDuplicates(int index){
         Integer count = 0;
         T val = myArrayList[index];
         for(int i = 0; i<myArrayList.length; i++){

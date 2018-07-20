@@ -55,7 +55,7 @@ public class MyMapTest {
     }
 
     @Test
-    public void addTest(){
+    public void putTest(){
         KeyValuePair<String, Integer> keyValue1 = new KeyValuePair<>("Key", 5);
         KeyValuePair<String, Integer> keyValue2 = new KeyValuePair<>("Carolynn", 100);
         KeyValuePair<String, Integer> keyValue3 = new KeyValuePair<>("Luis",100);
@@ -63,21 +63,21 @@ public class MyMapTest {
         KeyValuePair<String, Integer>[] keyValueArray = new KeyValuePair[]{keyValue1,keyValue2};
         MyArrayList<KeyValuePair<String, Integer>> myArrayList = new MyArrayList<>(keyValueArray);
         MyMap<String, Integer> myMap = new MyMap<>(myArrayList);
-        myMap.add(keyValue3);
+        myMap.put(keyValue3);
         String actual = myMap.getMyMap().get(2).getKey();
         String expected = "Luis";
         Assert.assertEquals(expected,actual);
     }
 
     @Test
-    public void add2Test(){
+    public void put2Test(){
         KeyValuePair<String, Integer> keyValue1 = new KeyValuePair<>("Key",5);
         KeyValuePair<String, Integer> keyValue2 = new KeyValuePair<>("Carolynn", 100);
         KeyValuePair<String, Integer> keyValue3 = new KeyValuePair<>("Carolynn", 100);
         KeyValuePair<String, Integer>[] keyValueArray = new KeyValuePair[]{keyValue1,keyValue2};
         MyArrayList<KeyValuePair<String, Integer>> myArrayList = new MyArrayList<>(keyValueArray);
         MyMap<String, Integer> myMap = new MyMap<>(myArrayList);
-        myMap.add(keyValue3);
+        myMap.put(keyValue3);
         int actual = myMap.size();
         int expected = 2;
         Assert.assertEquals(expected,actual);

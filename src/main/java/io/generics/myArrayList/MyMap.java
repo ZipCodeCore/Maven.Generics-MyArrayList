@@ -40,31 +40,9 @@ public class MyMap<K,V> {
         return myMap;
     }
 
-    public boolean add(KeyValuePair<K,V> value) {
-        myMap.add(value);
-        for (int i = 0; i < myMap.size(); i++) {
-            int count = 0;
-            KeyValuePair<K,V> temp = myMap.get(i);
-            for(int j = 0; j<myMap.size(); j++){
-                if(myMap.get(i).getKey().equals(myMap.get(j).getKey())){
-                    count++;
-                }
-            }
-            if(count > 1){
-                myMap.remove(i);
-            }
-        }
-        return true;
+    public void clear(){
+        myMap.clear();
     }
-
-    public void remove(int index){
-        myMap.remove(index);
-    }
-
-    public int size(){
-        return myMap.size();
-    }
-
 
     public boolean containsKey(K key){
         for(int i = 0; i<myMap.size(); i++){
@@ -86,17 +64,58 @@ public class MyMap<K,V> {
         return false;
     }
 
+    public MySet<KeyValuePair<K,V>> entrySet(){
+
+    }
+
+    public V get(K key){
+
+    }
+
     public boolean isEmpty(){
         return myMap.isEmpty();
     }
 
-    public void clear(){
-        myMap.clear();
+    public MySet<K> keySet(){
+
     }
 
-    public KeyValuePair<K,V>[] toArray(){
-        return myMap.getMyArrayList();
+    public boolean put(KeyValuePair<K,V> value) {
+        myMap.add(value);
+        for (int i = 0; i < myMap.size(); i++) {
+            int count = 0;
+            KeyValuePair<K,V> temp = myMap.get(i);
+            for(int j = 0; j<myMap.size(); j++){
+                if(myMap.get(i).getKey().equals(myMap.get(j).getKey())){
+                    count++;
+                }
+            }
+            if(count > 1){
+                myMap.remove(i);
+            }
+        }
+        return true;
     }
+
+    public boolean putAll(MyArrayList<KeyValuePair<K,V>> arrayList){
+        return true;
+    }
+
+    public void remove(int index){
+        myMap.remove(index);
+    }
+
+    public int size(){
+        return myMap.size();
+    }
+
+    public MyArrayList<V> values(){
+
+    }
+
+
+
+
 
 
 

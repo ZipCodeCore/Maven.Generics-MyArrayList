@@ -240,7 +240,7 @@ public class MyArrayListTest {
         Integer[] input = {1,1,2,1,3,1,4,1,5,1,6,1,7};
         MyArrayList<Integer> array = new MyArrayList<>(input);
         Integer expected = 7;
-        Integer actual = array.countDupes(0);
+        Integer actual = array.countDuplicates(0);
         Assert.assertEquals(expected, actual);
     }
 }
