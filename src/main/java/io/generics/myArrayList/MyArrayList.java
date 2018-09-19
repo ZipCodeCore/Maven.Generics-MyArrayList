@@ -22,7 +22,7 @@ public class MyArrayList<T> implements Collections<T> {
     }
 
 
-    public T[] getMyArrayList() {
+    public T[] toMyArray() {
         return this.myArrayList;
     }
 
@@ -33,9 +33,10 @@ public class MyArrayList<T> implements Collections<T> {
         return true;
     }
 
-    public boolean add(int index, T toBeAdded) {
+
+    public boolean addAt(int index, T toBeAdded) {
         myArrayList = Arrays.copyOf(myArrayList, myArrayList.length + 1);
-        if (myArrayList.length == 0) {
+        if (myArrayList.length == 1) {
             myArrayList[0] = toBeAdded;
         } else {
             T[] temp = Arrays.copyOf(myArrayList, myArrayList.length);
@@ -97,7 +98,14 @@ public class MyArrayList<T> implements Collections<T> {
 
     @Override
     public boolean containsAll(T[] array) {
-        return false;
+        for(int i = 0; i<myArrayList.length;i++){
+            int x = 0;
+            for(int j = 0; j<array.length;j++){
+                if(myArrayList[i].equals(array[j])) x++;
+            }
+            if(x>0) return false;
+        }
+        return true;
     }
 
     public T get(int index) {
@@ -154,20 +162,21 @@ public class MyArrayList<T> implements Collections<T> {
 
     @Override
     public boolean remove(T object){
-        boolean isPresent = false;
-        int indexOfRemoved = 0;
+        int x = -1;
         for(int i = 0; i< myArrayList.length; i++){
             if(myArrayList[i].equals(object)){
                 myArrayList[i] = myArrayList[i+1];
-                indexOfRemoved = i+1;
+                x = i;
             }
-            if(indexOfRemoved != 0 && i<myArrayList.length-1){
+            if(x !=-1 && i>x && i<myArrayList.length-1){
                 myArrayList[i] = myArrayList[i+1];
             }
         }
-        if(indexOfRemoved != 0)
-            myArrayList = Arrays.copyOf(myArrayList,myArrayList.length-1);
-        return isPresent;
+        if(x >= 0) {
+            myArrayList = Arrays.copyOf(myArrayList, myArrayList.length - 1);
+            return true;
+        }
+        return false;
     }
 
     @Override
@@ -186,23 +195,23 @@ public class MyArrayList<T> implements Collections<T> {
 
     @Override
     public boolean retainAll(T[]objects){
-        T[] tempArray = Arrays.copyOf(myArrayList, objects.length);
-        int j = 0;
+        T[] tempArray = Arrays.copyOf(myArrayList, myArrayList.length);
         int x = 0;
         for(int i = 0; i<myArrayList.length; i++){
-            if(x<myArrayList.length-1) {
-                if (myArrayList[i].equals(objects[j])) {
-                    tempArray[x] = myArrayList[i];
-                    x++;
-                    j++;
-                }
-            } else if (x == myArrayList.length-1){
-                if (myArrayList[i].equals(objects[j])) {
-                    tempArray[x] = myArrayList[i];
+            for(int j = 0; j<objects.length; j++) {
+                if (i < myArrayList.length - 1) {
+                    if (myArrayList[i].equals(objects[j])) {
+                        tempArray[x] = myArrayList[i];
+                        x++;
+                    }
+                } else if (i == myArrayList.length - 1) {
+                    if (myArrayList[i].equals(objects[j])) {
+                        tempArray[x] = myArrayList[i];
+                    }
                 }
             }
         }
-        myArrayList = Arrays.copyOf(tempArray, tempArray.length);
+        myArrayList = Arrays.copyOf(tempArray, x+1);
         return true;
     }
 
@@ -232,11 +241,10 @@ public class MyArrayList<T> implements Collections<T> {
         return myArrayList;
     }
 
-    @Override
-    public T[] toArray(T[] array){
-        myArrayList = array;
-        return myArrayList;
-    }
+//    @Override
+//    public T[] toArray(T[] array){
+//        return myArrayList;
+//    }
 
     public void trimToSize(){
 

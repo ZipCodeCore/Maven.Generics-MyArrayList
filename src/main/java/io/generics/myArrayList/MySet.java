@@ -16,9 +16,20 @@ public class MySet <T> implements Collections<T> {
        this.mySet = setInput;
        for(int i = 0; i<mySet.size(); i++){
            if(mySet.countDuplicates(i)>1){
-               mySet.remove(i);
+               setInput.remove(i);
            }
        }
+       this.mySet = setInput;
+    }
+
+    public void setMySet(MyArrayList<T> setInput){
+        this.mySet = setInput;
+        for(int i = 0; i<mySet.size(); i++){
+            if(mySet.countDuplicates(i)>1){
+                setInput.remove(i);
+            }
+        }
+        this.mySet = setInput;
     }
 
     public MyArrayList<T> getMySet() {
@@ -87,18 +98,8 @@ public class MySet <T> implements Collections<T> {
     }
 
     public T[] toArray(){
-        return mySet.getMyArrayList();
+        return mySet.toMyArray();
     }
-
-    public T[] toArray(T[] array){
-        return mySet.toArray(array);
-    }
-
-
-
-
-
-
 
 
     public T set(int index, T object){

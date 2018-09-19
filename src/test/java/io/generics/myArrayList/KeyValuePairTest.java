@@ -19,7 +19,7 @@ public class KeyValuePairTest {
     @Test
     public void equalsTest(){
         KeyValuePair<String, Integer> myPair = new KeyValuePair<>("Key", 5);
-        boolean actual = myPair.equals("Key");
+        boolean actual = myPair.equalTo("Key");
         Assert.assertTrue(actual);
     }
 }

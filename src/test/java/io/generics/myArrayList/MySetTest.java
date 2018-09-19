@@ -7,13 +7,13 @@ public class MySetTest {
 
     @Test
     public void constructorTest(){
-        String[] in = new String[]{"a","b","c", "d"};
+        String[] in = {"a","b","c","d","d"};
         MyArrayList<String> input = new MyArrayList<>(in);
         MySet<String> mySet = new MySet<>(input);
-        int expected = 4;
-        int actual = mySet.size();
+        String[] expected = {"a","b","c","d"};
+        String[] actual = mySet.getMySet().toMyArray();
 
-        Assert.assertEquals(expected, actual);
+        Assert.assertArrayEquals(expected, actual);
     }
     @Test
     public void constructor2Test(){
@@ -46,36 +46,9 @@ public class MySetTest {
     }
 
     @Test
-    public void add2Test(){
-        Integer[] in = {1,2,3,4,6};
-        MyArrayList<Integer> input = new MyArrayList<>(in);
-        MySet<Integer> mySet = new MySet<>(input);
-        Integer toBeAdded = 7;
-        Integer[] expected = {1,2,3,4,6,7};
-        mySet.add(toBeAdded);
-        Integer[] actual = mySet.toArray();
-
-        Assert.assertArrayEquals(expected, actual);
-    }
-
-    @Test
-    public void add3Test(){
-        Integer[] in = {1,2,3,4,6};
-        MyArrayList<Integer> input = new MyArrayList<>(in);
-        MySet<Integer> mySet = new MySet<>(input);
-        Integer toBeAdded = 7;
-        Integer[] expected = {1,2,7,3,4,6};
-        mySet.add(2, toBeAdded);
-        Integer[] actual = mySet.toArray();
-
-        Assert.assertArrayEquals(expected, actual);
-    }
-
-    @Test
     public void addAllTest1(){
         Integer[] input = {1,2,3,4,5};
-        MyArrayList<Integer> in = new MyArrayList<>(input);
-        MySet<Integer> mySet = new MySet<>(in);
+        MySet<Integer> mySet = new MySet<>(new MyArrayList<>(input));
         Integer[] toBeAdded = {6,7,8};
         Integer[] expected = {1,2,3,4,5,6,7,8};
         mySet.addAll(toBeAdded);
@@ -84,23 +57,9 @@ public class MySetTest {
     }
 
     @Test
-    public void addAllTest2(){
-        Integer[] input = {1,2,3,4,5};
-        MyArrayList<Integer> in = new MyArrayList<>(input);
-        MySet<Integer> mySet = new MySet<>(in);
-        Integer[] toBeAdded = {6,7,8};
-        Integer[] expected = {1,2,6,7,8,3,4,5};
-        mySet.addAll(2, toBeAdded);
-        Integer[] actual = mySet.toArray();
-        Assert.assertArrayEquals(expected, actual);
-    }
-
-
-    @Test
     public void removeTest(){
         String[] input = {"a","b","c","d","e"};
-        MyArrayList<String> in = new MyArrayList<>(input);
-        MySet<String> mySet = new MySet<>(in);
+        MySet<String> mySet = new MySet<>(new MyArrayList<>(input));
         mySet.remove("c");
         String[] expected = {"a","b","d","e"};
         String[] actual = mySet.toArray();
@@ -110,8 +69,7 @@ public class MySetTest {
     @Test
     public void retainAll(){
         Integer[] input = {1,2,3,4,5,6,7};
-        MyArrayList<Integer> in = new MyArrayList<>(input);
-        MySet<Integer> mySet = new MySet<>(in);
+        MySet<Integer> mySet = new MySet<>(new MyArrayList<>(input));
         Integer[] expected = {4,5,6,7};
         mySet.retainAll(new Integer[]{4,5,6,7});
         Integer[] actual = mySet.toArray();
@@ -120,9 +78,7 @@ public class MySetTest {
 
     @Test
     public void sizeTest(){
-        Integer[] input = {1,2,3,4,5};
-        MyArrayList<Integer> in = new MyArrayList<>(input);
-        MySet<Integer> mySet = new MySet<>(in);
+        MySet<Integer> mySet = new MySet<>(new MyArrayList<>(new Integer[]{1,2,3,4,5}));
         int expected = 5;
         int actual = mySet.size();
         Assert.assertEquals(expected, actual);
@@ -157,15 +113,6 @@ public class MySetTest {
 
     @Test
     public void isEmptyTest(){
-        Integer[] input = {4};
-        MyArrayList<Integer> in = new MyArrayList<>(input);
-        MySet<Integer> mySet = new MySet<>(in);
-
-        Assert.assertFalse(mySet.isEmpty());
-    }
-
-    @Test
-    public void isEmpty2Test(){
         Integer[] input = {};
         MyArrayList<Integer> in = new MyArrayList<>(input);
         MySet<Integer> mySet = new MySet<>(in);
@@ -175,9 +122,7 @@ public class MySetTest {
 
     @Test
     public void clearTest(){
-        Integer[] input = {1,2,3,4,5};
-        MyArrayList<Integer> in = new MyArrayList<>(input);
-        MySet<Integer> mySet = new MySet<>(in);
+        MySet<Integer> mySet = new MySet<>(new MyArrayList<>(new Integer[]{1,2,3,4,5}));
         Integer[] expected = {};
         mySet.clear();
         Integer[] actual = mySet.toArray();

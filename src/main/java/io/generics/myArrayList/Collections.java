@@ -12,6 +12,5 @@ public interface Collections<T> {
     boolean retainAll(T[] array);
     int size();
     Object[] toArray();
-    T[] toArray(T[] array);
 
 }
