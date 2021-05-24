@@ -19,6 +19,7 @@ public class MyArrayList<T> implements Collections<T> {
 
     public MyArrayList() {
         this.myArrayList = (T[]) new Object[0];
+
     }
 
 
@@ -181,16 +182,26 @@ public class MyArrayList<T> implements Collections<T> {
 
     @Override
     public boolean removeAll(T[] objects) {
-        return true;
+
+//not working yet
+//        for(int j = 0; j<objects.length; j++){
+//            for(int i = 0; i< myArrayList.length; i++){
+//                if(myArrayList[i].equals(objects[j]) && i < myArrayList.length-1) {
+//                    myArrayList[i] = myArrayList[i + 1];
+//                }
+//            }
+//
+//        }
+//        if(objects.length > 0) {
+//            myArrayList = Arrays.copyOf(myArrayList, myArrayList.length - objects.length);
+//            return true;
+//        }
+        return false;
     }
 
 
     public void replace(int index, T valueReplacing){
-        for(int i = 0; i< myArrayList.length; i++){
-            if(i==index){
-                myArrayList[i] = valueReplacing;
-            }
-        }
+        myArrayList[index] = valueReplacing;
     }
 
     @Override
@@ -241,13 +252,15 @@ public class MyArrayList<T> implements Collections<T> {
         return myArrayList;
     }
 
-//    @Override
+
 //    public T[] toArray(T[] array){
 //        return myArrayList;
 //    }
 
     public void trimToSize(){
+        for(int i = 0; i<myArrayList.length; i++){
 
+        }
     }
 
     public Integer countDuplicates(int index){

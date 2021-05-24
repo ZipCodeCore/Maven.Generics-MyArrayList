@@ -70,7 +70,7 @@ public class MyArrayListTest {
     }
 
     @Test
-    public void removeTest(){
+    public void removeByIndexTest(){
         MyArrayList<Integer> array = new MyArrayList<>(new Integer[]{1,2,3,4,5});
         Integer[] expected = {1,2,3,5};
         array.remove(3);
@@ -79,13 +79,34 @@ public class MyArrayListTest {
     }
 
     @Test
-    public void remove2Test(){
+    public void removeItemTest(){
         MyArrayList<String> arrayList = new MyArrayList<>(new String[]{"a","b","c","d","e","f"});
         String[] expected = {"a","b","d","e","f"};
         arrayList.remove("c");
         String[] actual = arrayList.toMyArray();
         Assert.assertArrayEquals(expected, actual);
     }
+
+    @Test
+    public void removeAllTest(){
+        MyArrayList<String> arrayList = new MyArrayList<>(new String[]{"a","b","c","d","e","f","g","h"});
+        String[] expected = {"a","b","c","f"};
+        String[] toRemove = {"d","e","g","h"};
+        arrayList.removeAll(toRemove);
+        String[] actual = arrayList.toMyArray();
+        Assert.assertArrayEquals(expected,actual);
+    }
+
+
+    @Test
+    public void replaceTest(){
+        MyArrayList<String> arrayList = new MyArrayList<>(new String[]{"a","b","c","d","e","f"});
+        String[] expected = {"a","b","c","c","e","f"};
+        arrayList.replace(3,"c");
+        String[] actual = arrayList.toMyArray();
+        Assert.assertArrayEquals(expected, actual);
+    }
+
 
     @Test
     public void retainAllTest(){

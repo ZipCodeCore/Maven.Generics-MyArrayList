@@ -19,7 +19,6 @@ public class MyMap<K,V> {
         this.myMap = myMap1;
         for(int i = 0; i<myMap.size(); i++){
             int count = 0;
-            KeyValuePair<K,V> temp = myMap.get(i);
             for(int j = 0; j<myMap.size(); j++){
                 if(myMap.get(i).getKey().equals(myMap.get(j).getKey())){
                     count++;
@@ -46,7 +45,7 @@ public class MyMap<K,V> {
     public boolean containsKey(K key){
         for(int i = 0; i<myMap.size(); i++){
             K key1 = myMap.get(i).getKey();
-            if(myMap.get(i).equalTo(key)){
+            if(key1.equals(key)){
                 return true;
             }
         }
@@ -70,7 +69,7 @@ public class MyMap<K,V> {
     public V get(K key){
         V val = null;
         for(int i=0; i<myMap.size();i++){
-            if(myMap.get(i).equalTo(key)){
+            if(myMap.get(i).getKey().equals(key)){
                 val = myMap.get(i).getValue();
             }
         }
